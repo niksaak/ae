@@ -1,0 +1,4 @@
+* text=auto
+*.pas text
+*.lang text
+*.pas encoding=cp1251
