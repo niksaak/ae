@@ -16,9 +16,9 @@ It includes:
 
 Install the following visual design components:
 
-src/lib/_jiskit/Unicode components/jiskit_tlabelw.dpk
-src/lib/_jiskit/Unicode dialogs/jiskit_udialogs.dpk
-src/lib/credits/credits.pas
+src/lib/_jiskit/Unicode components/jiskit_tlabelw.dpk <br />
+src/lib/_jiskit/Unicode dialogs/jiskit_udialogs.dpk <br />
+src/lib/credits/credits.pas <br />
 src/lib/PercentCube.pas
 
 Next, open /src/AnimEd.dpr.
