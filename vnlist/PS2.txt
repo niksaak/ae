@@ -1,0 +1,16 @@
+\ Most of PS2 Games
+\ PS2 Ported games
+
+: Generic Playstation 2 :
+
+- archives
+afs -- full -- архив с директориями
+
+- images
+Зависит от конкретного движка
+
+- scripts
+Зависит от конкретного движка
+
+- sound
+adx -- no -- *

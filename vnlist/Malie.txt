@@ -1,0 +1,21 @@
+\ Popotan
+\ Popotan Fandisk
+\ Sultan ～The Lovesong is Forever～
+
+: Malie System :
+
+- archives
+lib -- semi -- в заголовке архива присутствуют 4 неизвестных байта, но на их зануление движок никак не реагирует
+
+- images
+mgf -- unpack -- PNG с модифицированным заголовком "MalieGF". требуется уточнение структуры
+
+- scripts
+csv -- std -- текстовая таблица
+dat -- noedit -- байт-кодовый скрипт, не сжат. структура довольно причудливая
+mls -- noedit -- тестовый скрипт с заголовком "MalieScenario", сжат zlib
+txt -- std -- простой текстовый скрипт с описанием анимаций и кнопок
+
+- sound
+ogg -- std -- *
+wav -- std -- *

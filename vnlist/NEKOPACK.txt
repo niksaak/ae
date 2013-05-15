@@ -1,0 +1,21 @@
+* beta
+\ Ao to ao no shizuku
+
+: Unknown / NEKOPACK :
+
+- archives
+pak -- unpack -- вырвиглазный двиг. Формат архива каждый раз переделывается
+
+- images
+png -- std -- *
+
+- scripts
+txt -- noedit -- байткод-скрипты
+
+- sound
+ogg -- std -- *
+
+- other
+map -- unk -- ?
+img -- unk -- ?
+txt -- unk -- ?

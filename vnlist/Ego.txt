@@ -1,0 +1,36 @@
+(old)
+\ Men at Work 2!
+\ Castle Fantasia ~Seima Taisen~ Renewal
+
+(new)
+\ Hitogata Ruins
+\ Tokino Senka
+\ Izumo 1-3
+\ Izumo 0
+
+: Studio E.Go Engine :
+
+- archives
+dat -- full -- Старая версия архива
+dat -- unpack -- Новая версия архива
+
+- images
+bmp -- std -- *
+png -- std -- *
+
+- scripts
+scr -- noedit -- байт-кодовый скрипт
+evt -- std -- некомпилированный в scr скрипт
+txt -- std -- текстовые данные
+x -- no -- похоже на шейдеры, часть пожата bzip
+red -- hz -- байт-кодовые данные
+ega -- hz -- данные спрайтов
+ebb -- hz -- данные спрайтов
+ant -- hz -- данные спрайтов
+
+- sound
+wav -- std -- *
+mp3 -- std -- *
+
+- other
+dat -- hz -- ?

@@ -1,0 +1,18 @@
+\ Seikai no Senki
+
+: Nimrod 1.00 :
+
+- archives
+wac -- full -- *
+
+- images
+png -- std -- *
+
+- scripts
+bin/scn -- no -- ?
+
+- sound
+Нет информации
+
+- other
+tjf -- no -- шрифты

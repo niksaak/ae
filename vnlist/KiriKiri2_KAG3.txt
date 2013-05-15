@@ -1,0 +1,40 @@
+\ Ane Hara MIX
+\ Ane Hara MIX 2
+\ Aozora Gakko no Sensei-kun
+\ Fate / Stay Night
+\ Fate / Hollow Ataraxia
+\ Hangyaku no Beretta
+\ Hatsune Miku Visual Novel
+\ Hina-chan no Himitsu
+\ Kamen no Goumonshi
+\ Neko no Hime
+\ Pantsu wo Miseru koto, Sore ga... Daiuchuu no Hokori
+\ Sorafune
+\ Sharin no Kuni, Himawari no Shoujo
+\ Touhou Pocket Wars
+\ Touhou Pocket Wars EVO
+\ Touhou Pocket Wars EVO+
+
+: KiriKiri2 / KAG3 SDK :
+
+- archive
+xp3 -- semi -- Распаковка зашифрованных файлов не поддерживается
+
+- images
+bmp -- std -- *
+jpg -- std -- *
+png -- std -- *
+tlg -- no -- кастомный формат графики. Исходный код занимает чуть меньше библиотеки JPEG. Реверс-инженировать или портировать практически невозможно
+
+- scripts
+asd -- std -- Текстовый скрипт в кодировке Shift-JIS или Unicode
+csv -- std -- то же самое
+ks -- std -- то же самое
+ma -- std -- то же самое
+sli -- std -- то же самое, содержит точки зацикливания для фоновой музыки
+tjs -- std -- то же самое
+txt -- std -- то же самое
+
+- sound
+ogg -- std -- *
+wav -- std -- *

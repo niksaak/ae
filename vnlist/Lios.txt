@@ -1,0 +1,20 @@
+\ Sekien no Inganock ~What a beautiful people~
+\ Souten No Celenaria -What a Beautiful World-
+\ Sapphism no Gensou
+
+: LiosGame system  :
+
+- archives
+xfl -- full -- *
+
+- images
+wcg -- no -- сжатое изображение
+lim -- no -- тоже сжатое изображение
+msk -- std -- BMPшка
+lwg -- no -- многостраничное изображение. По сути - архив с wcg внутри + метаданные
+
+- scripts
+gsc -- noedit -- байт-кодовый скрипт, не сжат
+
+- sound
+wav -- std -- *

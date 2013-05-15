@@ -1,0 +1,23 @@
+\ After... -Story Edition-
+\ After Sweet Kiss
+\ ARCANA ~Hikari to Yami noExtaxis~
+\ Fault!!
+\ Mitama ~Shinobi~
+\ Reincarnation ☆ Shinsengumi!
+\ Shinshou Genmukan
+\ Sora no Iro, Mizu no Iro
+
+: Unknown / Ciel :
+
+- archive
+arc -- unpack -- Для каждой игры существует свой ключ шифрования файловой таблицы, что усложняет запиливание распаковки
+
+- images
+bmp -- std -- *
+
+- scripts
+txt -- std -- Полностью тектовые скрипты
+
+- sound
+ogg -- std -- *
+wav -- std -- *

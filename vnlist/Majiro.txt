@@ -1,0 +1,18 @@
+\ Katahane
+\ Kiss Mimi!! ~Kiss! Me! Me!~
+\ Volume7
+
+: Majiro Script System :
+
+- archives
+arc -- full -- поддерживаются обе версии архивов
+
+- images
+rct -- no -- Изображение, сжато
+rc8 -- no -- 8-битное изображение, сжато
+
+- scripts
+mjo -- noedit -- Скрипт, сжат
+
+- sound
+ogg -- std -- *

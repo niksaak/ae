@@ -1,0 +1,22 @@
+\ Nu! Toraburu Shizune
+\ Tohoujo Chugeki
+\ Saki Mahjongg
+
+: Yumemiru Game Maker :
+
+- archives
+dat -- full -- *
+
+- images
+bmp -- std -- *
+jpg -- std -- *
+png -- std -- *
+yga -- unpack -- 32-битный спрайт. Сжат в lzss
+
+- scripts
+ygm -- std -- полнотекстовые скрипты
+ymn -- std -- то же самое
+
+- sound
+ogg -- std -- *
+wav -- std -- *

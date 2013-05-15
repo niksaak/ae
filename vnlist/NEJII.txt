@@ -1,0 +1,17 @@
+\ Most of "Rolling Star" games
+\ Most of "Shining Star" games
+\ Most of "Shining Star Lily's" games
+
+: NEJII :
+
+- archive
+cdt/vdt/pdt/ovd/dat -- full -- *
+
+- images
+bmp -- std -- *
+
+- scripts
+bin -- noedit -- Простой байт-кодовый скрипт
+
+- sound
+ogg -- std -- *

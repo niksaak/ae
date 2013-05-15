@@ -1,0 +1,17 @@
+*beta
+\ X-Change 2
+
+: Crowd Engine 2 :
+
+- archives
+pck -- no -- ?
+
+- images
+cwl -- no -- 16-24 битные картинки, с ВЕСЬМА странным заголовком
+
+- scripts
+sce -- no -- ?
+
+- sound
+mid -- std -- *
+wav -- no -- хранятся в архиве. заголовки вырезаны

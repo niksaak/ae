@@ -1,0 +1,16 @@
+\ Jinko Shoujo 3
+
+: illusion Game Engine :
+
+- archives
+pp -- full -- поддерживаются только архивы 3-й версии
+
+- images
+bmp -- std -- *
+tga -- std -- *
+
+- scripts
+lst -- std -- структурные таблицы
+
+- sound
+wav -- std -- *

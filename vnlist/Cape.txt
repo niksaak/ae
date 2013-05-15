@@ -1,0 +1,20 @@
+\ Shuffle!
+
+: CAPE System / OmegaVision :
+
+- archive
+pac -- full -- *
+
+- images
+gpd -- full -- Разновидность LZSS сжатия
+cel -- hz -- Какая-то метаинфа по использованию картинки
+ani -- hz -- Метаинфа об анимации (внутри указывает на cel файл)
+win -- hz -- И снова метаинфа по использованию картинки
+
+- scripts
+bin -- noedit -- Байт-кодовый скрипт
+
+- sound
+wav -- std -- *
+ogg -- std -- *
+wpd -- no -- Вавка с изменённым заголовком

@@ -1,0 +1,42 @@
+[DSP upload]
+File Name=credits.zip
+Replace File=credits.zip
+File Status=Freeware
+Full Source Included=Y
+Delphi 1.0x=N
+Delphi 2.0x=Y
+Delphi 3.0x=Y
+Delphi 4.0x=Y
+Delphi 5.0x=Y
+C++ Builder 1.0x=N
+C++ Builder 3.0x=N
+C++ Builder 4.0x=Y
+Version=1.2
+count=3
+1=TScrollingCredits is a component which displays scrolling credits like
+2=those at the end of movies, videos, etc. It now includes basic text
+3=formatting like bold, underline and italics.
+Note=
+Additional info=
+Category=Graphical Controls
+Platform=
+Group=Component/Code
+[Versions available]
+Delphi 1.0x=
+Delphi 2.0x=
+Delphi 3.0x=
+Delphi 4.0x=
+Delphi 5.0x=
+C++ Builder 1.0x=
+C++ Builder 3.0x=
+C++ Builder 4.0x=
+[DSP Support]
+DSP Support=Y
+[Uploader_1]
+Author name=Saturn Laboratories
+Contact=Raoul Snyman
+Author E-mail=components@saturnlaboratories.gq.nu
+Author URL=http://www.saturnlaboratories.gq.nu/
+count=0
+Author Section=
+UpdateDSP=Y

@@ -1,0 +1,23 @@
+\ TsuyoKiss
+\ TsuyoKiss 2
+
+: SystemC by INTERHEART :
+
+- archive
+fpk -- full -- поддерживается архив со спрятанной файловой таблицей
+
+- images
+bmp -- std -- *
+hmp -- no -- вроде как бмпшка с простейшим заголовком
+kg -- no -- то ли странная битмапка то ли многостраничное изображение
+
+- scripts
+txt -- std -- полнотекстовой скрипт
+tbl -- std -- метаинформация
+
+- sound
+ogg -- std -- *
+
+- other
+dat -- unk -- ?
+spt -- unk -- ?

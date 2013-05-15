@@ -1,0 +1,22 @@
+\ Da Capo (eng)
+\ Edelweiss
+\ Edelweiss: Eiden Fantasia
+\ H2O: Footprints in the Sand
+\ Kira☆Kira
+\ Suika A.S.+ (eng)
+\ Tail Tale
+
+: Ethornell Buriko General Interpreter :
+
+- archive
+arc -- full -- *
+
+- images
+bmp -- unpack -- Сжаты по нестандартным алгоритмам (CompressedBG___ и DSC FORMAT 1.00). Сжатие обратно не требуется - движок отлично ест обычные BMP-шки
+
+- scripts
+_bp -- noedit -- Метаскрипт. Сжат по нестардартному алгоритму (DSC FORMAT 1.00).
+SCRIPT -- noedit -- Игровой скрипт. Сжат по нестардартному алгоритму (DSC FORMAT 1.00).
+
+- sound
+ogg -- std -- *

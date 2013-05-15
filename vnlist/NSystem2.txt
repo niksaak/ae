@@ -1,0 +1,18 @@
+\ Natsuiro Sagittarius ~Hamaihara Gakuen Kyuudoubu~
+\ Sono Hanabira ni Kuchidzuke wo
+
+: NSystem2 (FJSYS) :
+
+- archives
+FJSYS -- full -- *
+
+- images
+bmp -- std -- *
+png -- std -- *
+mgd -- semi -- png с изменённым заголовком
+
+- scripts
+msd -- semi -- поксорены на ключ, который генерируется через md5
+
+- sound
+ogg -- std -- *

@@ -1,0 +1,58 @@
+\ Amorous Professor Cherry
+\ Bazooka Cafe
+\ Chain
+\ Come See Me Tonight
+\ Come See Me Tonight 2
+\ Cosplay Fetish Academy
+\ Do You Like Horny Bunnies?
+\ Do You Like Horny Bunnies Too?
+\ Heart de Roommate
+\ Hitozuma Hime Club ~ Secret Wives Club ~
+\ Idols Galore!
+\ Jewel Knights Crusaders
+\ Kana ~Imouto~
+\ Kana ~Okaeri~
+\ Kango Shicyauzo
+\ Kango Shicyauzo ~ Voice Plus! ~
+\ Kango Shicyauzo 2 ~ Is The Sorority House Burning? ~
+\ Let's Meow Meow!
+\ Lightning Warrior Raidy
+\ Pick Me, Honey!
+\ Private Nurse
+\ Salmon Pink
+\ Slave Pageant
+\ The Family Project
+\ The Sagara Family
+\ Tottemo Pheromone
+\ Yuki Sakura
+\ Virgin Roster
+
+: IKURA GDL / Digital Romance System :
+
+- archives
+DRSARC -- full -- *
+SM2MPX -- full -- Создание архивов субформата SM2MPX 2.0 не поддерживается и не требуется
+
+- images
+drg -- full -- *
+gg0 -- full -- *
+gg1 -- full -- *
+gg2 -- full -- *
+gg3 -- full -- *
+gg4 -- full -- *
+gg5 -- full -- *
+gga -- full -- *
+ggd -- full -- *
+
+ggp -- unpack -- шифрованный PNG с метаданными для спрайтов / анимации
+
+gan -- no -- анимация. формат предположительно совместим с gga
+
+- scripts
+drs -- hz -- *
+isf -- hz -- *
+
+- sound
+wav -- std -- *
+mid -- std -- *
+ogg -- std -- *

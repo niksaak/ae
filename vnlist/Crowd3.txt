@@ -1,0 +1,17 @@
+\ Sekai wo Seifuku Suru Tame no, 3tsu no Houhou
+\ X-Change 3
+\ Yin-Yang - X-Change Alternative
+
+: Crowd Engine 3 :
+
+- archives
+pck -- full -- *
+
+- images
+cwp -- full -- *
+
+- scripts
+sce -- ext -- *
+
+- sound
+eog -- full -- *

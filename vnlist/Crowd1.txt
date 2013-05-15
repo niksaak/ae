@@ -1,0 +1,15 @@
+\ Tokimeki Check-In!
+\ X-Change
+
+: Crowd Engine 1 :
+
+- images
+zbm -- full -- BMP с первыми 100 байтами файла поксоренными на $FF.
+
+- scripts
+dat -- std -- обычный текстовый скрипт в стиле CROWD'а (без переносов, одной длиннющей строкой, ага)
+bdt -- full -- тот же скрипт, поксоренный на $FF
+
+- sound
+MUSIC -- no -- ?
+wdt -- no -- ?

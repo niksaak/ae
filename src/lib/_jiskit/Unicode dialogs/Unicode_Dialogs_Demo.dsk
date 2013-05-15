@@ -1,0 +1,241 @@
+[Closed Files]
+File_0=SourceModule,'c:\program files\borland\delphi7\source\rtl\Sys\system.pas',0,1,356,1,376,0,0
+File_1=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\proto\JISDialogs\Unicode dialogs\Unicode_Dialogs_Demo_.dfm',0,1,1,1,1,0,0
+File_2=SourceModule,'c:\program files\borland\delphi7\source\vcl\ComCtrls.pas',0,1,1236,1,1250,0,0
+File_3=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\proto\UniPlug\UniPlug.pas',0,1,25,55,38,0,0
+File_4=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\proto\Data providers\DPFile.pas',0,1,67,9,50,0,0
+File_5=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\proto\Data providers\DataProvider.pas',0,1,54,1,68,0,0
+File_6=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\proto\Utilities\HNExceptions.pas',0,1,1,1,1,0,0
+File_7=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\proto\ArcTool\DataArchive.pas',0,1,163,60,172,0,0
+File_8=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\proto\ArcTool\IkuraArc.pas',0,1,97,70,119,0,0
+File_9=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\proto\ArcTool\ArcTool_.pas',0,1,160,14,170,1,1
+
+[Modules]
+Module0=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\StringsW.pas
+Module1=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\Unicode_Dialogs_Demo_.pas
+Module2=c:\program files\borland\delphi7\source\vcl\Dialogs.pas
+Module3=c:\program files\borland\delphi7\source\rtl\common\classes.pas
+Module4=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\UnicodeDialogs.pas
+Count=5
+EditWindowCount=1
+
+[C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\StringsW.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\Unicode_Dialogs_Demo_.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[c:\program files\borland\delphi7\source\vcl\Dialogs.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[c:\program files\borland\delphi7\source\rtl\common\classes.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\UnicodeDialogs.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs1\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\Unicode_Dialogs_Demo.dpr]
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+ViewCount=5
+CurrentView=2
+View0=0
+View1=1
+View2=2
+View3=3
+View4=4
+CodeExplorer=CodeExplorer@EditWindow0
+MessageView=MessageView@EditWindow0
+Create=1
+Visible=1
+State=0
+Left=187
+Top=229
+Width=1413
+Height=937
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1405
+ClientHeight=897
+LeftPanelSize=140
+LeftPanelClients=CodeExplorer@EditWindow0
+LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
+RightPanelSize=0
+BottomPanelSize=85
+BottomPanelClients=MessageView@EditWindow0
+BottomPanelData=00000400000000007D050000000000000255000000000000000100000000000000000000000001000000007D0500000B0000004D65737361676556696577FFFFFFFF
+
+[View0]
+Module=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\Unicode_Dialogs_Demo_.pas
+CursorX=46
+CursorY=87
+TopLine=60
+LeftCol=1
+
+[View1]
+Module=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\UnicodeDialogs.pas
+CursorX=19
+CursorY=11
+TopLine=1
+LeftCol=1
+
+[View2]
+Module=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\Unicode dialogs\StringsW.pas
+CursorX=18
+CursorY=143
+TopLine=116
+LeftCol=1
+
+[View3]
+Module=c:\program files\borland\delphi7\source\rtl\common\classes.pas
+CursorX=43
+CursorY=4271
+TopLine=4261
+LeftCol=1
+
+[View4]
+Module=c:\program files\borland\delphi7\source\vcl\Dialogs.pas
+CursorX=89
+CursorY=126
+TopLine=110
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=0
+
+[AddressBreakpoints]
+Count=0
+
+[Main Window]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=1600
+Height=160
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1592
+ClientHeight=120
+
+[ProjectManager]
+Create=1
+Visible=0
+State=0
+Left=369
+Top=372
+Width=537
+Height=373
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=529
+ClientHeight=343
+TBDockHeight=373
+LRDockWidth=537
+Dockable=1
+
+[AlignmentPalette]
+Create=1
+Visible=0
+State=0
+Left=200
+Top=162
+Width=156
+Height=88
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=150
+ClientHeight=60
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=562
+Width=190
+Height=607
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=577
+TBDockHeight=607
+LRDockWidth=190
+Dockable=1
+SplitPos=85
+ArrangeBy=Name
+SelectedItem=Caption
+ExpandedItems=
+HiddenCategories=
+
+[ObjectTree]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=160
+Width=190
+Height=400
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=370
+TBDockHeight=400
+LRDockWidth=190
+Dockable=1
+
+[CodeExplorer@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=12
+Width=140
+Height=797
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=140
+ClientHeight=797
+TBDockHeight=305
+LRDockWidth=140
+Dockable=1
+
+[MessageView@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=12
+Top=0
+Width=1393
+Height=85
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1393
+ClientHeight=85
+TBDockHeight=85
+LRDockWidth=443
+Dockable=1
+
+[DockHosts]
+DockHostCount=0
+

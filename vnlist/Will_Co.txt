@@ -1,0 +1,27 @@
+\ Anonono
+\ Critical Point
+\ Enzai
+\ Gibo
+\ Little My Maid
+\ Princess Waltz
+\ Snow Drop
+\ Under the Moon
+\ Yume Miru Kusuri
+
+: Will Co. Engine :
+
+- archives
+arc -- full -- требуется соблюдать последовательность следования файлов
+
+- images
+wif -- partial -- содержит несколько изображений
+msk -- partial -- содержит альфа-маску для группы изображений
+
+- scripts
+scr -- no -- байт-кодовый скрипт, пошифрован циклическим сдвигом влево на 4 бита
+wsc -- no -- то же самое
+
+- sound
+ogg -- std -- *
+mid -- std -- *
+wav -- std -- *

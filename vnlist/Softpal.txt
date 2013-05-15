@@ -1,0 +1,18 @@
+\ Chu x Chu Idol
+\ Chu x Chu Paradise
+
+: SOFTPAL ADV System :
+
+- archives
+pac -- full -- *
+
+- images
+bmp -- std -- *
+pgd -- no -- сжатые TGA-файлы
+
+- scripts
+dat -- noedit -- ?
+ani -- noedit -- Бинарный скрипт анимации
+
+- sound
+ogg -- std -- *

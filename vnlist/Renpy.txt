@@ -1,0 +1,29 @@
+\ Higurashi Fun 1.0
+\ Katawa Shoujo - Act 1
+\ Sexual Fantasy Kingdom Vol.1
+\ Sexual Fantasy Kingdom Vol.2
+\ Sexual Fantasy Kingdom Vol.3
+\ Sexual Fantasy Kingdom Vol.4
+\ The Fucking Question 1.7
+
+: Ren'Py :
+
+- archives
+rpa -- unpack -- Только версия 3.0. Файловая таблица обработана Python pickle. Реимплементация упаковки на Pascal требует больших временных затрат.
+
+- images
+bmp -- std -- *
+jpg -- std -- *
+png -- std -- *
+
+- scripts
+txt -- std -- *
+rpy -- std -- *
+
+- sound
+mp3 -- std -- *
+ogg -- std -- *
+wav -- std -- *
+
+- other
+ttf -- std -- *

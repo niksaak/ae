@@ -1,0 +1,32 @@
+\ Kimi ga Yobu, Megiddo no Oka de
+\ Tears to Tiara
+\ Utawarerumono
+
+: Leaf / AquaPlus :
+
+- archives
+a -- full -- заголовок $1eaf, обычные архивы без сжатий и обфускаций
+pak -- full -- заголовок "KCAP", поддерживает сжатие
+pak -- full -- заголовок "LAC", поддерживает сжатие и шифрование файловой таблицы
+lac -- full -- заголовок "LAC", но в отличии от предыдущего, нет шифрований. поддерживает даты создания, изменения и открытия файлов
+
+- images
+px -- no -- ?
+tga -- std -- *
+
+- scripts
+p -- noedit -- Байт-кодовый скрипт
+sdt -- noedit -- Байт-кодовый скрипт (у англов он текстовой, они что-то там с exe страшное делали, видимо)
+
+- sound
+w -- no -- ?
+wav -- std -- озвучка и звуки
+ogg -- std -- музыка
+
+- other
+scc -- unk -- ?
+ani -- unk -- идёт в паре с BBM или TGA
+bbm -- unk -- ?
+amp -- unk -- ?
+map -- unk -- инфа о картах
+fd0/fk0 -- unk -- шрифты

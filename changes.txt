@@ -1,0 +1,1479 @@
+  0.6.9.418 (2013.05.11) r79
+  ======================
+
+   + Added read-only GIF87/89 image format support (single frame only, no transparency support)
+
+   * Temporarily disabled option for saving and loading x,y coordinates of main window, since it breaks drag-n-drop functionality
+
+   * Fixed bug with extended archive format selector (was possible to select format with ID -1)
+
+   * Updated Bulgarian translation (contributed by Ivo Zhelev)
+
+   * Minor cleanup in Crowd Engine 3 archive format module
+
+   + Added full Mercury Stream Entertainment's Scrapland Engine archive format support
+
+   + Added selectable colour swap mode in Image Tool setup, reworked GUI a bit
+
+   ! Restored forgotten functionality of reimplemented "Grayscale" button, internal changes in image converter, code cleanup
+
+   + Mascot image replaced with new by CountAile (used with purrmission :33)
+
+   * Fixed GrapS dialog translation routine (same as above)
+
+   * Fixed archive/file info dialog translation routine (was incorrectly placed on form's "Create" method rather than "Show")
+
+   * Minor changes in Archive and Image tool GUI layout, the statistics now take a bit less space
+
+   * Bugfixes in archive/file info dialog. Added option to invoke archive/file info dialog even when no archive is opened
+
+
+  0.6.9.417 (2013.03.08) Nepeta r78
+  ======================
+
+   * Fixed broken TToolButton components when no caption was present in outdated .lang files - again, bug was discovered thanks to new translation routine
+
+   * Fixed inability to load application properly when no .lang files were opened - bug was discovered thanks to new translation routine
+
+   * Changed main logo and reworked codename logo
+
+   ! Reworked and sanitarised translation code. It's now possible to easely apply translation to every form of the application, not just the main window. ^O^
+
+   ! Partially redone GrapS controls - all now have sane internal names instead of Button1, Button2, etc...
+
+   ! Reworked and redrawn Image Tool (aka EDGE) interface icons. The most of third-party TJvSpeedButton instances (except for one >_<) were removed and replaced by standard VCL TToolButton+TToolBar combo
+
+   + The application now can remember coordinates, proportions and state of the window (turned on by default)
+
+   + Added right-click menu for About box and an option to save generated bitmap
+
+   * Changed application icon and mascot with Nepeta Leijon :33
+
+   + Added read-only GXP AVG Engine V2 archive format support
+
+   + Added "missing" block size display in archive properties dialogue
+
+   * Fixed inability to call properties dialogue for opened archive when no file has been selected in the file list
+
+   + Added "Reset (to defaults)" buttons for PNG and JPEG encoding configuration, default PNG compression value changed to "5" instead of "9" (encoding speed dramatically increased ^~^)
+
+   - Removed meaningless Crowd CWP conversion options (since there's no CWP images without colour swapped palette and redundant inverted alpha)
+
+   + Added read-only Atelier Kaguya Picture Stream PRS image format support
+
+   + Added full CROWD's GAX encrypted PNG image format support (thanks to Nik for bugfixes and encryption routine additions)
+
+   + Added detailed archive format selector at "Formats" tab of Archive Tool (suggested by lolibot, buggy)
+
+   + Added Italian translation (contributed by Marco Romeo)
+
+   + Added read-only Marine PAC archive format support
+
+   + Added read-only BISHOP Engine BSArc archive format support
+
+
+  0.6.8.416 (2012.03.26) r77
+  ======================
+
+   ! EDGE: Fixed bugs in various functions related to TImage/TCanvas color drawing of GUI, including incorrect colour fill of Preview window
+
+   + Added full 2XT - SEVEN WONDER Adventure Engine PAC2 archive format support
+
+   + Added kageonna Hinata character sprite as JPEG image+paletted PNG mask combo and new rendering routine
+
+   + Added GradientFill function for GUI - now it's (theoretically) possible to recolour About box ^~^
+
+   ! Rewritten skin handling, unused PNG resources removed from executable, removed raster background image
+
+   ! Fixed bug with broken internal filetable data cleaning on archive autodetection (spotted after implementation of NS2 archives)
+
+   + Added partial Xai (Puni Mo E~ru!) .pni / .dat archive format support
+
+   + Added full nScripter NS2 archive format support
+
+   + GrapS: Added drag-n-drop support for files, fixed minor bugs in file handle freeing
+
+   + Added read-only Ever17 x360 VPK DYNAPACK archive format support
+
+   * EDGE: Fixed TGA generation algorithm (thanks to w8m)
+
+
+  0.6.8.415 (2011.08.11) r76
+  ======================
+
+   * Reduced size of the application banner for "About..." dialog
+
+   + Added full Tech-Arts EAGLS 2011 archive subformat support
+
+   + Added read-only F&C Advanced System "Overture" archive format support (thanks to w8m)
+
+   + Added full Rejet RPD archive format support
+
+   * Minor fixes to YU-RIS archive module, removed redundant code
+
+   * Added option for archive format string assign RFA_IDS directly in archive opening function
+
+   + Added full TIM2 ARC1 archive subformat support
+
+   * Various rewrites in archiver logics, removed "Name" field in archive format structure
+
+   * Rewritten HTML generators and MD5 hash function
+
+   * Fixed Image Tool's fullscreen preview
+
+   * Bugfixes in AddedFilesSync, Create_Archive and other related functions
+
+   ! Fixed and rewritten IKURA GDL SM2MPX10 and DRS archives support. Now 100% compatible
+
+   ! Fixed and rewritten Will Co Arc-8 and Arc-12 archives support. Now 100% compatible, changed format status to "Normal" (thanks to w8m for testing)
+
+   + Added filename sorting routines and new module - AE_StringUtils.pas (thanks to w8m for sort function optimisations)
+
+   ! Fixed and rewritten PlayStation 2 AFS archives support (thanks to primenico for bug report)
+
+   + Added AliceSoft System4 archive read-only format support (thanks to Nik & w8m)
+
+   + Added full SOFTPAL PAC-32 2010 archive format support
+
+   ! Fixes to compression algorithm of XP3 KiriKiri archive format
+
+   + Added full AI6 ELF ARC archive format support (thanks to w8m for specifications)
+
+   * Reenabled text field in directory selection dialog (suggested by Andy_Skull)
+
+   + Added partial extraction support for Neko de Pink archive format (.det+.nme+.atm)
+
+   * Reworked multisegment archives handling, several improvements in the archiver routines
+
+   * Backported old fullscreen image preview from Image-Exp fork, cause the new had problems with transparency
+
+
+  0.6.8.414 (2011.01.10) r75
+  ======================
+
+   * Minor code cleanup: removed extra TGauge component, removed direct calls of the progress bar color setting
+
+   * Fixed bug in NAGS NFS archive detection algorithm, which sometimes lead to "Unable to open file" error
+
+   + Updated and re-added Spanish translation by Thuriel
+
+   + Partially rewritten Will Co. ARC-8 archive format support, added ARC-12 subformat modification
+
+   * Fixed bug in nScripter & Crowd Engine 3 parsers
+
+   * Now remembers the last used settings of Data Tool
+
+   + Added full Arpeggio IFL archive format support
+
+   ! Completely rewrote ParamStrW function of JUtils.pas, which has fixed disasterous bug with memory handling, which affected configuration file saving and loading mechanisms
+
+   ! Completely removed JvBrowseForFolder dependancy, replaced with Unicode version of BrowseForFolderU.pas (thanks to Proger_XP)
+
+   * Added hidden\deleted data detection algorithm, partially reworked GUI internals
+
+   ! Added archive format detection via file extension and autofilter of already-failed formats, greately reduced detection time, minor cleanup and optimisations in the archive opening function (many thanks to Katta for the idea and suggestions)
+
+   * Sizes are now displayed in more human-friendly way (uses numeric formatting)
+
+   + Added Will Co Picture File saving support (single images only, buggy)
+
+   * Removed obsolete "Misc Tool", backported replacement "Data Tool" from Image-Exp fork
+
+   + Partially rewritten Crossnet BIN archive format support
+
+   * Minor fixes in GUI proportions, added autoresizing of "Filename and path" column
+
+   + Added partial Burns EENC PNG file decoding support (thanks to w8m for specifications)
+
+
+  0.6.8.413 (2010.09.01) r74
+  ======================
+
+   * Minor code cleanup in several modules
+
+   * Updated Ukrainian translation by katta
+
+   * Simplified YU-RIS & KiriKiri2 file compressor decision code
+
+   + Added full YU-RIS YPK v2.22, v2.24, v2.38, v2.86, v2.87 and v2.90 (0xC0) archive format support
+
+   + Added full illusion PP v3 (JS3) archive format support (thanks to w8m for specifications)
+
+   + Added full Majiro Arc v3.0 archive format support (thanks to w8m for crc63 hash function and BubbleSort function fix)
+
+   * Removed duplicated LZSS-compressed file extraction code from several modules, moved into AA_RFA.pas
+
+   + Added full Miko Mai ARCX archive format support
+
+   + Added full SystemAoi Game System v2.00 (Bunny Black) archive format support (except for multipart archive creation) (thanks to w8m for specifications)
+
+   * Now language switching will not enforce data reset
+
+   * More simplified language file parsing procedure
+
+   + Added hacked version of Unreal Engine 3 INI collection archive parser
+
+   * Minor changes in archive format selector and marks. Added hack (#) and write-only (>) types
+
+   * Compression exclusions list moved from KiriKiri module to AnimED_FileTypes.pas
+
+   + Added full YU-RIS YPK archive format support (thanks to w8m for specifications)
+
+   ! Fixed critical bug in PlayStation AFS parser
+
+   * Several pixel processing operations rewritten in assembly (thanks to w8m)
+
+   ! Fixed memory leak in EAGLS image parser (thanks to Nik)
+
+   + Added Private Nurse Maria PlayStation 2 / Datam Polystar PSI image decoding support
+
+   + Added Pure Pure PlayStation 2 / Datam Polystar PS2 image decoding support
+
+   + Added partial Peace@Pieces archive format support (thanks to w8m)
+
+   * Merged all SOFTPAL modules into single one
+  
+
+  0.6.8.412 (2010.06.15) r73
+  ======================
+
+   * Fixed nScripter NSA detection bug for small archive files
+
+   * Fixed bug in NFS NAGS parser
+
+   + Added full ACPXPK01 (Escude) archive format support
+
+   + Added partial TIM2/ARC2 (Mimikko Yomekko) archive format support
+
+   * Fixed errorneous file detection of several archive modules
+
+   + Added JAMCreation Anime Script System archives creation support
+
+   + Added full KISS Custom Reido F archive format support
+
+   * Variable GetFolder renamed to more understandable RootDir
+
+   ! Internal changes in every R/W module of the archiver. Now any file with any filename can be opened via any user locale (full Unicode mode)
+
+   + Added RAW mode for both single and multiple file extraction procedures
+
+   * Fixed bug with file list disappearing during cancellation of the archive's loading
+
+   + Added Yumemiru YGA image files decoding support
+
+   + Added full XP3 subformat (with non-compressed file table) support
+
+   + Updated RPM ADV SYSTEM archive format (added AXL's "Like a Butler" support)
+
+   * Fixed hash function calls in the archive information window
+
+   + Added full Yumemiru Game Maker archive format support
+
+   + Added full SOFTPAL ADV SYSTEM PAC-32 archive subformat support
+
+   * Fixed old bug for 8-bit data view in GrapS
+
+   + Added experimental Casual Romance Club archive format support
+
+   * Fixed bug in Nitro+ PAK1 detection algorithm
+
+   + Added full Tech Engine (Farland Symphony) archive format support
+
+   * MC2\GTA3 archive module splitted into two separate, since AA_IMG_GTA3.pas must be a clean example ;)
+
+   + Added BlackCyc NNN DWQ JPEG\PNG image container decoding support
+
+   + Added console font instant resize option (buggy)
+
+   + Added color scheme support for console (3 built-in and 1 user-made autosave)
+  
+   ! Reworked GUI and fonts. Proportional controls now using Helv font alias (OS theme dependant)
+
+   * CRC32/MD5 hash option has been moved to Information window and won't be performed during loading anymore
+
+   ! ANSI compatibility mode has been removed, now only Shift-JIS/Unicode is used internally. ANSI used for simple formats like R* .img
+
+   + Added full NAGS NFS archive format support
+
+
+
+  0.6.8.410 (2010.04.27) r72
+  ======================
+
+   * Fixed Image tool preview proportional drawing
+
+   + Renewed Ukrainian translation (by katta)
+
+   * Rearranged percentage cubes, added IceCube scheme as default
+
+   ! Completely reworked console log, added "copy to clipboard" option
+
+   ! Fixed division by zero bug in progress bar functions
+
+   ! Fixed image saving bug in GrapS
+
+   + Added NNN Black Cyc archives read-only support
+
+   + Added full Nitro+ v1 & v2 archive format support (by Nik)
+
+   + Added RockStar Midnight Club 2 archives read-only support
+
+   * Fixed false detection bug for RockStar GTA3\VC archives
+
+   + Added full elf's AWF Wave Files Archive format support
+
+   + Added full elf's EAC Archive format support
+
+   * Minor changes and fixes in Translation module, added some easter egg code from ReactOS shutdown.c, which was removed in the latest versions
+
+   * Cleanup in the EDGE core, removed obsolete variables
+
+   * Added support of unpacking lzss-ed data in Leaf module (.a archives) (by Nik, thanks to w8m for pointing that out)
+
+   + Added full Kogado TScriptEngine archives support (by Nik. Special thanks to w8m)
+
+   + Added full support for Hinatabokko ED8/EDT images (by Nik. Special thanks to w8m)
+
+   ! Graphic core has been reworked. Now easier for handling (by Nik)
+
+   + Added Heat-Soft IES image files writing support (by Nik)
+
+   ! Fixed nasty bug in EDGE alpha image importer function
+
+   ! Fixed bugs in Heat-Soft IES image format decoder
+
+   + Added MoonStone Engine .mts archive format support (by Nik)
+
+   * Reimplemented Crowd OGG audio files support
+
+   + Added CaramelBox Version 2 archive format partial support (by Nik. Special thanks to w8m)
+
+
+  0.6.8.408 (2010.01.14) r71
+  ======================
+
+   ! Forgot to plug-in the TeethingRing5 image decoder module (thanks to Nik for pointing that out)
+
+   + Added Heat-Soft IES image files read-only support (thanks to Marisa-Chan for specs)
+
+   * Updated Generic Hashes module (by Nik)
+
+   + Added read-only support of Touhou 07 archive format (by katta & Nik)
+
+   + Added full support of HIMAURI Script Engine (v2.0) Archive (Him5 version) (by Nik)
+
+   * CodePink module renamed to SuperNEKO-X (by Nik)
+
+   + Added full support of HIMAURI Script Engine (v2.0) Archive (Him4 version) (by Nik)
+
+   * Updated Generic LZXX module (by Nik)
+
+   + Redone WAVE <-> WAF converter (contributed by katta) ^_^
+
+   ! Fixed broken "Create from files" functionality
+
+   ! Fixed issue with GUI localisation routines under Japanese locale (garbage '?' marks instead of non-breakable spaces)
+
+   * Mostly fixed proportions bug when running under AppLocale, ReactOS or Wine
+
+   + Added batch processing mode for Misc Tool (file (de)crypter)... finally...
+
+   * Updated XP3 compressor exclusions list
+
+   + Added Unicode version of file names array for archive generation routine
+
+   ! Fixed working under Japanese locale
+
+   ! Fixed numerous access violation errors occured during re-integration of old text strings
+
+
+  0.6.8.406 (2009.12.01) r70
+  ======================
+
+   ! Language files are now 50% differ from the older versions, all outdated translations removed
+
+   + Completely reworked built-in messages and translation routines, all static arrays removed
+
+   * Various improvements in many other archiver modules
+
+   * Fixed bug in ROOT / TeethingRing5 archiver, which caused incorrect detection
+
+   ! Fixed bug in AnimED_Translation.pas, which could produce unpredictable memory overwriting
+
+   ! Fixed bug with Output format selector when "Debug" format was selected
+
+   * Fixed and updated KID Engine CPS image files decoder
+
+   + Added force-detection of archive format (utilises the Output format selector)
+
+   + Added Ren'Py Archive format v3.0 read-only support (thanks to Nik, katta & Vendor)
+
+   ! Fixed and reimplemented Blade Engine PKD archive driver
+
+   + Added intellectual compression for KiriKiri2/KAG3 XP3 archives
+
+
+  0.6.8.405 (2009.11.04) r69
+  ======================
+
+   * Updated license and copyright data
+
+   * Fixed errors in Image Tool batch conversion
+
+   + Added full PlayStation 2 Native AFS archives support, reworked generic AFS driver (thanks to katta)
+
+   + Added full Trouble Witches KCAP archives support (thanks to Marisa-Chan for specs)
+
+   * Reduced amount of debug output
+
+   + Added read-only JAMCreation archives support (by Nik)
+
+   + Added full Heat-Soft IPAC PAK archives support (thanks to Marisa-Chan for specs)
+
+   + Added compressed leaf \ AquaPlus LAC archives support (by Nik)
+
+   + Added full Rolling Star/Shining Star NEJII engine archives support (by Nik)
+
+   + Added full INTERHEART's SystemC archives support (by Nik)
+
+   + Added TeethingRing5 graphic unpack support (by Nik)
+
+   + Added Alcot's CPB graphic unpack support (by Nik)
+
+   + EDGE: Added full IKURA GDL GGD\DRG image files support (thanks to Nik)
+
+   + Added RUNE .g archive format creation support (by Nik)
+
+   ! Fixed broken IKURA GDL \ Digital Romance System archives opening function
+
+   + Added full SOFTPAL "Forget-me-Not" .bin archives support
+
+   ! Improved large files compression of XP3 KiriKiri2 and other formats (thanks to Proger_XP for hints)
+
+   * Fixed StringsW incorrect BOM handling for streamed data
+
+   + Updated StringsW module (thanks to Proger_XP)
+
+   + Added switchable double buffering mode for most of GUI elements (greately reduces flickering on resizing)
+
+   ! Reworked progress indication routines, moved from main module to new AnimED_Progress.pas
+
+   * 2 Leaf modules merged into single AA_LEAF_AquaPlus.pas
+
+   + Added full "Tears to Tiara" Leaf/Aquaplus archives support (3 formats in total, thanks to Nik)
+
+   + Added full "Gleam of Force" archives support (by Nik)
+
+   + Added full Studio E.go! old .dat archives support (by Nik)
+
+   * EDGE: changed batch conversion behavior, now uses recursive mode
+
+   ! Fixed access violation for several JUtils directory and filename handling functions
+
+   ! Fixed access violation when archive creation has been cancelled
+
+   + Added "Graduation" PAC archives read-only support
+
+
+  0.6.8.404 (2009.09.17) r68
+  ======================
+
+   + Added encryption support for PACKDAT archive format
+
+   + Added Studio E.go! .dat archives read-only support (by Nik)
+
+   + Added BGI compressed bitmaps extraction support (by Nik)
+
+   + Added complete Crossnet .bin archives support (by Nik)
+
+   + Added Leaf "Tears to Tiara" formats read-only support (by Nik)
+
+   + EDGE: Added "Popotan" .mgf image format read-only support (thanks to Marisa-Chan)
+
+   + EDGE: Added Tech-Arts EAGLS .gr image format read-only support
+
+   + Added complete Tech-Arts [E]nhanced [A]dventure [G]ame [L]anguage [S]ystem archives support (thanks to Nik)
+
+   + Added complete Popotan Lib archive format support
+
+   ! Fixed nasty bugs in StringsW module
+
+   + Added complete BloodOver AHFS archive format support (thanks to Vendor)
+
+   + Added read-only Microsoft SZDD archive format support (thanks to Nik)
+
+   + Added complete Lios XFL archive format support (by Nik)
+
+   * Minor code cleanup, HTML generators moved into separate module
+
+   * Updated ADPACK32 archive meta-plugin
+
+   * Updated Generic LZXX library (by Nik)
+
+   + Added Generic Hashes library (by Nik)
+
+   + Added Buriko General Interpreter DSC v1.00 compressed files decoding support (by Nik)
+
+   + Added complete Lilim AOS archive format support (by Nik)
+
+   ! Removed rudimentary and unused variables, cleaned up the code a bit. Several modules renamed
+
+   + Added complete Alcot ARC archive format support (by Nik)
+
+   + EDGE: Added partial FJSYS MGD/PNG image format decoding support
+
+   + Added complete Majiro Arc v2.000 archive format support
+
+   + Added complete Majiro Arc v1.000 archive format support (thanks to Nik for hash function) ^_^
+
+   ! Fixed another memory leak in Rar-alike percentage cube renderer procedure (thanks to Proger_XP for pointing this out)
+
+   ! EDGE: Fixed disasterous memory leak in GrapS module
+
+   + Added unicode command line support, new functions merged into official JUtils of JISKit ^_^
+
+   + Added full Game Script Player PAK archives support (by Nik)
+
+   ! Fixed and upgraded most of archive meta-drivers, many obsolete code has been removed
+
+   + Added switchable ANSI-compatibility mode
+
+   ! Reworked core, added native unicode filenames support (many thanks (and buttkicks :P) to Proger_XP for his JISKit suite)
+
+
+  0.6.7.391 (2009.08.19) r67
+  ======================
+
+   * Fixed non-working extraction for files with zero length
+
+   + Added R* GTA3\VC\SA archive formats creation support
+
+   + Added full GameScripter Pack2 archive format support (by Nik)
+
+   + Added nScripter SPB decoding support (thanks to Nik). nScripter percentage support is now about 90%. ^_^
+
+   + Added full Feng \ Yuka Compiler archive format support (by Nik)
+
+   + Added partial Kogado TScriptEngine archives unpacking support (by Nik)
+
+   + Added partial NEKOPACK archives support (by Nik)
+
+   ! AA_RFA.pas is now merged with AA_Unsupported.pas, so there's no need to include "AA_Unsupported" for read-only archive drivers
+
+   + Added full TeethingRing 5 (Clover's Quilt) archives support (by Nik)
+
+   + Added nScripter LZSS decoding support (thanks to Nik). Now it's possible to correctly extract all contents of about 60% nScripter-based games ^_^
+
+   + Updated Generic LZSS library (thanks to Nik)
+
+   + Added complete AdvWin32 (F&C-FC01) archive format support (mostly done by Nik)
+
+   ! Fixed critical bugs in AFS archive format saving procedure. Now generates 100%-compatible archives
+
+   ! Reorganised extra resources, moved into separate "resource" directory, added resource file compilation batch
+
+   + Added R* GTA 3\VC\SA archive formats read-only support (just for fun)
+
+   * EDGE: Fixed bug with incorrect alpha handling in RAW_24to32 image data conversion function
+
+   + EDGE: Added IKURA GDL GGA image format saving support
+
+   + Added full KiriKiri2/KAG3 XP3 archive format support (thanks to Proger_XP for partial specs)
+
+   + Added Ciel game archive format read-only support (by Nik)
+
+   * Fixed access violation bug when trying to extract file when no archive is opened
+
+   * Fixed crashing bug when trying to open unsupported files
+
+   * Updated IKURA GDL \ Digital Romance System specifications and technical info
+
+   + EDGE: Added IKURA GDL GGP image format decoding support
+
+   + EDGE: Added IKURA GDL GGA encoding emulation (thanks to Nik)
+
+   ! Core: Fixed bug in PNGObject 1.5 for transparent graphics drawing, integrated all previous fixes
+
+   ! Fixed critical bug in SOFTPAL PAC archiver
+
+   * Updated LC-Script Engine archiver. Now it's possible to autodetect file types
+
+
+  0.6.7.390 (2009.07.24) r66
+  ======================
+
+   + Added full LC-ScriptEngine (Succubu Soon!) archive format support
+
+   + Added full CodePink (SexFriend) archive format support (thanks to Nik)
+
+   + Reimplemented PNG support and speeded up decoding. PNGObject library updated to the latest available version
+
+   + EDGE: Added IKURA GDL GGA image format decoding support (thanks to Nik)
+
+   * Updated Generic LZSS library (thanks to Nik)
+
+   + EDGE: Added WIPF (Will Co. Picture File) decoding support (thanks to Nik)
+
+   + Added LC-ScriptEngine archive extraction support
+
+   ! Misc improvements in converter functions. Fixed critical bug in EA_RAW function for xored files
+
+   * EDGE: Added WIPF (Will Co. Picture File) format description
+
+   + Added SOFTPAL (Chu x Chu Idol \ Chu x Chu Paradise) archive format support
+
+   + Added partial Aoi Shiro CEL graphics support (thanks to Nik)
+
+   + Added FJSYS (Natsuiro Sagittarius ~Hamaihara Gakuen Kyuudoubu~) archive format support
+
+   + Added PackDat3 (Wanwan, Moomoo, Usausa, Koon!) archive format support
+
+   + EDGE: Added multiple GrayScale image conversion algorithms (thanks to Animeshnik and Asceai)
+
+   * Optimised LZSS fake encoding function
+
+   * EDGE: Optimised image Vertical Flipping function
+
+   + EDGE: Added OmegaVision (Shuffle!) GPD image files saving support (thanks to Vendor)
+
+   * Updated XORed files decryption algorithm. Extraction speed increased approx. by 400%
+
+   + EDGE: Added OmegaVision (Shuffle!) GPD image files decoding support (thanks to Vendor & Nik)
+
+   ! Fixed OmegaVision (Shuffle!) file extraction bug
+
+   * Fixed bugs in MBL v2 (Wanko to Kurasou) archive creation function. Now supports them completely :3
+
+   + Added ADPACK32 (Tarte \ HinataBokko) archive format support (thanks to Vendor)
+
+   * Fixed bug with incorrect detection of PACKDAT. archives as PurePure PAK files
+
+   + Added PACKDAT. archive format support
+
+   ! WinRAR is OWNED. :3 Programmed enhanced clone of percentage 3D-bar, from scratch of course. Visual comparsion ratio - 1:over 9000 lol
+
+   ! Lots of changes in the archiver internal structures (yes, again)
+
+   + Now supports compressed Pure Pure archives extraction
+
+   + Added LZSS decoding\encoding library (thanks to Nik)
+
+
+  0.6.5.385 (2009.04.14) Hinata r65
+  ======================
+
+   ! Fundamential changes in the archiver internal structures & logics (thanks to Proger_XP)
+
+   + Implemented full Shuffle! FilePack archives support (thanks to Vendor)
+
+   ! Reworked file extraction\decryption routine (speed increased drastically)
+
+   + Added archive fragmentation check function
+
+   + Implemented full WAC Nimrod 1.00 archives support (thanks to Vendor)
+
+   + Implemented full AFS PlayStation 2 archives support (thanks to Nik)
+
+   + GUI is now sizeable in all directions ^_^
+
+   + New GUI theme and codename =^.^=
+
+   * Various bugfixes and improvements in the core
+
+
+  0.6.5.367 (2009.02.15) r64
+  ======================
+
+   ! Now uses JEDI Visual Components Library
+
+   * Reworked the G.A.T. GUI
+
+   ! Fixed bug introduced by "archive from list generation" algorithm
+
+   * Removed "Log shading" effect
+
+   + Added option of archive generation from the list file. Useful for Will Co. ARC format and others with paranoid file order
+
+   + Added file list generation
+
+   + Added HTML archive file list generation
+
+
+  0.6.5.365 (2009.02.05) r63
+  ======================
+
+   * Started to implement "Byte Converter" profiles (not finished yet)
+
+   * Backported "Bruteforce Bytes" option
+
+   ! Fixed broken Will Co. ARC archives creation algorithm! ^_^
+
+
+  0.6.5.364 (2008.11.13) r62
+  ======================
+
+   + Added MarbleSoft MBL v1 and MBL v2 extraction support
+   
+   + Added MarbleSoft MBL (Wanko to Kurasou) archive format implementation
+
+
+  0.6.5.361 (2008.10.18) r61
+  ======================
+
+   + Added translation support for languages with multibyte characters
+
+   + Added option for displaying human-readable file sizes in G.A.T.
+  
+
+  0.6.5.360 (2008.10.03) r60
+  ======================
+
+   * Fixed small archives opening bug
+   
+   * Fixed image preview black color selector bug
+   
+   + Added Spanish translation by Thuriel
+
+
+  0.6.5.360 (2008.09.17) r59
+  ======================
+
+   + Added LEAF Utawarerumono A archives extraction\creation support
+
+   + Added KID Engine CPS image files decompression support
+
+   + Backported SC3 decompilation routine and merged with current implementation (now selectable between 2 modes: strip opcodes and keep opcodes)
+     
+   * Modified & optimised RealFileAttributes cleanup routine
+   
+   + Added nScripter SAR archives extraction\creation support
+   
+   * Fixed bugs in translation scheme, removed some unused strings, etc.
+   
+   - Removed obsolete Ever17 EXEdit module
+
+
+  0.6.4.356 (2008.08.03) r58
+  ======================
+  
+   ! EDGE: Fixed alpha <-> SUBalpha conversion bug (didn't freed ImageStreamA)
+   
+   + Added nscript.dat & pscript.dat decoding support, via Game Archive Tool :)
+
+
+  0.6.4.355 (2008.07.20) r57
+  ======================
+  
+   * Modified SC3 decompiler routine (most opcodes were removed from the final listing)
+     
+   * Fixed Cross†Channel PD opening bug ("or" instead of "and") ~_~'
+
+
+  0.6.4.354 (2008.06.30) r56
+  ======================
+
+   + Rewrited KID Engine SC3 file parser. Now fully supports chinese, japanese, english and russian Ever17 scripts! ^_^ Silly scr_def.conf is not used anymore
+
+   + Added KLEIN's PurePure PAK format creation support (uncompressed only)
+
+   * Several translation updates & GUI fixes
+
+
+  0.6.4.353 (2008.06.20) r55
+  ======================
+
+   * Added basic command line support (you can now associate AnimED with game archives. Other data opening will be added later).
+
+
+  0.6.4.352 (2008.05.30) r54
+  ======================
+
+   + Added KLEIN's PurePure PAK format description
+
+   + Added KLEIN's PurePure PAK format extraction support (uncompressed only)
+
+
+  0.6.4.351 (2008.04.21) r53
+  ======================
+
+   * Fixed several minor interface bugs
+
+
+  0.6.4.350 (2008.04.09) *Last official version* (as if, hehe! ^_~) r52
+  ======================
+
+   + Repainted several GUI icons, added custom translucent graphics hack ^_^
+
+   ! Fixed "black buttons with no text" bug - removed TCoolBar controls and replaced with TGroupBox
+
+   + Replaced TListBox component with colorful (but slooow) TListView
+
+   + Added right-click menu in the Game Archive Tool and file properties dialog
+
+   + Now can open archives by drag-and-dropping onto the form (sorry, archives only :( )
+
+   * Fixed archive opening dialog filter glitch
+
+   * Fixed WAF audio tool incorrect frequency detection bug and barely improved the code
+
+
+  0.6.3.346 (2008.02.06) r51
+  ======================
+
+   ! Fixed totally broken byte converter (shit, how did i've managed to insert something like "i - loop variable, Result := i; ? O_o)
+
+
+  0.6.3.346 (2008.01.26) r50
+  ======================
+
+   * Configuration: Now stores last used archive & image format settings
+
+   * Configuration: Fixed save\loading bug (IgnoreBBMessages wasn't loaded at startup)
+
+   ! EDGE: Fixed 16-bit > TrueColor gamma conversion bug (dark image with incorrect gamma value)
+
+
+  0.6.3.345 (2008.01.17) r49
+  ======================
+
+   * Updated CHM documentation (don't expect much - there's still LOTS of things to write :] )
+
+   * Reworked several archive opening\creation functions 
+
+   * Minor GUI fixes and changes
+
+   + New translation file handling scheme (greately reduced code size & totally changed behavior - if an component is having "Tag" value "-1", then it's untranslatable; if string is not included into translation file, then it will not be loaded)
+
+   * Speeded up PackPlus archives creation (400% faster, OMG! :P )
+
+   * Updated SM2MPX10 specification (thx 2 Traneko ;) )
+
+   + Added NSA archives extraction\creation support (warning: uncompressed only, extracts compressed files 'as-is', don't even tries to decode them)
+
+   ! Fixed EDGE batch conversion multithread bug
+
+   ! Fixed Dozens of other bugs you'll better not to know about :)
+
+   - Removed Minori PAZ archives support (it sucks as unpacker of MD5-protected games, really :( )
+
+   * Added credits localisation feature
+
+   * Repainted several GUI elements
+
+
+  0.6.3.344 (2008.01.12) r48
+  ======================
+
+   ! Completely replaced image handling module with new (codename "EDGE")
+
+   + EDGE: Added full KID Engine PRT image files support
+
+   + EDGE: Added Windows Bitmap image files support (uncompressed only)
+
+   + EDGE: Added TrueVision targa image files support (uncompressed only)
+
+   + EDGE: Added JPEG image files support (standard JFIF files only)
+
+   + EDGE: Added partial Portable Network Graphics support (cannot save combinations of 8-bit image stream + 8-bit alpha)
+
+   + EDGE: Added Crowd's Windows Bitmap files support (same restrictions as BMP)
+
+   + EDGE: Added Crowd's Portable Network Graphics files support (same restrictions as PNG)
+
+   + EDGE: Added negative image filter\effect
+
+   + EDGE: Added grayscale image filter\effect
+
+   + EDGE: Added complete japanese colour set for image preview window ^___^
+
+   + EDGE: Now uses PNGObject translucent image drawing for image preview window
+
+   ! Fixed DOZENS Access Violation errors in EDGE. Now only uses SAFE instructions and no input in-memory streams freeing and reassigning. :)
+
+   + EDGE: Added SUBalpha image data handling & conversions
+
+   ! Fixed PRT saving bug (half-transparent image glitch)
+
+   * Added new sub-logo "Mikan" (by the way, "Mikan" means "Orange", ehehehe ^____^)
+
+   * Modified skin handler module (still no external data support yet) :P
+
+   ! Updated Ever17 EXEdit module & fixed it's data interference with main EDGE code (usage of the same name of global variables is not the good thing, i guess... :] )
+
+   * Fixed little glitch in GrapS translation scheme
+
+   * Added incorrect \ outdated language files detection mechanism
+
+   * Updated Hungarian translation by Biro Szilard
+
+   * Updated Ukrainian translation by Dmitriy Kuzneczov
+
+
+  0.6.2.311 (2007.12.05) r47
+  ======================
+
+   ! Fixed Will Co. ARC creation bug
+
+
+  0.6.2.310 (2007.12.04) r46
+  ======================
+
+   + Added HEX Viewer for GrapS module
+
+   + Added error/warning message beeps (could be turned in the "Options" tabsheet)
+
+   * Added screen snapping option
+
+   * Changing the GUI font size is disabled for now (>_< requires shitload of minor coding)
+
+   + Added Will Co. archive format creation support (YEEEHA! Finally! ^_^)
+
+   + Added fullscreen preview option for Image Converter
+
+   + Added full Burriko ARC archive format support (unpacking\creation)
+
+   * Reworked internal GUI skin loading (added PNG Object skin parser, no external skins support implemented yet)
+
+
+  0.6.1.304 (2007.11.26) r45
+  ======================
+
+   * Updated GrapS RAW reader module (now can read unproportional & really broken picture data)
+
+   * Changed core logics (not compatible with previous versions anymore)
+
+   ! Fixed archive extension appending bug
+
+   + Added recursive directory searching method (not situable for the most of game archives, except for NSA & Zip)
+
+   * Fixed app freezing when creating an archive
+
+
+  0.6.1.303 (2007.10.16) Mikan r44
+  ======================
+
+   + Updated Byte Converter (added bit-shifting options)
+
+   * Removed testing buttons & functions (now they're integrated into Byte Converter)
+
+   * Minor GUI changes
+
+   ! Fixed\Improved several archiver code sections
+
+
+  0.6.0.302 (2007.10.13) r43
+  ======================
+
+   + Added CROWD's PCK archives format support (opening \ extracting \ creation)
+
+
+  0.6.0.301 (2007.10.07) r42
+  ======================
+
+   ! Fixed CWP <-> PNG converter bug
+
+   ! Fixed broken configuration saving. Oops. :]
+
+
+  0.6.0.300 (2007.10.06) Ryoko r41
+  ======================
+
+   + Added options for stripping\creating lame CROWD's CWP alpha channel
+
+   + Added PNG <-> CWP converter
+
+   + Added Ukrainian translation by Dmitriy Kuzneczov
+
+   + Added language icon loading option (supported formats: BMP, PNG)
+
+   + Integrated EXEdit, an module for Ever17 executable file editing. Totally 1600 strings of code for the 5 days of development! :)
+
+   + Painted EXEdit button and added to the "Misc" Tabsheet
+
+   ! Fixed incorrect preview for the Ever17 EXE PCharZ. Awww! :[
+
+   * Added few missed strings for the Ever17 Exedit
+
+   + Updated copyright information for the source code
+
+   * Added multilingual support for the NSIS Installer
+
+
+  0.5.7.290 (2007.09.11) r40
+  ======================
+
+   * A few cosmetical changes ;)
+
+
+  0.5.6.270 (2007.08.26) r39
+  ======================
+
+   + New CHM documentation format
+
+   * Started to implement the string editor for SC3 and ISF formats
+
+   * The license was changed to Open Source \ Donation Ware. Please see "Support / Donate" tabsheet for details
+
+
+  0.5.6.261 (2007.08.16) r38
+  ======================
+
+   * Fixed WAF\WAVE opening error & added exception handler
+
+   * Fixed batch WAF<->WAVE conversion routine error
+
+   * Changed ARC <-> PAZ format probing order (PAZ caused errors while opening the ARC files)
+
+
+  0.5.6.260 (2007.07.14) r37
+  ======================
+
+   * OOPS! Fixed & improved multiple files extraction routine (now Minori PAZ files is extracted normally). Now DOESN'T uses "SM2MPX10" folder for extraction
+
+   + Added archive setup window hiding option (for > 24 character filenames viewing)
+
+   * Added japanese version of "ANIMED" logo. Well, i don't really know the *printable* language, so it could be writed with a mistake (the only char i'm unsure of is "De")... "A"-"Ni"-"Me"-"De"+"half-sound char?" Well, what did you've expected from the Windows IME tool? ;)
+
+   + Added Minori PAZ archives extraction support
+
+   + Added Minori PAZ archives format description (the "encryption" was 256 - value. heh, beaten for only 2 minutes!)
+
+   * Updated translation routine (now you can specify your own User's Manual version)
+
+   * Fixed Will\PP ARC archives opening (now it's appends extensions correctly). Removed PP ARC-specific checkbox.
+
+   * COMPLETELY REWORKED internal archives support (now CORRECTLY opens and creates < 4GB files)
+
+   * Added Windows® Media Center Edition icon
+
+   + Fixed multidir issue of "Get form directory" option! :D
+
+   + Added "File Pack 1.0" format description (incomplete, can't figure out the files encryption...)
+
+
+  0.5.5.256 (2007.06.27) Akira *5th public release* r36
+  ======================
+
+   * Splash module can now be "switched off" for compilation by commenting the {$DEFINE IncludeSplash} string in those files:
+
+     AnimED.dpr
+     AnimED_Main.pas
+     AnimED_Translation.pas
+
+     Saves ~600 Kb of code and ~5 Mb of memory. :)
+
+   * Fixed non-existant language files loading
+
+   * Deleted nagging "transparency effect" messages
+
+   * Updated archives definitions (added IKURA engine name)
+
+   + The configuration routine is now saves everything (well, almostly...) ;)
+
+   * New "*COOL* FUSION" theme. It's a summer, let's swim! :)
+
+
+  0.5.5.255 (2007.06.22) r35
+  ======================
+
+   + Added automatical configuration saving \ loading. Only Game Archive Tool can save it's state at the current moment
+
+   + Successfully decrypted ScriptMagic's ISF format! The "encryption" was byte * 4 in circular reference. It gave me headaches for entire months. He... he-he! Hehehe!! Mwu-ha-ha-hahaaaaaa! :D
+
+   + (Added few hours later): AM I COOL OR WHAT?!?! HE-he-hehehehehehe! I can't believe it... Peach Princess games uses the SAME byte*4 encryption... MAN! XD X) 8) 8S ^_^ X_X T_T V_V @_@ ;D 8P XP
+
+   + New *serious* documentation in HTML. :) Version history moved to this file.
+
+   ! Found forgotten (?) debug code in several IKURA GDL executables! :)
+
+   + Slightly improved & filtered LNK, SM2MPX10, DRS & ARC archives definitions & functions. More accurate format detection and faster execution. Older builds is not compatible with the current code anymore.
+
+   + Completed PD PackOnly & PackPlus specifications. Now you can safely create those types of archives (NOTE: filesize is LIMITED TO 4 GIGABYTES!!!)
+
+   + Added file entry search option for the Game Archive Tool (makes life easier)
+
+   - Found bug in 24-bit TGAs saving algorithm (16 and 32 bit works normally). Cannot fix it yet.
+
+   * Tweaked secret animation a bit...
+
+   * Updated & filtered images opening \ saving functions
+
+   * Fixed log function critical parts (now it will not cause errors with using japanese codepages anymore, just gets silent instead... :) )
+
+   * Removed some duplicated components (such as OpenDialog, SaveDialog etc.)
+
+   * The whole documentation & language files is now stored in Unicode format
+
+   * New license file. Real license at this time! ;)
+
+   - Tested UTF-8 & Shift-JIS character tables support for translations. Doesn't works, as it was expected... :(
+
+   ! Bonus: added TaekPack 0.01 DAT archives format opening support (partial). Requested by my mom for hacking her DVD KaraOke disc. :)
+
+
+  0.5.4.248 (2007.06.13) *4th public release* r34
+  ======================
+
+   + Added PD Cross+Channel's PackOnly & PackPlus archive formats support
+
+   + Added PD PackOnly & PackPlus opening & extracting
+
+   + Added bruteforcing mode for byte converter (not recommended for large files)
+
+   * Fixed SC3 files handling. Now detects incorrect files
+
+
+  0.5.3.242 (2007.06.10) r33
+  ======================
+
+   * Fixed 256 colors bitmaps handling
+
+   * Fixed translation bug in the About box
+
+
+  0.5.3.240 (2007.05.26) r32
+  ======================
+
+   ! Completely rewrited translation routine
+
+   + Added English_International.lang. Have fun! :)
+
+   * Fixed log's stack overflow bug
+
+   * Fixed critical byte converter bug (non-block encoding works again)
+
+
+  0.5.2.230 (2007.05.17) r31
+  ======================
+
+   * Completed Windows Bitmap format definition (thanks to Turbo Pascal 7.0 examples ;) )
+
+   * Completed RIFF Wave format definition (same as above)
+
+   * Fixed alpha blending bug
+
+   ! D.I.S.C.O. is alive! ;)
+
+
+  0.5.2.227 (2007.05.14) r30
+  ======================
+
+   ! Fixed broken archive extraction mechanism. Sorry! :(
+
+   + Added new directory creation button for OpenDirDialog
+
+   * Minor translation routine fixes and updates (added font property changing option)
+
+   + Added block data transcoding (2 Mb per block by default) for XOR, AND & OR operations. Speedy for large files. ;)
+
+
+  0.5.2.225 (2007.05.09) *3rd public release* r29
+  ======================
+
+   + Added new Misc Tool tabsheet
+
+   + Added special data converter (provides data XORing, ORing and ANDing)
+
+   + Added support for CROWD's BDT scenarios (de)crypting
+
+   * F.A.Q. Updates
+
+   * Disabled XP Manifest support
+
+
+  0.5.1.222 (2007.05.08) r28
+  ======================
+
+   * Translation routine updates
+
+   * Fixed GrapS module bugs
+
+   * Fixed OpenDirDialog module cancelling bug
+
+   * Corrected license information
+
+   + Added fool-protection for GrapS module. No more runtime error messages. :)
+
+   * GrapS Image limit raised to 8192 x 8192 pixels
+
+
+  0.5.1.220 (2007.05.03) r27
+  ======================
+
+   * Documentation update
+
+   + Image conversion WORKS! :)
+
+   * Fixed PNG opening error
+
+   * Fixed BMP opening error
+
+   * Updated SC3 (Ever17 scenario files) code definitions
+
+   + Full support for Portable Network Graphics (thanks to PNGObject module)
+
+   + Full support for ZBM graphics (xor $FF... Hehe, and CROWD is calling this *encryption*?!?) :D
+
+   + Full support for PRT graphics
+
+
+  0.5.1.215 (2007.04.30) *2nd public release* r26
+  ======================
+
+   + Done GUI translation routine (messages & error reports still untranslateable). REALLY quick addition. 8)
+
+   + Integrated GrapS - the RAW image reader tool. Very powerful thing for smart hands. ;)
+
+   + Added GrapS button icon
+
+   * Fixed bug in ARC archives detection mechanism
+
+
+  0.5.0.210 (2007.04.28) r25
+  ======================
+
+   + New beautiful Image Tool buttons. I was really a creative today! ^_^
+
+   + Added support for 8, 16, 24 and 32 bit Windows Bitmaps
+
+   + Added support for 8, 16, 24 and 32 bit TrueVision Targas (calculates size and kills X-FILE chunk)
+
+   + Multilingual support. Still under construction, but goes very well :)
+
+   + Added new easter egg (old was deleted since the 0.5.0.200)
+
+   + Now you can stream out secret animation as LOTS of bmps. ;D
+
+   * Archive Tool code optimizations
+
+
+  0.5.0.200 (2007.04.24) Marie r24
+  ======================
+
+   * LOT of bugfixes
+
+   * Completely rewrited archive functions
+
+   + Started to implement graphics converters
+
+   + New logo (uses Canvas.Draw method)
+
+   - Application exe is now much larger than even before. :( But, who cares! ;)
+
+
+  0.4.1.192 (2007.04.23) r23
+  ======================
+
+   ! Forgotten build (found 2007.05.23 on flashdrive). Probably i was too sleepy when done this. :)
+
+
+  0.4.0.187 (2007.04.19) *1st public release* r22
+  ======================
+
+   + Added file info panel for Scenario Text Importer\Exporter
+
+   * Minor GUI fixes & updates
+
+
+  0.4.0.186 (2007.04.17) r21
+  ======================
+
+   + Added E17 to MPEG converter
+
+   * Now "Easter egg has been found" message will not occasionally appear again
+
+   * Fixed log's infinity loop bug
+
+   * Fixed archive tool interface bug
+
+   * Fixed speedbuttons' font size issue
+
+   + Now uses word and longword types instead of stupid byte arrays & heavy hextoint function... Speed increased drastically, yeeeha! :)
+
+   + Added progress bar for an long archive operations
+
+   + The code is now separated into several modules for easier development (still, they're cross-connected to each other, so there's one issue)...
+
+   - Threads doesn't work (yup, again) :(
+
+
+  0.3.6.181 (2007.03.30) r20
+  ======================
+
+   + Added SCR Import\Export extra functions
+
+   * Some code improvements & optimizations
+
+
+  0.3.6.180 (2007.03.28) r19
+  ======================
+
+   + Added colorful scr_def repair button. :)
+
+   * Misc Tool tabsheet renamed into "Options"
+
+   * Starting to add multilingual support...
+
+   * Designed Image Tool tabsheet. Nothing is works yet
+
+   * Updated GCPS format description (still, can't handle it and write decompression code). :(
+
+   * Deleted XPManifest code. Now it's stored in the application directory as "AnimED.manifest"
+
+
+  0.3.6.177 (2007.03.26) r18
+  ======================
+
+   + Added archive stream cleanup & closing functions
+
+   + Added close archive button & bitmap
+
+   + Added log saving button bitmap
+
+
+  0.3.6.175 (2007.03.24) r17
+  ======================
+
+   + Uses threads again... :)
+
+   * Fixed "threaded" ArchiveStream lockup
+
+   + "Save log as..." button finally works. ;)
+
+
+  0.3.6.174 (2007.03.24) r16
+  ======================
+
+   + Improved log function. Now uses CASE operator instead of IF constructions
+
+   - Don't uses threads in order to execute heavy code. I've experienced a LOT of runtime errors during the testing of this shit... Still, you can enable VERY UNSTABLE AND VERY BUGGY CODE by changing {.$DEFINE UseThreads} into {$DEFINE UseThreads}. NOT RECOMMENDED
+
+
+  0.3.5.169 (2007.03.22) r15
+  ======================
+
+   * Fixed directory selection dialog rescan bug
+
+
+  0.3.5.168 (2007.03.20) r14
+  ======================
+
+   + Improved broken archives detection
+
+   + Added DRS archives creation
+
+
+  0.3.4.165 (2007.03.15) r13
+  ======================
+
+   + Added archive overwriting prompt
+
+
+  0.3.4.164 (2007.03.09) r12
+  ======================
+
+   * Corrected license information
+
+   * Fixed incorrect error messages
+
+   * Minor code optimizations, deleted some unused parts
+
+   + Added easter egg. :)
+
+   + Added some new button icons
+
+   + Now can automatically restore scr_def.conf
+
+
+  0.3.4.160 (2007.03.05) r11
+  ======================
+
+   + Now uses *modified* PNG Object library
+
+   * Minor code optimizations. -200 Kb for the EXE. :)
+
+
+  0.3.3.152 (2007.02.26) r10
+  ======================
+
+   * Fixed Ever17 SCR Importer \ Exporter bugs. Now it's completely safe. ;)
+
+
+  0.3.3.149 (2007.02.18) r9
+  ======================
+
+   + New Ever17 SCR Importer \ Exporter - very unstable and very buggy. Limited functionality.
+
+
+  0.3.2.134 (2007.02.15) r8
+  ======================
+
+   + ARC unpacking support added (buggy)
+
+   * Minor bug fixes
+
+
+  0.3.1.112 (2007.02.14) r7
+  ======================
+
+   + New WAF <-> RIFF WAVE Audio converter
+
+   * Minor source code optimizations
+
+
+  0.3.0.108 (2007.02.13) Marin r6
+  ======================
+
+   ! Completely rewrited source code
+
+   * Fixed permanential extracting after archive creation
+
+   * Fixed broken \ invalid archives detection
+
+   * Fixed & improved archive creation function
+
+   + New interface
+
+   + New graphics
+
+   + New colour debugging log system
+
+
+  0.2.8.096 (2007.02.03) r5
+  ======================
+
+   * Fixed DRS archive format extraction (yeeha, finally!)
+
+   * Added Will Co. ARC format description (not supported yet)
+
+
+  0.2.0.081 (2007.01.30) r4
+  ======================
+
+   + Added IKURA GDL SM2MPX10 format extraction
+
+   + Added Digital Romance System archive format extraction
+
+
+  0.1.1.055 (2007.01.28) r3
+  ======================
+
+   * Fixed LNK creation bug, now generates 100% working archives
+
+
+  0.1.0.045 (2007.01.25) r2
+  ======================
+
+   + LNK format creation algorithm
+
+
+  0.0.1.013 (2007.01.20) r1
+  ======================
+
+   + LNK format extraction algorithm
+
+
+  0.0.0.000 (2007.01.19) r0
+  ======================
+
+   * Work started

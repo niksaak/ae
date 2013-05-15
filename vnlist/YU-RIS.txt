@@ -1,0 +1,29 @@
+\ 77(Sevens) ~And, two stars meet again~
+\ Erica
+\ Four-leaf
+\ Ina☆Koi! -Oinari-sama to Motemote no Tatari-
+\ Ina☆Koi! Fandisc
+\ Meri☆Chri ~Juu Nen Buri no White Christmas~
+\ Magus Tale ~Sekaiju to Koisuru Mahoutsukai~
+\ Magus Tale Infinity
+\ Neko☆Koi! ~Nekogami-sama to Nekomimi no Tatari~
+\ Oshiete Little Vampire
+\ Suzukaze no Melt -Where wishes are drawn to each other-
+
+: YU-RIS Game Engine :
+
+- archives
+ypf -- full -- v2.xx, v3.xx, v4.xx...
+
+- images
+bmp -- std -- *
+gif -- std -- *
+jpg -- std -- *
+png -- std -- *
+
+- scripts
+bin -- noedit -- псевдо-байткодовые скрипты с простыми командами. Требуется разбор
+
+- sound
+ogg -- std -- *
+wav -- std -- *

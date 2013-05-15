@@ -1,0 +1,15 @@
+\ Cross†Channel
+
+: Unknown / Cross†Channel Engine :
+
+- archives
+pd -- full -- *
+
+- images
+png -- std -- *
+
+- scripts
+dsf -- std -- *
+
+- sound
+ogg -- std -- *

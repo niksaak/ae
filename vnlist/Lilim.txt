@@ -1,0 +1,17 @@
+\ Aion Garden
+
+: Unknown / Lilim :
+
+- archives
+aos -- full -- Внутрь пишется название архива, так что нужно быть внимательнее с ним
+
+- images
+bmp -- std -- *
+abm -- no -- BMP с обфускацией
+
+- scripts
+scr -- no -- сжатый скрипт
+dat -- unk -- байт-кодовые списки
+
+- sound
+ogg -- std -- *

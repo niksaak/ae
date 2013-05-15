@@ -1,0 +1,21 @@
+*beta
+\ Solfege
+
+: TScript Engine :
+
+- archives
+pak -- no -- очень нехилое блочное сжатие, нужно оснавательно посидеть. +двиг на классах
+
+- images
+jpg -- std -- *
+png -- std -- *
+
+- scripts
+kgo -- no -- ?
+
+- sound
+ogg -- std -- *
+
+- other
+bin -- unk -- ?
+csv -- std -- *

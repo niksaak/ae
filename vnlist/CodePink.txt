@@ -1,0 +1,16 @@
+\ SexFriend
+
+: Unknown / CodePink :
+
+- archive
+gpc -- full -- Архив без файловой таблицы, LZSS сжание файлов
+
+- images
+bmp -- std -- Разновидность LZSS сжатия
+tga -- std -- Какая-то метаинфа по использованию картинки
+
+- scripts
+snx -- no -- Скрипт. Вроде как сжат.
+
+- sound
+wav -- std -- *

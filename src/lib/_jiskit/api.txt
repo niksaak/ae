@@ -1,0 +1,24 @@
+MultiByteToWideChar
+  ~ Determining required buffer size ~
+  Returns a number of wide characters (not bytes!), including one extra #0-character. This means that for an empty string this func will return 1 (1 * sizeof(widechar) = 2).
+  If it was used to actually convert strings, returns a number of characters written (including #0-char).
+
+  ~ Converting ~
+  Writes a converted string plus #0-char.
+  
+
+GetOpenFileName (= GetSaveFileName)
+  ~ lpstrFile ~
+  Before invoking a dialog can be used to set a default file name. Cannot be used to set multiple selection of default files (won't work as expected).
+  
+  After the dialog func returns, this field is set according to what user has selected:
+  * if it was a single file, it'll be just a PWideChar with that file name.
+  * if multiselect was enabled AND user has selected more than one file, this field is set to chain of PWideChar's, in the following order: DIRECTORY#0FILE_1#0FILE_2#0... #0#0, where FILE_N is file's base name (without path).
+    *  Btw, DIRECTORY in multiselection isn't necessary followed by '\', as I've noticed, it's followed by this only if files were selected in the root of some drive.
+    * However, if Wide version of the dialog func is used, single #0 is replaced with #00#00 (and double #0 with #0#0#0#0).
+  
+  The same pattern applies to lpstrFilter: NAME#0MASK#0NAME#0MASK#0... #0#0. Wide version need #0-chars doubled.
+
+
+lstrlenw
+  Returns a number of characters without terminating #0-char. That is, to get a size in bytes of a PWideChar it's needed to do: lstrlen(Str) * 2 + 2.

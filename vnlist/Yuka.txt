@@ -1,0 +1,20 @@
+\ Akane Iro ni Somaru Saka
+\ Tsun na Kanojo Dere na Kanojo
+\ White Princess
+
+: Yuka Compiler :
+
+- archive
+ykc/dat -- full -- *
+
+- images
+bmp -- std -- *
+png -- std -- *
+ykg -- no -- png с добавочными шапкой и подвалом. Играет непонятную роль.
+
+- scripts
+yks -- no -- Байт-кодовый скрипт, текст каким-то образом зашифрован
+ini -- std -- Настройки
+
+- sound
+ogg -- std -- *

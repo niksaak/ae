@@ -1,0 +1,23 @@
+;На движке построены аркады из семейства Qix и Xonix
+
+\ Yukkuri Panic Miwaku no Mahoujin
+\ Yukkuri Panic! Doki Doki Oyakodon!
+\ Yukkuri Panic! Lolipara!
+
+: Unknown / Rolling Star :
+
+- archives
+pkd -- full -- *
+
+- images
+png -- std -- *
+
+- scripts
+tbl -- std -- информация об инсталляции
+txt -- std -- различная информация
+scp -- std -- текстовые скрипты
+conf -- std -- информация об уровне
+
+- sound
+ogg -- std -- *
+wav -- std -- *

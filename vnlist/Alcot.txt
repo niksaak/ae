@@ -1,0 +1,18 @@
+\ Triptych
+
+: Unknown / Alcot :
+
+- archives
+arc -- full -- таблица зашифрована по интересному LZSS-подобному алгоритму
+
+- images
+cpb -- no -- пожато
+
+- scripts
+asb -- no -- пожат
+
+- sound
+ogg -- std -- *
+
+- other
+tmc -- no -- tmc файл идёт в паре с ogg файлом озвучки

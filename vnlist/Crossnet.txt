@@ -1,0 +1,16 @@
+\ Hoshizora no Memoria -Wish upon a shooting star-
+
+: Unknown / Crossnet  :
+
+- archives
+bin -- full -- *
+
+- images
+hzc -- no -- сжатое изображение
+
+- scripts
+hcb -- noedit -- байт-кодовый скрипт, не сжат, не в архиве
+
+- sound
+wav -- std -- звуки
+ogg -- std -- озвучка и BGM

@@ -1,0 +1,22 @@
+\ Moshimo Ashita ga Harenaraba
+\ Sakura Strasse
+\ Sakuranbo Strasse
+
+: Unknown / Palette :
+
+- archives
+pak -- full -- *
+
+- images
+pga -- no -- изменённый PNG, содержатся BG и CG (ЗАПИЛИТЬ!)
+chr -- no -- изменённый PNG, спрайты персонажей (ЗАПИЛИТЬ!)
+
+- scripts
+sc -- noedit -- Байт-кодовый скрипт
+
+- sound
+ogg -- std -- *
+wav -- std -- *
+
+- other
+mv -- unk -- байт-кодовая инфа об анимации

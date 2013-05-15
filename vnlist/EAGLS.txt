@@ -1,0 +1,22 @@
+\ Gakuen Shinsengumi
+\ Henshin!
+\ Henshin Ni!
+\ Maid-san to Ookina Ken
+\ Mono Gokoro Mono Musu Me
+\ Pai Touch
+\ Yuugeki Keikan Patvessel
+
+: Tech-Arts [E]nhanced [A]dventure [G]ame [L]anguage [S]ystem :
+
+- archives
+pak -- full -- вместе с архивом идёт индекс-файл .idx
+
+- images
+gr -- unpack -- Обыкновенные BMP-файлы, пожатые LZSS и шифрованные по ключу (у каждой новеллы разный)
+
+- scripts
+dat -- no -- байт-кодовые скрипты, шифрованы по ключу (то же самое)
+
+- sound
+wav -- std -- *
+ogg -- std -- *

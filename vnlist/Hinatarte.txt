@@ -1,0 +1,18 @@
+\ Hinatarte
+
+: Unknown \ Hinatarte :
+
+- archive
+caf -- unpack -- *
+
+- images
+bre -- no -- похоже, пожаты RLE
+cfp -- no -- эффекты
+djf -- no -- системные изображения
+cfp -- no -- системные изображения
+
+- scripts
+scd -- noedit -- Байт-кодовый скрипт
+
+- sound
+ogg -- std -- *

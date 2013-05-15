@@ -1,0 +1,17 @@
+\ Mimikko Yomekko
+\ Onegai Goshujin-sama
+
+: TIM2 Engine :
+
+- archives
+ARC1 -- partial -- Не поддерживается перепаковка со сжатием (LZSS)
+ARC2 -- partial -- Тот же ARC1, но имена файлов поксорены
+
+- images
+png -- std -- *
+
+- scripts
+adv -- std -- Текстовый скрипт с HTML-подобным синтаксисом
+
+- sound
+ogg -- std -- *

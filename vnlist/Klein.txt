@@ -1,0 +1,16 @@
+\ PurePure
+
+: Unknown / Klein :
+
+- archives
+pak -- full -- *
+
+- images
+bmp -- std -- *
+
+- scripts
+scn -- noedit -- байт-кодовый скрипт
+
+- sound
+mio -- std -- звук в формате EntisGls
+wav -- std -- *

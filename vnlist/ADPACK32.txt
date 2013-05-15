@@ -1,0 +1,22 @@
+\ Hinatabokko
+
+: Unknown / ADPACK32 :
+
+- archives
+pak -- full -- ?
+
+- images
+edt -- no -- Сжатое изображение
+ed8/sal -- no -- Сжатое 8-битное изображение
+jpg -- std -- *
+
+- scripts
+env -- std -- переменные окружения
+hgo -- noedit -- байт-кодовый скрипты с сильным текстовым уклоном
+
+- sound
+wav -- std -- *
+ogg -- std -- *
+
+- other
+tag -- unk -- ?

@@ -1,0 +1,19 @@
+\ Ever17 ~ the out of infinity ~
+\ Memories Off 2nd
+\ Never7 ~ the age of infinity ~
+
+: KID Engine :
+
+- archives
+dat -- full -- некоторые файлы зашифрованы по ключу
+
+- images
+cps -- unpack -- файлы сжаты слабым LZSS-подобным алгоритмом и зашифрованы по ключу
+prt -- full -- работают только с хаком памяти
+
+- scripts
+scr -- hz -- простой байт-код скрипт. В Never7 файлы сжаты по LZSS-подобному алгоритму в контейнер с сигнатурой 'lnd'
+
+- sound
+wav -- std -- *
+waf -- semi -- Riff Wave в формате MS ADPCM с изменённым заголовком. Часть пожата в 'lnd'-контейнер

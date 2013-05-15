@@ -1,0 +1,197 @@
+[Closed Files]
+File_0=SourceModule,'c:\program files\borland\delphi7\source\rtl\Sys\sysutils.pas',0,1,5350,1,5373,0,0
+File_1=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\JISDialogs\Unicode dialogs\StringsW.pas',0,1,103,24,130,0,0
+File_2=SourceModule,'c:\program files\borland\delphi7\source\rtl\common\classes.pas',0,1,424,1,444,0,0
+File_3=SourceModule,'c:\program files\borland\delphi7\source\rtl\Win\Windows.pas',0,1,28581,1,28601,0,0
+File_4=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\JISDialogs\JUtils\Новая папка\JUtils_Demo_.pas',0,1,7,19,26,1,0
+File_5=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\JISDialogs\Unicode dialogs\Unicode_Dialogs_Demo_.pas',0,1,1,53,18,1,0
+File_6=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\JISDialogs\JISDialogs.pas',0,1,115,59,133,0,0
+File_7=SourceModule,'C:\Program Files\Borland\Delphi7\Projects\JISDialogs\JISDialogs_Demo_.pas',0,1,92,40,108,1,0
+
+[Modules]
+Module0=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\JUtils\JUtils_Demo_.pas
+Module1=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\JUtils\JUtils.pas
+Count=2
+EditWindowCount=1
+
+[C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\JUtils\JUtils_Demo_.pas]
+ModuleType=SourceModule
+FormState=1
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\JUtils\JUtils.pas]
+ModuleType=SourceModule
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi7\Bin\ProjectGroup1.bpg]
+FormState=0
+FormOnTop=0
+
+[C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\JUtils\JUtils_Demo.dpr]
+FormState=0
+FormOnTop=0
+
+[EditWindow0]
+ViewCount=2
+CurrentView=0
+View0=0
+View1=1
+CodeExplorer=CodeExplorer@EditWindow0
+MessageView=MessageView@EditWindow0
+Create=1
+Visible=1
+State=0
+Left=187
+Top=229
+Width=1413
+Height=937
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1405
+ClientHeight=897
+LeftPanelSize=140
+LeftPanelClients=CodeExplorer@EditWindow0
+LeftPanelData=000004000000000000000000000000000000000000000000000100000000000000000C000000436F64654578706C6F726572FFFFFFFF
+RightPanelSize=0
+BottomPanelSize=0
+BottomPanelClients=MessageView@EditWindow0
+BottomPanelData=00000400010000000B0000004D657373616765566965777D050000000000000255000000000000000100000000000000000000000001000000007D0500000B0000004D65737361676556696577FFFFFFFF
+
+[View0]
+Module=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\JUtils\JUtils_Demo_.pas
+CursorX=3
+CursorY=49
+TopLine=26
+LeftCol=1
+
+[View1]
+Module=C:\Program Files\Borland\Delphi7\Projects\HexNovel\JISDialogs\JUtils\JUtils.pas
+CursorX=66
+CursorY=288
+TopLine=264
+LeftCol=1
+
+[Watches]
+Count=0
+
+[Breakpoints]
+Count=0
+
+[AddressBreakpoints]
+Count=0
+
+[Main Window]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=0
+Width=1600
+Height=160
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1592
+ClientHeight=120
+
+[ProjectManager]
+Create=1
+Visible=0
+State=0
+Left=369
+Top=372
+Width=537
+Height=373
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=529
+ClientHeight=343
+TBDockHeight=373
+LRDockWidth=537
+Dockable=1
+
+[AlignmentPalette]
+Create=1
+Visible=0
+State=0
+Left=200
+Top=162
+Width=156
+Height=88
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=150
+ClientHeight=60
+
+[PropertyInspector]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=562
+Width=190
+Height=607
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=577
+TBDockHeight=607
+LRDockWidth=190
+Dockable=1
+SplitPos=85
+ArrangeBy=Name
+SelectedItem=Caption
+ExpandedItems=
+HiddenCategories=
+
+[ObjectTree]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=160
+Width=190
+Height=400
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=182
+ClientHeight=370
+TBDockHeight=400
+LRDockWidth=190
+Dockable=1
+
+[CodeExplorer@EditWindow0]
+Create=1
+Visible=1
+State=0
+Left=0
+Top=12
+Width=140
+Height=885
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=140
+ClientHeight=885
+TBDockHeight=305
+LRDockWidth=140
+Dockable=1
+
+[MessageView@EditWindow0]
+Create=1
+Visible=0
+State=0
+Left=12
+Top=0
+Width=1393
+Height=85
+MaxLeft=-1
+MaxTop=-1
+ClientWidth=1393
+ClientHeight=85
+TBDockHeight=85
+LRDockWidth=443
+Dockable=1
+
+[DockHosts]
+DockHostCount=0
+

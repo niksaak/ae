@@ -1,0 +1,18 @@
+\ Cosplay Alien
+\ Goshujin-sama Daisuki!
+\ Succubu★Soon
+
+: Nexton LC-Script Engine :
+
+- archives
+lst -- full -- *
+
+- images
+png -- std -- *
+
+- scripts
+bin -- noedit -- ?
+
+- sound
+ogg -- std -- *
+wav -- std -- *

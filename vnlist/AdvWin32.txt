@@ -1,0 +1,22 @@
+\ Majokko a ra Mode - DVD Edition
+\ Suigetsu - Package Renewal
+
+: AdvWin32 :
+
+- archive
+mrg -- full -- *
+
+- images
+ico -- std -- Иконки
+cur -- std -- Курсоры
+clm -- no -- Вроде как 8-битная картинка
+acd -- no -- Сжатая картинка
+mca -- no -- Сжатая картинка
+mcg -- no -- Сжатая картинка
+
+- scripts
+mec -- noedit -- байт-кодовый скрипт
+mes -- noedit -- тоже
+
+- sound
+wav -- std -- *

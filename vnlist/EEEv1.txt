@@ -1,0 +1,15 @@
+\ Wanwan, Moomoo, Usausa, Koon!
+
+: Entertainment Executive Engine v1.00 :
+
+- archives
+cab -- full -- *
+
+- images
+png -- std -- *
+
+- scripts
+txt -- std -- *
+
+- sound
+ogg -- std -- *

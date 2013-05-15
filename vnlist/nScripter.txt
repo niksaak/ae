@@ -1,0 +1,37 @@
+\ Hakuja no Togi (白蛇の伽)
+\ Higurashi no Naku Koro ni
+\ Kira ~ Snow Drop ~
+\ Narcissu
+\ Narcissu ~ Side 2nd ~
+\ Natsu no Hi no Resonance
+\ OMGWTFOTL
+\ Tokoyo no Hoshizora
+\ Tsukihime
+\ Tsukihime Fun Disc - Kagetsu Tohya
+\ Umineko no Naku Koro ni
+
+: nScripter SDK / (P)ONScripter / ONSlaught :
+
+- archive
+sar -- semi -- Распаковка файлов сжатых bzip2 в процессе имплементации
+nsa -- full -- Создание сжатых архивов не поддерживается (и не требуется ^_~)
+ns2 -- full -- *
+
+- images
+bmp -- std -- Некоторые BMP файлы сжаты в SPB-контейнер, либо по кастомной реализации LZSS
+jpg -- std -- *
+png -- std -- *
+
+- scripts
+dat -- full -- Скрипты некоторых новелл шифрованы нестандартным способом
+txt -- full -- *
+
+- sound
+mod -- std -- *
+s3m -- std -- *
+xm -- std -- *
+it -- std --*
+mid -- std -- *
+mp3 -- std -- *
+ogg -- std -- *
+wav -- std -- *

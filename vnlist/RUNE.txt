@@ -1,0 +1,15 @@
+\ Ricotte ~Arupenburu no Utahime~
+
+: Unknown / RUNE :
+
+- archive
+g/xp -- full -- Используется шифрование с ключом, вшитым в архив
+
+- images
+pgx -- no -- Изображения, пожаты.
+
+- scripts
+bcs -- no -- Скрипты, пожаты.
+
+- sound
+wav -- std -- *

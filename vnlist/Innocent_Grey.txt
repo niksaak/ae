@@ -1,0 +1,18 @@
+\ Cartagra
+\ Death Note - Bound Prince
+\ Kara no Shoujo
+\ PP Pianissimo
+
+: Unknown / Innocent Grey :
+
+- archives
+pak -- full -- *
+
+- images
+bmp -- std -- *
+
+- scripts
+s -- noedit -- байткод-скрипты, поксорены на $FF
+
+- sound
+ogg -- std -- *

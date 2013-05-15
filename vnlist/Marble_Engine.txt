@@ -1,0 +1,17 @@
+\ Ojou-sama wa Mazo
+\ Wanko to Kurasou
+
+: Marble Engine by Marble Soft :
+
+- archives
+mbl -- full -- внутри архивов файлы без расширений
+
+- images
+prs -- no -- сигнатура YB, какое-то сжатие
+
+- scripts
+s -- noedit -- ?
+
+- sound
+ogg -- std -- *
+wad -- no -- Riff Wave в формате ADPCM с изменённым заголовком

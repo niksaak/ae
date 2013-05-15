@@ -1,0 +1,15 @@
+\ Aoi Shiro
+
+: Unknown / Success :
+
+- archives
+afs -- full -- стандартные архивы PlayStation 2
+
+- images
+cel -- semi -- многостраничное изображение. разборщик/сборщик выполнен в виде отдельной утилиты
+
+- scripts
+dat -- noedit -- бинарный скрипт
+
+- sound
+adx -- std -- CRI Software ADPCM Codec, воспроизводимы в Cube Player

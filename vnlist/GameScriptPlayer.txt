@@ -1,0 +1,17 @@
+\ Moldavite
+
+: Game Script Player by HyperWorks :
+
+- archive
+pak -- full -- Прост как валенок. При записи файлов обратно следует сохранять порядок следования.
+
+- images
+i -- no -- Какое-то сжатие
+
+- scripts
+scr -- noedit -- Байт-кодовый скрипт
+dat -- hz -- В паре с map. Управление объектами на карте вроде как.
+map -- hz -- В паре с dat. Описание карты вроде как.
+
+- sound
+mio -- std -- Формат EntisGLS
