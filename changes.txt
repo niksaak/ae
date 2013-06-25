@@ -1,5 +1,7 @@
-  0.6.9.418 (2013.05.11) r79
+  0.6.9.418 (2013.06.25) r79
   ======================
+
+   ! Updated Spanish translation (thanks to Thuriel)
 
    + Added read-only GIF87/89 image format support (single frame only, no transparency support)
 
