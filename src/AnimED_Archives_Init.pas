@@ -124,6 +124,7 @@ begin
  AFAdd(IA_PD_PackPlus);
  AFAdd(IA_PCK_CROWD3);
  AFAdd(IA_ARC_Ethornell_BGI);
+ AFAdd(IA_ARC_Ethornell_BGI2);  // 2013/08/16
  AFAdd(IA_ARC_Will_8);
  AFAdd(IA_ARC_Will_12);         // 2010/12/22
  AFAdd(IA_SAR);

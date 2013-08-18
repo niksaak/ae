@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 383
-  Top = 135
+  Left = 344
+  Top = 183
   Width = 675
   Height = 623
   AlphaBlend = True
@@ -2688,7 +2688,8 @@ object MainForm: TMainForm
               Caption = 
                 'Remember application window screen position (x,y coordinates). T' +
                 'urn off auto-centering'
-              Enabled = False
+              Checked = True
+              State = cbChecked
               TabOrder = 5
               WordWrap = True
               OnClick = CB_EnableDoubleBufferingClick
@@ -3410,9 +3411,9 @@ object MainForm: TMainForm
   object P_Console: TPanel
     Tag = -1
     Left = -2
-    Top = 535
+    Top = 529
     Width = 671
-    Height = 65
+    Height = 69
     Anchors = [akLeft, akRight, akBottom]
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -3421,13 +3422,13 @@ object MainForm: TMainForm
     OnDblClick = L_Mini_LogWDblClick
     DesignSize = (
       671
-      65)
+      69)
     object L_Mini_Log: TLabelW
       Tag = -1
       Left = 16
       Top = 4
       Width = 638
-      Height = 27
+      Height = 31
       Anchors = [akLeft, akTop, akRight, akBottom]
       AutoSize = False
       Caption = 'L_Mini_Log'
@@ -3466,7 +3467,7 @@ object MainForm: TMainForm
     object G_Progress: TGauge
       Tag = -1
       Left = 16
-      Top = 32
+      Top = 36
       Width = 638
       Height = 11
       Hint = 'Group archive operations progress indicator'

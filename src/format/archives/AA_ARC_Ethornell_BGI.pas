@@ -1,9 +1,9 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2013 WinKiller Studio and The Contributors.
   This software is free. Please see License for details.
 
-  Ethornell Buriko General Interpreter ARC game archive format & functions
+  Ethornell Buriko General Interpreter archive formats & functions
   
   Written by dsp2003 & Nik.
 }
@@ -26,9 +26,14 @@ uses AA_RFA,
 
  { Supported archives implementation }
  procedure IA_ARC_Ethornell_BGI(var ArcFormat : TArcFormats; index : integer);
+ procedure IA_ARC_Ethornell_BGI2(var ArcFormat : TArcFormats; index : integer);
 
   function OA_ARC_Ethornell_BGI : boolean;
   function SA_ARC_Ethornell_BGI(Mode : integer) : boolean;
+
+  function OA_ARC_Ethornell_BGI2 : boolean;
+  function SA_ARC_Ethornell_BGI2(Mode : integer) : boolean;
+
   function EA_ARC_Ethornell_BGI(FileRecord : TRFA) : boolean;
 
   function DecodeDSC(InputStream, OutputStream : TStream) : boolean;
@@ -41,7 +46,9 @@ uses AA_RFA,
   
 type
 { Ethornell Buriko General Interpreter archive format description }
- TBurikoHeader = packed record
+ // Version 1 - "PackFile"+$20+$20+$20+$20
+ // Version 2 - "BURIKO ARC20"
+ TBurikoHdr = packed record
   Header : array[1..12] of char; //"PackFile"+$20+$20+$20+$20
   TotalRecords : longword;
  end;
@@ -50,6 +57,12 @@ type
   Offset   : longword;
   Filesize : longword;
   Dummy    : int64;
+ end;
+ TBurikoDirv2 = packed record
+  FileName : array[1..96] of char;
+  Offset   : longword;
+  Filesize : longword;
+  Dummy    : array[1..3] of int64;
  end;
 
  TBGI_DSCHeader = packed record
@@ -91,7 +104,7 @@ procedure IA_ARC_Ethornell_BGI;
 begin
  with ArcFormat do begin
   ID   := index;
-  IDS  := 'Ethornell Buriko General Interpreter';
+  IDS  := 'Ethornell Buriko General Interpreter v1';
   Ext  := '.arc';
   Stat := $0;
   Open := OA_ARC_Ethornell_BGI;
@@ -103,32 +116,48 @@ begin
  end;
 end;
 
+procedure IA_ARC_Ethornell_BGI2;
+begin
+ with ArcFormat do begin
+  ID   := index;
+  IDS  := 'Ethornell Buriko General Interpreter v2';
+  Ext  := '.arc';
+  Stat := $0;
+  Open := OA_ARC_Ethornell_BGI2;
+  Save := SA_ARC_Ethornell_BGI2;
+  Extr := EA_ARC_Ethornell_BGI;
+  FLen := 96;
+  SArg := 0;
+  Ver  := $20130816;
+ end;
+end;
+
 function OA_ARC_Ethornell_BGI;
 { Burriko ARC archive opening function }
 var i,j : integer;
-    BurikoHeader : TBurikoHeader;
-    BurikoDir    : TBurikoDir;
-    MiniBuffer   : array[1..8] of char;
+    Hdr  : TBurikoHdr;
+    Dir  : TBurikoDir;
+    MiniBuffer : array[1..8] of char;
 begin
  Result := False;
  with ArchiveStream do begin
   Seek(0,soBeginning);
 
-  with BurikoHeader do begin
-   Read(BurikoHeader,SizeOf(BurikoHeader));
+  with Hdr do begin
+   Read(Hdr,SizeOf(Hdr));
 
-   if Header <> 'PackFile'#$20#$20#$20#$20 then Exit;
+   if Header <> 'PackFile'#32#32#32#32 then Exit;
 
    RecordsCount := TotalRecords;
-   ReOffset := SizeOf(BurikoHeader) + SizeOf(BurikoDir)*RecordsCount;
+   ReOffset := SizeOf(Hdr) + SizeOf(Dir)*RecordsCount;
 
   end;
 {*}Progress_Max(RecordsCount);
 // Reading Buriko filetable...
  for i := 1 to RecordsCount do begin
 {*}Progress_Pos(i);
-  with BurikoDir do begin
-   Read(BurikoDir,SizeOf(BurikoDir));
+  with Dir do begin
+   Read(Dir,SizeOf(Dir));
    for j := 1 to 16 do begin
     if FileName[j] <> #0 then RFA[i].RFA_3 := RFA[i].RFA_3 + FileName[j] else break;
    end;
@@ -152,19 +181,71 @@ begin
   end;
  end; // for
 end; // with ArchiveStream
-Result := True;   
+Result := True;
+end;
+
+function OA_ARC_Ethornell_BGI2;
+{ Burriko ARC version 2 archive opening function }
+var i,j : integer;
+    Hdr  : TBurikoHdr;
+    Dir  : TBurikoDirV2;
+    MiniBuffer : array[1..8] of char;
+begin
+ Result := False;
+ with ArchiveStream do begin
+  Seek(0,soBeginning);
+
+  with Hdr do begin
+   Read(Hdr,SizeOf(Hdr));
+
+   if Header <> 'BURIKO ARC20' then Exit;
+
+   RecordsCount := TotalRecords;
+   ReOffset := SizeOf(Hdr) + SizeOf(Dir)*RecordsCount;
+
+  end;
+{*}Progress_Max(RecordsCount);
+// Reading Buriko filetable...
+ for i := 1 to RecordsCount do begin
+{*}Progress_Pos(i);
+  with Dir do begin
+   Read(Dir,SizeOf(Dir));
+   for j := 1 to 16 do begin
+    if FileName[j] <> #0 then RFA[i].RFA_3 := RFA[i].RFA_3 + FileName[j] else break;
+   end;
+   RFA[i].RFA_1 := Offset+ReOffset;
+   RFA[i].RFA_2 := FileSize;
+   RFA[i].RFA_C := FileSize; // replicates filesize
+  end;
+ end;
+ // определяем компрессию
+ for i := 1 to RecordsCount do begin
+{*}Progress_Pos(i);
+  Position := RFA[i].RFA_1;
+  Read(MiniBuffer,SizeOf(MiniBuffer));
+
+  if MiniBuffer = 'DSC FORM' then begin
+   RFA[i].RFA_E := True;
+   RFA[i].RFA_X := $DC;
+  end else if MiniBuffer = 'Compress' then begin
+   RFA[i].RFA_E := True;
+   RFA[i].RFA_X := $CB;
+  end;
+ end; // for
+end; // with ArchiveStream
+Result := True;
 end;
 
 function SA_ARC_Ethornell_BGI;
 { Burriko ARC archive creating function }
 var i, j : integer;
-    BurikoHeader : TBurikoHeader;
-    BurikoDir    : TBurikoDir;
+    Hdr : TBurikoHdr;
+    Dir : TBurikoDir;
 begin
- with BurikoHeader do begin
-  Header := 'PackFile'#$20#$20#$20#$20;
+ with Hdr do begin
+  Header := 'PackFile'#32#32#32#32;
   RecordsCount := AddedFiles.Count;
-  ReOffset := 16+32*RecordsCount;
+  ReOffset := SizeOf(Hdr)+SizeOf(Dir)*RecordsCount;
 
   TotalRecords := RecordsCount;
 
@@ -172,10 +253,10 @@ begin
   UpOffset := 0;
  end;
 //Writing header
- ArchiveStream.Write(BurikoHeader,SizeOf(BurikoHeader));
+ ArchiveStream.Write(Hdr,SizeOf(Hdr));
  for i := 1 to RecordsCount do begin
 {*}Progress_Pos(i);
-  with BurikoDir do begin
+  with Dir do begin
    OpenFileStream(FileDataStream,RootDir+AddedFilesW.Strings[i-1],fmOpenRead);
    UpOffset       := UpOffset + FileDataStream.Size;
    RFA[i+1].RFA_1 := UpOffset;
@@ -188,7 +269,56 @@ begin
    Dummy := 0;
    FreeAndNil(FileDataStream);
 // Writing buriko filetable...
-   ArchiveStream.Write(BurikoDir,SizeOf(BurikoDir));
+   ArchiveStream.Write(Dir,SizeOf(Dir));
+  end;
+ end;
+
+//Writing file...
+ for i := 1 to RecordsCount do begin
+{*}Progress_Pos(i);
+  OpenFileStream(FileDataStream,RootDir+AddedFilesW.Strings[i-1],fmOpenRead);
+  ArchiveStream.CopyFrom(FileDataStream,FileDataStream.Size);
+  FreeAndNil(FileDataStream);
+ end;
+
+ Result := True;
+
+end;
+
+function SA_ARC_Ethornell_BGI2;
+{ Burriko ARC archive creating function }
+var i, j : integer;
+    Hdr : TBurikoHdr;
+    Dir : TBurikoDirv2;
+begin
+ with Hdr do begin
+  Header := 'BURIKO ARC20';
+  RecordsCount := AddedFiles.Count;
+  ReOffset := SizeOf(Hdr)+SizeOf(Dir)*RecordsCount;
+
+  TotalRecords := RecordsCount;
+
+  RFA[1].RFA_1 := 0;
+  UpOffset := 0;
+ end;
+//Writing header
+ ArchiveStream.Write(Hdr,SizeOf(Hdr));
+ for i := 1 to RecordsCount do begin
+{*}Progress_Pos(i);
+  with Dir do begin
+   OpenFileStream(FileDataStream,RootDir+AddedFilesW.Strings[i-1],fmOpenRead);
+   UpOffset       := UpOffset + FileDataStream.Size;
+   RFA[i+1].RFA_1 := UpOffset;
+   RFA[i].RFA_2   := FileDataStream.Size;
+   Offset         := RFA[i].RFA_1;
+   FileSize       := RFA[i].RFA_2;
+   RFA[i].RFA_3   := ExtractFileName(AddedFiles.Strings[i-1]);
+   FillChar(FileName,SizeOf(FileName),0);
+   for j := 1 to 96 do if j <= length(RFA[i].RFA_3) then FileName[j] := RFA[i].RFA_3[j] else break;
+   for j := 1 to 3 do Dummy[i] := 0;
+   FreeAndNil(FileDataStream);
+// Writing buriko filetable...
+   ArchiveStream.Write(Dir,SizeOf(Dir));
   end;
  end;
 

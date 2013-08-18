@@ -1,6 +1,6 @@
 {
-  AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  AnimED - Visual Novel Tools
+  Copyright © 2007-2011 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   LZ/LZSS/LZ77 generic library
