@@ -1,3 +1,4 @@
+# Delphi
 *.dcu
 *.~*~
 *.local
@@ -9,3 +10,16 @@ __history
 *.dll
 bin/*
 
+
+# General
+tags
+.*.swp
+*~
+
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
