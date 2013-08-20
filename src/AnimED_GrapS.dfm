@@ -17,6 +17,7 @@ object GrapSForm: TGrapSForm
   Position = poScreenCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnPaint = FormPaint
   OnShow = FormShow
   DesignSize = (
     703

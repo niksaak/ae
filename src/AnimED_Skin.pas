@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2013 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   GUI & skin unit (incomplete, external skins are not supported yet)
@@ -547,7 +547,7 @@ begin
 end;
 
 procedure Skin_Load_BuiltIn;
-var TempoJPEGStream : TStream;
+var //TempoJPEGStream : TStream;
     i,j : longword;
     tmpbmp       : TBitmap;
 //    _MASCOT      : TJPEGImage;

@@ -2342,6 +2342,7 @@ end;
 
 procedure TMainForm.FormPaint(Sender: TObject);
 begin
+ DragAcceptFiles(Handle, True); //fixes incompatibility with coordinate handler
  GUI_ArcTool_Measurement;
  if TS_Image.Visible then GUI_ImageTool_Measurement;
 end;

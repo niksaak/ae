@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2012 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   Basic functions & extensions of EDGE image library

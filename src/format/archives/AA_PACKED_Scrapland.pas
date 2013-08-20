@@ -5,7 +5,7 @@
 
   Mercury Stream Entertainment's Scrapland Engine PACKED archive format & functions
 
-  Written by dsp2003. Specs ffom lolibot.
+  Written by dsp2003. Specs from lolibot.
 }
 
 unit AA_PACKED_Scrapland;

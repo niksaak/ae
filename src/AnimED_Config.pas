@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2013 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   Configuration functions unit + TIniFile wrapper
@@ -135,11 +135,11 @@ begin
     CB_NoDefaultSize.Checked   := ReadBool(conf,'KeepMWProps',True);
 
     { Main window }
-{    if CB_NoAutocenter.Checked then begin
+    if CB_NoAutocenter.Checked then begin
      MainForm.Position    := poDesigned;
      MainForm.Left        := ReadInteger(conf,'MainWinX',MainForm.Left);
      MainForm.Top         := ReadInteger(conf,'MainWinY',MainForm.Top);
-    end;}
+    end;
     if CB_NoDefaultSize.Checked then begin
      MainForm.Width       := ReadInteger(conf,'MainWinW',MainForm.Width);
      MainForm.Height      := ReadInteger(conf,'MainWinH',MainForm.Height);
@@ -217,13 +217,13 @@ begin
     WriteInteger(conf,'LastLanguage',CB_Language.ItemIndex);
 
      { Main window }
-    //WriteInteger(conf,'MainWinX',MainForm.Left);
-    //WriteInteger(conf,'MainWinY',MainForm.Top);
+    WriteInteger(conf,'MainWinX',MainForm.Left);
+    WriteInteger(conf,'MainWinY',MainForm.Top);
     WriteInteger(conf,'MainWinW',MainForm.Width);
     WriteInteger(conf,'MainWinH',MainForm.Height);
     WriteInteger(conf,'MainWinS',integer(MainForm.WindowState));
 
-    //WriteBool(conf,'KeepMWCoords',CB_NoAutocenter.Checked);
+    WriteBool(conf,'KeepMWCoords',CB_NoAutocenter.Checked);
     WriteBool(conf,'KeepMWState',CB_KeepWindowState.Checked);
     WriteBool(conf,'KeepMWProps',CB_NoDefaultSize.Checked);
 

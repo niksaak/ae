@@ -1,5 +1,13 @@
-  0.6.9.418 (2013.05.11) r79
+  0.6.9.418 (2013.08.16) r79
   ======================
+
+   + Added full Ethornell Buriko General Interpreter v2.0 archive format support and revised BGI V1.0 (thanks to Nik)
+
+   ! Updated Italian translation (thanks to Sora Kekko)
+
+   * Fixed drag-n-drop for GrapS and main window, re-enabled storage of coordinate positions for main window
+
+   ! Updated Spanish translation (thanks to Thuriel)
 
    + Added read-only GIF87/89 image format support (single frame only, no transparency support)
 

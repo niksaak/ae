@@ -1,4 +1,3 @@
-* text=auto
-*.pas text
-*.lang text
-*.pas encoding=cp1251
+*      text=auto
+*.lang text encoding=utf-16
+*.pas  text encoding=cp1251 eof=crlf

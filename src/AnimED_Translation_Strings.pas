@@ -444,6 +444,7 @@ begin
  TransAdd('Ivo Zhelev [Bulgarian]');
  TransAdd('Luke® && Jako† && WiZ [Hungarian]');
  TransAdd('Marco Romeo [Italian]');
+ TransAdd('Sora Kekko [Italian]');
  TransAdd('Thuriel [Spanish]');
  TransAdd('katta aka M3956 [Ukrainian]');
 
@@ -485,6 +486,8 @@ begin
  JokeAdd('That was the plan, to give you a boner. And you''ve got one!');
  JokeAdd('No lusi were harmed in making of this film.');
  JokeAdd('Don''t drink sopor slime, kids! :33');
+ JokeAdd('Presented by SkaiaNet');
+ JokeAdd('Sponsored by CrockerCorp');
 
  JokeAdd('Cracked by Bill Gilbert');
  JokeAdd('100% pure native x86 code. Beware of crappy .NET fakes.');

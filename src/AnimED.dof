@@ -128,8 +128,8 @@ LegalCopyright=© 2007-2013 WinKiller Studio and The Contributors.
 LegalTrademarks=This software is free. Please see License for details.
 OriginalFilename=Ever17ED.exe
 ProductName=Unofficial VN SDK
-ProductVersion=2013.05.11
-Comments=Mew mew mew~ :3
+ProductVersion=2013.08.16
+Comments=Meow meow meow~ :3
 [HistoryLists\hlDebugSourcePath]
 Count=5
 Item0=.\format\archives;.\format\graphics;.\format;.\lib\pngobject;.\lib\gifimage;.\lib;.\lib\_jiskit\Unicode dialogs;.\lib\pngobject\obj;.\lib\_jiskit\Unicode components\

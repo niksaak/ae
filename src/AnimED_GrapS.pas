@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2013 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   GrapS - the RAW image reader tool
@@ -124,6 +124,7 @@ type
     procedure UD_Graps_AutoMemRefClick(Sender: TObject; Button: TUDBtnType);
     procedure T_Graps_AutoMemRefTimer(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormPaint(Sender: TObject);
 
   private
     { Private declarations }
@@ -543,6 +544,11 @@ begin
   end;
  end;
  Memo_Graps_HowTo.WordWrap := True;
+end;
+
+procedure TGrapSForm.FormPaint(Sender: TObject);
+begin
+  DragAcceptFiles(Handle, True);
 end;
 
 end.
