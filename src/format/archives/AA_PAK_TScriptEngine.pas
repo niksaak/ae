@@ -1,11 +1,13 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
-  
+
+  Kogado TScriptEngine v3.00 / v3.01 archive format & functions
+
   Originally written by w8m.
   Ported by Nik.
-  Used in Kogado games
+  Bugfixes by dsp2003.
 }
 
 unit AA_PAK_TScriptEngine;
@@ -49,7 +51,7 @@ type
   end;
 
   TTScriptEngineTablev3 = packed record
-    FileName : array[1..$15] of char; // Имя файла без расширения
+    FileName : array[1..21] of char; // Имя файла без расширения
     Ext : array[1..3] of char; // Расширение файла
     FileOffset : cardinal; // Смещение относительно заголовка
     UnpackedSize : cardinal; // Несжатый размер
@@ -122,7 +124,7 @@ begin
   Save := SA_PAK_TScriptEnginev3;
   Extr := EA_PAK_TScriptEnginev3;
   SArg := 0;
-  Ver  := $20100214;
+  Ver  := $20131202;
  end;
 end;
 
@@ -145,7 +147,9 @@ begin
  for i := 1 to RecordsCount do begin
 {*}Progress_Pos(i);
   with RFA[i] do begin
-   RFA_3 := String(Pchar(@Table[i-1].FileName[1])) + '.' + Table[i-1].Ext;
+   // dsp2003: fix for files without extension
+   RFA_3 := String(Pchar(@Table[i-1].FileName[1]));
+   if Table[i-1].Ext <> #0#0#0 then RFA_3 := RFA_3 + '.' + Table[i-1].Ext;
    RFA_1 := sizeof(TTScriptEngineHeader) + Table[i-1].FileOffset;
    RFA_2 := Table[i-1].UnpackedSize;
    RFA_C := Table[i-1].PackedSize;

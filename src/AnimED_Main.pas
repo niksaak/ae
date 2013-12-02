@@ -105,7 +105,6 @@ type
     L_ImageSize: TLabelW;
     L_ImageFormat: TLabelW;
     L_ImageFormatTitle: TLabelW;
-    L_ImageResolutionTitle: TLabelW;
     L_ImageResolution: TLabelW;
     I_EDGE_Image: TImage;
     L_Image_Original: TLabelW;

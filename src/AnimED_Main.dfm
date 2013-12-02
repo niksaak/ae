@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 344
-  Top = 183
+  Left = 271
+  Top = 192
   Width = 675
   Height = 623
   AlphaBlend = True
@@ -1174,22 +1174,11 @@ object MainForm: TMainForm
               Caption = 'Format:'
               Transparent = True
             end
-            object L_ImageResolutionTitle: TLabelW
-              Left = 404
-              Top = 48
-              Width = 81
-              Height = 15
-              Alignment = taRightJustify
-              Anchors = [akTop, akRight]
-              AutoSize = False
-              Caption = 'Resolution:'
-              Transparent = True
-            end
             object L_ImageResolution: TLabelW
               Tag = -1
-              Left = 488
+              Left = 408
               Top = 48
-              Width = 139
+              Width = 219
               Height = 15
               Alignment = taRightJustify
               Anchors = [akTop, akRight]

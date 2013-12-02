@@ -1,3 +1,15 @@
+  0.6.9.419 (2013.12.02) r80
+  ======================
+
+   * Fixed bug with file extensions in Kogado TScriptEngine v3 archive parser
+
+   * Minor bugfixes in Image Tool interface
+
+   + Implemented correct support for Nexton's LCScript Engine archives (thanks to DiNeX for bug report)
+
+   ! Fixed dangerous bug in BlockXOR function (thanks to DiNeX for report)
+
+
   0.6.9.418 (2013.08.16) r79
   ======================
 

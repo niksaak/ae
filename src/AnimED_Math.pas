@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   Math unit
@@ -125,9 +125,9 @@ var tmpStream : TStream;
 begin
  tmpStream := TMemoryStream.Create;
  BlockXORIO(InputStream,tmpStream,value);
- InputStream.Size := 0;
+ InputStream.Position := 0;
  tmpStream.Position := 0;
- InputStream.Size := tmpStream.Size;
+// InputStream.Size := tmpStream.Size;
  InputStream.CopyFrom(tmpStream,tmpStream.Size);
  FreeAndNil(tmpStream);
 end;
