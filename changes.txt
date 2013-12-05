@@ -1,5 +1,11 @@
-  0.6.9.419 (2013.12.02) r80
+  0.6.9.419 (2013.12.06) r80
   ======================
+
+   + Added configurable file extraction modes. Useful for "duplicates" inside archives (requested by MeruP)
+
+   + Added read-only support for Cross-Net PACK (.dat) archives (used in Maple Colours)
+
+   ! Sanitized internals. All "cardinal" declarations replaced with "longword" for data structures
 
    * Fixed bug with file extensions in Kogado TScriptEngine v3 archive parser
 
