@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Generic library for Hash functions
@@ -14,11 +14,11 @@ interface
 uses Classes, Sysutils, AnimED_Math, ZlibEx;
 
 // Используется в движке G2 а также в движке фирмы Alcot
- function Gainax_Hash(stream : TStream; begindword : cardinal) : cardinal;
+ function Gainax_Hash(stream : TStream; begindword : longword) : longword;
 
 // Подсчёт хеша имени для движка Majiro
 procedure Majiro_hash_init;
- function Majiro_hash(filename : string) : cardinal;
+ function Majiro_hash(filename : string) : longword;
 procedure Majiro_hash_destroy;
 
  function Majiro_hash64(filename : string) : int64;
@@ -27,7 +27,7 @@ procedure Majiro_hash_destroy;
  function ADPACK32_Hash(filename : string) : word;
 
 // Подсчёт хэша имени для движка HIMAURI Script Engine (Exodus Guilty Alternative)
- function HIMAURI_Hash(filename : string; divisor : cardinal) : cardinal;
+ function HIMAURI_Hash(filename : string; divisor : longword) : longword;
 
 // Moved from AA_XP3_KiriKiri2
  function sAdler32Init : longint;
@@ -41,16 +41,16 @@ procedure Majiro_hash_destroy;
 
 type
 
- array256 = array[0..$FF] of cardinal;
+ array256 = array[0..$FF] of longword;
 
 var
-  Majiro_Numbers   : array of cardinal;
+  Majiro_Numbers   : array of longword;
 
 implementation
 
 function Gainax_Hash;
 var b : byte;
-    i : cardinal;
+    i : longword;
 const K : array256 = (
 $00000000, $77073096, $EE0E612C, $990951BA, $076DC419, $706AF48F, $E963A535, $9E6495A3,
 $0EDB8832, $79DCB8A4, $E0D5E91E, $97D2D988, $09B64C2B, $7EB17CBD, $E7B82D07, $90BF1D91,
@@ -97,7 +97,7 @@ begin
 end;
 
 procedure Majiro_hash_init;
-var ind, temp : cardinal;
+var ind, temp : longword;
     bt : byte;
 begin
  if Length(Majiro_Numbers) <> 0 then Majiro_hash_destroy;
@@ -117,19 +117,19 @@ begin
 end;
 
 function Majiro_Hash;
-var temp, bnumber, len : cardinal;
+var temp, bnumber, len : longword;
 begin
  if Length(Majiro_Numbers) = 0 then Majiro_hash_init;
  bnumber := $FFFFFFFF;
  for len := 1 to Length(filename) do begin
-  temp := (bnumber and $FF) xor Cardinal(Byte(filename[len]));
+  temp := (bnumber and $FF) xor longword(Byte(filename[len]));
   bnumber := (bnumber shr 8) xor Majiro_Numbers[temp];
  end;
  Result := not bnumber;
 end;
 
 function Majiro_Hash64;
-var temp : int64; len, bt : cardinal;
+var temp : int64; len, bt : longword;
 begin
  temp := -1;
  for len := 1 to Length(filename) do begin
@@ -141,12 +141,12 @@ begin
 end;
 
 function ADPACK32_Hash;
-var i, j, len, lwork, symb : cardinal;
+var i, j, len, lwork, symb : longword;
 begin
  len := Length(filename);
  lwork := 0;
  for i := 1 to len do begin
-  symb := Cardinal(Byte(filename[i])) shl 8;
+  symb := longword(Byte(filename[i])) shl 8;
   if symb = 0 then Break;
   lwork := lwork xor symb;
   for j:=1 to 8 do

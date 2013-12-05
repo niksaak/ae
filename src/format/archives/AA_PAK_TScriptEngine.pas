@@ -38,24 +38,24 @@ uses AA_RFA,
  function GetNextWord(InputStream : TStream) : word;
  function LookByte_1(InputStream : TStream) : word;
  function LookByte_2(divresult : word) : word;
- procedure MTF(OutputStream : TStream; blocksize : cardinal);
- procedure BWT(OutputStream : TStream; blocksize : cardinal);
+ procedure MTF(OutputStream : TStream; blocksize : longword);
+ procedure BWT(OutputStream : TStream; blocksize : longword);
 
 type
   TTScriptEngineHeader = packed record
     Magic : array[1..6] of char; // 'HyPack'
     Version : word;
     //для третьей версии - $300, есть ещё субверсия $301
-    TableOffset : cardinal; // Смещение файловой таблицы
-    FilesCount : cardinal; // Кол-во файлов
+    TableOffset : longword; // Смещение файловой таблицы
+    FilesCount : longword; // Кол-во файлов
   end;
 
   TTScriptEngineTablev3 = packed record
     FileName : array[1..21] of char; // Имя файла без расширения
     Ext : array[1..3] of char; // Расширение файла
-    FileOffset : cardinal; // Смещение относительно заголовка
-    UnpackedSize : cardinal; // Несжатый размер
-    PackedSize : cardinal; // Сжатый размер
+    FileOffset : longword; // Смещение относительно заголовка
+    UnpackedSize : longword; // Несжатый размер
+    PackedSize : longword; // Сжатый размер
     CryptFlag : byte;
     {
     0 - не пожато
@@ -67,10 +67,10 @@ type
   end;
 
   TTScriptEngine_Decode_Struct = packed record
-    lt_flag : cardinal;
-    lt_val : cardinal;
-    lt_dval : cardinal;
-    lt_mval : cardinal;
+    lt_flag : longword;
+    lt_val : longword;
+    lt_dval : longword;
+    lt_mval : longword;
   end;
 
   TResetArray = array[1..257] of word;
@@ -81,11 +81,11 @@ var
     arr2 : array[0..$101] of word;
     arr3 : array[0..$101] of word;
     mtf_arr : array[0..$FF] of byte;
-    bwt_arr : array of cardinal;
-    sign_1 : cardinal;
-    sign_2 : cardinal;
-    range : cardinal;
-    range_2 : cardinal;
+    bwt_arr : array of longword;
+    sign_1 : longword;
+    sign_2 : longword;
+    range : longword;
+    range_2 : longword;
     decode_struct : TTScriptEngine_Decode_Struct;
 
 const
@@ -131,7 +131,7 @@ end;
 function OA_PAK_TScriptEnginev3;
 var Header : TTScriptEngineHeader;
     Table : array of TTScriptEngineTablev3;
-    i : cardinal;
+    i : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;
@@ -164,7 +164,7 @@ function SA_PAK_TScriptEnginev3;
 var Header:TTScriptEngineHeader;
     Table : array of TTScriptEngineTablev3;
     DArray : array of byte;
-    i : cardinal;
+    i : longword;
     ext : String;
     ft : TFileTimes;
     dummy : array[1..$10] of char;
@@ -245,7 +245,7 @@ begin
 end;
 
 procedure TScriptEnginev3_decode;
-var input_begin, input_current : cardinal;
+var input_begin, input_current : longword;
     p : Pointer;
     packed_block, unpacked_block, unpacked_block_temp, next_word : word;
     b : byte;
@@ -327,7 +327,7 @@ begin
 end;
 
 procedure UpdateLookupTable;
-var temp2, edi_2, temp3 : cardinal;
+var temp2, edi_2, temp3 : longword;
     temp_cnt : integer;
 begin
   if decode_struct.lt_flag <> 0 then
@@ -381,7 +381,7 @@ end;
 
 function GetNextWord;
 var look1, tmp1, tmp2 : word;
-    mulres : cardinal;
+    mulres : longword;
 begin
   look1 := LookByte_1(InputStream);
   look1 := LookByte_2(look1);
@@ -408,8 +408,8 @@ begin
 end;
 
 function LookByte_1;
-var range_tmp : cardinal;
-    sign_tmp : cardinal;
+var range_tmp : longword;
+    sign_tmp : longword;
     b : byte;
 begin
   Result := 0;
@@ -433,7 +433,7 @@ begin
 end;
 
 function LookByte_2;
-var tmp, tmp2, tmp3 : cardinal;
+var tmp, tmp2, tmp3 : longword;
 begin
   tmp2 := divresult shr 3;
   tmp := arr1[tmp2];
@@ -473,8 +473,8 @@ begin
 end;
 
 procedure BWT;
-var tmparr : array of cardinal;
-    tmpblocksize, tmppos, tmp, tmp2 : cardinal;
+var tmparr : array of longword;
+    tmpblocksize, tmppos, tmp, tmp2 : longword;
     bindex : word;
     i : integer;
     b : byte;
@@ -504,7 +504,7 @@ begin
     OutputStream.Read(b,1);
     Dec(tmparr[b]);
     tmp := tmparr[b];
-    tmp2 := (i shl 8) + Cardinal(b);
+    tmp2 := (i shl 8) + longword(b);
     bwt_arr[tmp] := tmp2;
     Dec(i);
   end;

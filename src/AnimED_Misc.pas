@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Misc data & functions
@@ -73,7 +73,7 @@ begin
 end;
 
 function AE_GetFileTime(FileName : string) : TFileTimes; overload;
-var hl : cardinal;
+var hl : longword;
     Times : TFileTimes;
 begin
  hl := CreateFile(PAnsiChar(FileName),GENERIC_READ,0,nil,OPEN_EXISTING,FILE_ATTRIBUTE_READONLY,0);
@@ -83,7 +83,7 @@ begin
 end;
 
 function AE_GetFileTime(FileName : widestring) : TFileTimes; overload;
-var hl : cardinal;
+var hl : longword;
     Times : TFileTimes;
 begin
  hl := CreateFileW(PWideChar(FileName),GENERIC_READ,0,nil,OPEN_EXISTING,FILE_ATTRIBUTE_READONLY,0);

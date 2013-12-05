@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   moonStone's mts Archive and Format Functions
@@ -32,16 +32,16 @@ type
  TMTSHeader = packed record
    Magic : array[1..8] of char; // 'DATA$TOP'
    Dummy1 : array[1..$30] of char; // 0
-   FilesCount : cardinal; // нужно отнять единицу, ибо первая запись - заголовок
-   Dummy2 : cardinal; // 0
+   FilesCount : longword; // нужно отнять единицу, ибо первая запись - заголовок
+   Dummy2 : longword; // 0
  end;
  
  TMTSTable = packed record
    FileName : array[1..$30] of char;
-   Offset1  : cardinal; // смещение относительно FilesCount*$40 (o_O)
-   Offset2  : cardinal; // смещение относительно FilesCount*$40 (O_o)
-   FileSize : cardinal;
-   Dummy    : cardinal; // 0
+   Offset1  : longword; // смещение относительно FilesCount*$40 (o_O)
+   Offset2  : longword; // смещение относительно FilesCount*$40 (O_o)
+   FileSize : longword;
+   Dummy    : longword; // 0
  end;
 
 implementation
@@ -67,7 +67,7 @@ end;
 function OA_PAK_MTS;
 var Header : TMTSHeader;
     Table : array of TMTSTable;
-    i : cardinal;
+    i : longword;
 begin
  Result := False;
  ArchiveStream.Position := 0;
@@ -93,7 +93,7 @@ end;
 function SA_PAK_MTS;
 var Header : TMTSHeader;
     Table : array of TMTSTable;
-    i, curlen : cardinal;
+    i, curlen : longword;
 begin
  RecordsCount := AddedFiles.Count;
  FillChar(Header,sizeof(Header),0);

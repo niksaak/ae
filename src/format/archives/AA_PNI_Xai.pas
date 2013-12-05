@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Xai Puni Mo E~ru! archive format & functions
@@ -28,6 +28,8 @@ uses AA_RFA,
   function OA_PNI_Xai : boolean;
 //function SA_PNI_Xai(Mode : integer) : boolean;
 
+  function EA_PNI_Xai(FileRecord : TRFA) : boolean;
+
   function XaiLZDecode(iStream,oStream : TStream) : boolean;
 
 type
@@ -50,7 +52,7 @@ begin
   Stat := $F;
   Open := OA_PNI_Xai;
 //  Save := SA_PNI_Xai;
-  Extr := EA_RAW;
+  Extr := EA_PNI_Xai;
   FLen := 8;
   SArg := 0;
   Ver  := $20120304;
@@ -117,6 +119,26 @@ begin
 
 end;
 
+function EA_PNI_Xai;
+var tmpStream, unpStream : TStream;
+begin
+ Result := False;
+ if ((ArchiveStream <> nil) and (FileDataStream <> nil)) = True then try
+  ArchiveStream.Position := FileRecord.RFA_1;
+  tmpStream := TMemoryStream.Create;
+  tmpStream.CopyFrom(ArchiveStream,FileRecord.RFA_C);
+  tmpStream.Position := 0;
+  unpStream := TMemoryStream.Create;
+  if XaiLZDecode(tmpStream, unpStream) then begin
+   unpStream.Position := 0;
+   FileDataStream.CopyFrom(unpStream,unpStream.Size);
+  end else raise Exception.Create('XAI LZ extraction failed.');
+ finally
+  FreeAndNil(unpStream);
+  FreeAndNil(tmpStream);
+ end;
+ Result := True;
+end;
 
 function XaiLZDecode;
 var bt, e, q, inv : byte;

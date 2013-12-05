@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   ROOT archive format & functions
@@ -41,27 +41,27 @@ type
     Вроде как это флаг размера элемента файловой таблицы
     Если он == 5, то юзается TDataPack5Table, если нет, то TDataPack5Table_simple
   }
-  TableLen      : cardinal; // Размер сжатой файловой таблицы
+  TableLen      : longword; // Размер сжатой файловой таблицы
   {
     Вроде как если не указано, значит таблица не сжата
   }
-  Dummy2        : cardinal; // Нули
-  FilesCount    : cardinal; // Сабж
-  DataOffset    : cardinal; // Смещение начала данных (обычно, начиная с 0x800)
-  TableOffset   : cardinal; // Смещение начала таблицы
+  Dummy2        : longword; // Нули
+  FilesCount    : longword; // Сабж
+  DataOffset    : longword; // Смещение начала данных (обычно, начиная с 0x800)
+  TableOffset   : longword; // Смещение начала таблицы
  end;
 
   // Если TableElemFlag != 5 то юзать её
  TDataPack5Table_simple = packed record
   FileName      : array[1..$40] of char; // Снова Сабж
-  FOffset       : cardinal;              // Смещение начала файла от точки DataOffset
-  FSize         : cardinal;              // Размер файла
+  FOffset       : longword;              // Смещение начала файла от точки DataOffset
+  FSize         : longword;              // Размер файла
  end;
  
  TDataPack5Table = packed record
   FileData      : TDataPack5Table_simple;
-  Unk1          : cardinal; // Обычно 1
-  Unk2          : cardinal; // Обычно 1
+  Unk1          : longword; // Обычно 1
+  Unk2          : longword; // Обычно 1
   FileMetaData  : array[1..24] of byte; // хз чего
  end;
 
@@ -178,7 +178,7 @@ function SA_PAK_DataPack5;
 var i : integer;
     Header : TDataPack5Header;
     Table : array of TDataPack5Table_simple;
-    tsize, stringlen, dummysize : cardinal;
+    tsize, stringlen, dummysize : longword;
     DumymArr : array of byte;
 begin
  RecordsCount := AddedFiles.Count;

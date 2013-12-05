@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   Giga's TPF Archive
@@ -33,8 +33,8 @@ uses AA_RFA,
 type
   TGigaTPFHeader = packed record
     Magic : array[1..8] of char; //'TPF FILE'
-    Dummy : cardinal; // 0
-    FilesCount : cardinal;
+    Dummy : longword; // 0
+    FilesCount : longword;
   end;
 
   TGigaTPFTable = packed record
@@ -43,9 +43,9 @@ type
     EntityNum1 : byte; // порядковый номер записи, после $FF идёт 0 и по новой
     EntityNum2 : byte; // == EntityNum1
     CryptFlag : byte; // 1 - LZSS, 0 - нет
-    Offset : cardinal;
-    CryptedLen : cardinal; // для LZSS не юзается
-    UncryptedLen : cardinal;
+    Offset : longword;
+    CryptedLen : longword; // для LZSS не юзается
+    UncryptedLen : longword;
   end;
   {
   Существует хвостовая запись, учитывающаяся в FilesCount
@@ -77,7 +77,7 @@ end;
 function OA_TPF_Giga;
 var Header : TGigaTPFHeader;
     Table : array of TGigaTPFTable;
-    i : cardinal;
+    i : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;

@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Gleam of Force Archive Format
@@ -28,19 +28,19 @@ uses AA_RFA,
  function OA_DAT_GoF : boolean;
  function SA_DAT_GoF(Mode : integer) : boolean;
 
- procedure GoF_Table_obfuscator(stream : TStream; FilesCount : cardinal);
+ procedure GoF_Table_obfuscator(stream : TStream; FilesCount : longword);
  
 type
   TGofHeader = packed record
-    Magic : cardinal; // 1
-    FilesCount : cardinal; // поксорено на $E3DF59AC
+    Magic : longword; // 1
+    FilesCount : longword; // поксорено на $E3DF59AC
   end;
   {Размер элемента - $44 (68)}
 
   TGofTable = packed record
     FileName : Array[1..$3C] of char;
-    FileOffset : cardinal;
-    FileSize : cardinal;
+    FileOffset : longword;
+    FileSize : longword;
   end;
 
 implementation
@@ -64,7 +64,7 @@ begin
 end;
 
 procedure GoF_Table_obfuscator;
-var    i,j, ml : cardinal;
+var    i,j, ml : longword;
        bt : byte;
 begin
  for i:=1 to FilesCount do
@@ -88,7 +88,7 @@ end;
 function OA_DAT_GoF;
 var Header : TGofHeader;
     TableStream : TStream;
-    i : cardinal;
+    i : longword;
     FileName : Array[1..$3C] of char;
 begin
  Result := False;
@@ -119,7 +119,7 @@ end;
 function SA_DAT_GoF;
 var Header : TGofHeader;
     Table : TGofTable;
-    i, curlen: cardinal;
+    i, curlen: longword;
     TableStream : TStream;
 begin
  RecordsCount := AddedFiles.Count;

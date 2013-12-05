@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   illusion PP archive format & functions
@@ -47,10 +47,10 @@ type
   function SA_PP_illusion(Mode : integer) : boolean;
   function EA_PP_illusion(FileRecord : TRFA) : boolean;
 
- procedure PP_TableCrypt(iStream, oStream : TStream; Size : cardinal);
-// procedure PP_FileCrypt_v0(iStream, oStream : TStream; Size : cardinal);
-// procedure PP_FileCrypt_v1(iStream, oStream : TStream; Size : cardinal; Key : TKey8dw);
- procedure PP_FileCrypt_v3(iStream, oStream : TStream; Size : cardinal; Key : TKey8w);
+ procedure PP_TableCrypt(iStream, oStream : TStream; Size : longword);
+// procedure PP_FileCrypt_v0(iStream, oStream : TStream; Size : longword);
+// procedure PP_FileCrypt_v1(iStream, oStream : TStream; Size : longword; Key : TKey8dw);
+ procedure PP_FileCrypt_v3(iStream, oStream : TStream; Size : longword; Key : TKey8w);
 
 const
 // Key_AHMFull   : TKey8w  = ($717E,$0E78,$AFE7,$8FA7,$9E1F,$C5E3,$0008,$713A);
@@ -246,7 +246,7 @@ end;
 procedure PP_TableCrypt;
 var buf : array of byte;
     table : TKey16b;
-    i,p : cardinal;
+    i,p : longword;
 begin
  table := Key_AllTable;
 
@@ -267,7 +267,7 @@ end;
 procedure PP_FileCrypt_v3;
 var buf : array of word;
     KeyTable : TKey8w;
-    i : cardinal;
+    i : longword;
 begin
  KeyTable := Key;
 

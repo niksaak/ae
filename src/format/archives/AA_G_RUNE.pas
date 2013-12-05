@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Rune Soft archive format
@@ -33,27 +33,27 @@ uses AA_RFA,
 type
    TRuneHeader = packed record
      Magic : array[1..8] of char; // 'GML_ARC'#0
-     DataOffset : cardinal; // Начало данных
-     TableDecryptedLen : cardinal; // Размер расшифрованной таблицы
-     TableCryptedLen : cardinal; // Размер зашифрованной таблицы
+     DataOffset : longword; // Начало данных
+     TableDecryptedLen : longword; // Размер расшифрованной таблицы
+     TableCryptedLen : longword; // Размер зашифрованной таблицы
    end;
 
    TRuneTableHeader = packed record
      key : array[1..$100] of char; // Наверное, какой-то ключ
-     FileCount : cardinal; // кол-во файлов
+     FileCount : longword; // кол-во файлов
    end;
 {
    TRuneTable = packed record
-     NameLen : cardinal; // Длина имени. имя НЕ нуль терминировано
+     NameLen : longword; // Длина имени. имя НЕ нуль терминировано
      Name : string;
-     FOffset : cardinal; // Смещение относительно начала данных
-     FLength : cardinal; // Размер файла
+     FOffset : longword; // Смещение относительно начала данных
+     FLength : longword; // Размер файла
      sig : array[1..4] of char; // сигнатура файла
    end;}
 // Но мы не будем юзать эту структуру ибо мы её просто там не прочитаем
    TRunePartialTable = packed record
-     FOffset : cardinal; // Смещение относительно начала данных
-     FLength : cardinal; // Размер файла
+     FOffset : longword; // Смещение относительно начала данных
+     FLength : longword; // Размер файла
      sig : array[1..4] of char; // сигнатура файла
    end;
 // Остальное будет читаться отдельно. Всё равно из TMemoryStream же
@@ -84,7 +84,7 @@ var Header:TRuneHeader;
     THeader : TRuneTableHeader;
   stream, table_s : TStream;
     Table : TRunePartialTable;
-    i, j, NameLen : cardinal;
+    i, j, NameLen : longword;
 begin
  Result := False;
  with ArchiveStream do begin
@@ -167,8 +167,8 @@ function SA_G_Rune;
 var Header:TRuneHeader;
     THeader : TRuneTableHeader;
     stream, table_s : TStream;
-    i:cardinal;
-    len : cardinal;
+    i:longword;
+    len : longword;
     Table : TRunePartialTable;
 begin
  RecordsCount := AddedFiles.Count;

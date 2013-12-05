@@ -198,6 +198,11 @@ const current_version        = $069417; // current localisation version
       ACompTypeGenericLZSS   = $85; // 2013.03.09
 
       AUnknownFileType       = $86; // 2013.03.09
+      
+      WFileExistOverwrite    = $87; // 2013.12.05
+      WFileExistRename       = $88; // 2013.12.05
+      WFileExistSkip         = $89; // 2013.12.05
+      WFileExistAbort        = $8a; // 2013.12.05
 
       CCredits               = $F0; // 2010.08.01
       CIdea                  = $F1; // 2010.08.01
@@ -405,6 +410,11 @@ begin
 
  AMS[AImportedAsAlpha]      := 'imported as alpha.';
 
+ AMS[WFileExistOverwrite]   := 'File already exists. Overwriting...';
+ AMS[WFileExistRename]      := 'File already exists. Renaming...';
+ AMS[WFileExistSkip]        := 'File already exists. Skipping...';
+ AMS[WFileExistAbort]       := 'File already exists. Extraction aborted.';
+
  AMS[OInitializing]         := 'Initializing...';
  AMS[OExtracting]           := 'Extracting...';
  AMS[OConverting]           := 'Converting...';
@@ -422,8 +432,8 @@ begin
  AMS[CIncludes]             := '&bIncluded components && misc reference stuff';
  AMS[CSpecialThanks]        := '&bSpecial thanks to...';
 
- AMS[CAppMascotBy]          := 'Nepeta Leijon sprite by CountAile. Used with purrmission. :33'; // $FB; // 2012.12.03
- AMS[CAppMessage]           := ':33 < *the gorgeous cat monster pounces on unsuspecting prey*'; // $FD; // 2012.12.03
+ AMS[CAppMascotBy]          := 'Nepeta Leijon sprite by CountAile. Used with purrmission. :33'; // 2012.12.03
+ AMS[CAppMessage]           := ':33 < *the gorgeous cat monster pounces on unsuspecting prey*'; // 2012.12.03
 
  AMS[CContinued]            := 'To be continued! :)';
 

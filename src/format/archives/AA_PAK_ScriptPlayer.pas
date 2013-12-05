@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   "Game Script Player for Win32" by HyperWorks
@@ -31,19 +31,19 @@ uses AA_RFA,
 type
   TScriptPlayerHeader = packed record
     Magic : array[1..4] of char; //'pack'
-    TableSize : cardinal; // размер файловой таблицы
+    TableSize : longword; // размер файловой таблицы
   end;
 
 {  TScriptPlayerTable = packed record
-    FOffset : cardinal;
-    FLength : cardinal;
+    FOffset : longword;
+    FLength : longword;
     NameLen : byte;
     FName : string;
   end;} // Настоящий элемент таблицы
 
   TScriptPlayerPartialTable = packed record
-    FOffset : cardinal;
-    FLength : cardinal;
+    FOffset : longword;
+    FLength : longword;
   end;
 
 implementation
@@ -69,7 +69,7 @@ end;
 function OA_PAK_ScriptPlayer;
 var Header : TScriptPlayerHeader;
     Table : TScriptPlayerPartialTable;
-    skip : cardinal;
+    skip : longword;
     NameLen : byte;
     stream : TStream;
 begin
@@ -112,7 +112,7 @@ end;
 function SA_PAK_ScriptPlayer;
 var Header : TScriptPlayerHeader;
     Table : TScriptPlayerPartialTable;
-    i : cardinal;
+    i : longword;
     NameLen : byte;
     stream : TStream;
     Dummy : array[0..7] of byte;

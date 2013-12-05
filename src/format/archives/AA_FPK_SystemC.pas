@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   INTERHEART's SystemC
@@ -33,24 +33,24 @@ uses AA_RFA,
 
 type
  TSystemCTable = packed record
-   Offset : cardinal;
-   Size : cardinal;
+   Offset : longword;
+   Size : longword;
    FileName : array[1..$18] of char;
  end;
 
  TSystemCSecretTable = packed record
    TableElem : TSystemCTable;
-   unk : cardinal;
+   unk : longword;
  end;
 
  TSystemCSecretDescriptor = packed record
-   key : cardinal;
-   TableOffset : cardinal;
+   key : longword;
+   TableOffset : longword;
  end;
 
  TSystemCZLC2Header = packed record
    Magic : array[1..4] of char;
-   UpackedSize : cardinal;
+   UpackedSize : longword;
  end;
 
 implementation
@@ -79,7 +79,7 @@ var filesCouns : integer;
     STable : array of TSystemCSecretTable;
     Secret : TSystemCSecretDescriptor;
     stream : TStream;
-    work, i : cardinal;
+    work, i : longword;
     ZLC2 : TSystemCZLC2Header;
 begin
  Result := False;
@@ -179,7 +179,7 @@ end;
 
 function SA_FPK_SystemC;
 var Table : array of TSystemCTable;
-    i, curlen : cardinal;
+    i, curlen : longword;
 begin
  RecordsCount := AddedFiles.Count;
  SetLength(Table,RecordsCount);

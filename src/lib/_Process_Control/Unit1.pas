@@ -1,11 +1,3 @@
-{
-  AE - VN Tools
-  © 2007-2013 WinKiller Studio & The Contributors.
-  This software is free. Please see license for details.
-
-  Process Memory Reader test unit
-  Written by Nik.
-}
 unit Unit1;
 
 interface
@@ -36,7 +28,7 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 var list : TStringList;
-    i : cardinal;
+    i : longword;
 begin
   if pc = nil then pc := TProcessControl.Create;
   pc.Refresh;
@@ -51,7 +43,7 @@ end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 var stream : TStream;
-    i : cardinal;
+    i : longword;
 begin
   for i := 0 to ListBox1.Count-1 do
   begin

@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Touhou series archive code and functions
@@ -36,16 +36,16 @@ type
 
 	TTouhou7Header = packed record
 	  Magic : array[1..4] of char;
-	  FilesCount : cardinal;
-	  TableOffset : cardinal;
-	  TableUnpackedSize : cardinal;
+	  FilesCount : longword;
+	  TableOffset : longword;
+	  TableUnpackedSize : longword;
 	end;
 	
 	TTouhou7Table = packed record
 	// FileName : string; // нуль терминированная строка
-	  Offset : cardinal;
-	  Size : cardinal;
-	  Flags : cardinal;
+	  Offset : longword;
+	  Size : longword;
+	  Flags : longword;
 	end;
 
 implementation
@@ -72,7 +72,7 @@ function OA_DAT_Touhou7;
 var Header : TTouhou7Header;
     Table : TTouhou7Table;
     stream, tablestream : TStream;
-    i, entrypos : cardinal;
+    i, entrypos : longword;
     buf : array[1..$50] of char;
 begin
  Result := false;

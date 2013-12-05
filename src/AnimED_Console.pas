@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2013 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   Console unit
@@ -103,7 +103,7 @@ begin
 // ComParts := TStringList.Create;
 
 {var str1, str2 : string;
-      beginoffset, length : cardinal
+      beginoffset, length : longword
 ...
 SetLength(str2,length);
 CopyMemory(@str2[1],@str1[beginoffset],length); }

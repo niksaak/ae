@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   IKURA GDL Image Formats library
@@ -378,7 +378,7 @@ begin
 end;
 
 function Decode_GGD;
-var TmpPosition, i : cardinal;
+var TmpPosition, i : longword;
     ctrlbyte : byte;
     buf : array[0..7] of byte;
 begin

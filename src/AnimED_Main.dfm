@@ -1,6 +1,6 @@
 object MainForm: TMainForm
-  Left = 271
-  Top = 192
+  Left = 404
+  Top = 243
   Width = 675
   Height = 623
   AlphaBlend = True
@@ -34,7 +34,7 @@ object MainForm: TMainForm
     Top = 8
     Width = 649
     Height = 513
-    ActivePage = TS_About
+    ActivePage = TS_Archiver
     Anchors = [akLeft, akTop, akRight, akBottom]
     MultiLine = True
     Style = tsButtons
@@ -261,30 +261,34 @@ object MainForm: TMainForm
             DesignSize = (
               633
               358)
-            object GB_ArchiveCreation: TGroupBox
+            object GB_ArchiveAndFileWriting: TGroupBox
               Left = 8
               Top = 192
               Width = 617
               Height = 152
               Anchors = [akLeft, akTop, akRight, akBottom]
-              Caption = ' Archive creation '
+              Caption = ' Archive and file writing '
               TabOrder = 0
               DesignSize = (
                 617
                 152)
               object GB_ArchiveAddingMethod: TGroupBox
-                Left = 8
+                Left = 312
                 Top = 16
-                Width = 601
-                Height = 73
+                Width = 297
+                Height = 121
                 Anchors = [akLeft, akTop, akRight]
                 Caption = ' Default adding files method '
                 TabOrder = 0
+                DesignSize = (
+                  297
+                  121)
                 object RB_Arc_Files: TRadioButton
                   Left = 8
-                  Top = 16
+                  Top = 19
                   Width = 281
-                  Height = 13
+                  Height = 22
+                  Anchors = [akLeft, akTop, akRight]
                   Caption = 'Get from files (2500 max)'
                   Checked = True
                   TabOrder = 0
@@ -293,21 +297,75 @@ object MainForm: TMainForm
                 end
                 object RB_Arc_Directory: TRadioButton
                   Left = 8
-                  Top = 34
+                  Top = 45
                   Width = 281
-                  Height = 13
+                  Height = 20
+                  Anchors = [akLeft, akTop, akRight]
                   Caption = 'Get from directory'
                   TabOrder = 1
                   WordWrap = True
                 end
                 object RB_Arc_List: TRadioButton
                   Left = 8
-                  Top = 53
+                  Top = 71
                   Width = 281
-                  Height = 13
+                  Height = 18
+                  Anchors = [akLeft, akTop, akRight]
                   Caption = 'Get from list'
                   TabOrder = 2
                   WordWrap = True
+                end
+              end
+              object GB_ArcFileOverwritingMode: TGroupBox
+                Left = 8
+                Top = 16
+                Width = 297
+                Height = 121
+                Caption = ' File overwriting mode '
+                TabOrder = 1
+                DesignSize = (
+                  297
+                  121)
+                object RB_ArcFileExtrOverwrite: TRadioButton
+                  Left = 8
+                  Top = 16
+                  Width = 281
+                  Height = 25
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = 'Overwrite existant'
+                  Checked = True
+                  TabOrder = 0
+                  TabStop = True
+                  WordWrap = True
+                end
+                object RB_ArcFileExtrRename: TRadioButton
+                  Left = 8
+                  Top = 40
+                  Width = 281
+                  Height = 25
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = 'Rename new file by adding index at the end'
+                  TabOrder = 1
+                  WordWrap = True
+                end
+                object RB_ArcFileExtrSkip: TRadioButton
+                  Left = 8
+                  Top = 64
+                  Width = 281
+                  Height = 25
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = 'Skip for existant files'
+                  TabOrder = 2
+                  WordWrap = True
+                end
+                object RB_ArcFileExtrAbort: TRadioButton
+                  Left = 8
+                  Top = 88
+                  Width = 281
+                  Height = 25
+                  Anchors = [akLeft, akTop, akRight]
+                  Caption = 'Abort extraction'
+                  TabOrder = 3
                 end
               end
             end
@@ -315,13 +373,13 @@ object MainForm: TMainForm
               Left = 8
               Top = 16
               Width = 617
-              Height = 169
+              Height = 89
               Anchors = [akLeft, akTop, akRight]
               Caption = ' Archive loading and saving '
               TabOrder = 1
               DesignSize = (
                 617
-                169)
+                89)
               object CB_ArchiveListHumanReadable: TCheckBox
                 Left = 8
                 Top = 16
@@ -359,39 +417,39 @@ object MainForm: TMainForm
                 TabOrder = 2
                 WordWrap = True
               end
-              object GB_ArchiveHiddenScan: TGroupBox
+            end
+            object GB_ArchiveHiddenScan: TGroupBox
+              Left = 8
+              Top = 112
+              Width = 617
+              Height = 73
+              Anchors = [akLeft, akTop, akRight]
+              Caption = ' Hidden archive metadata scanning '
+              TabOrder = 2
+              DesignSize = (
+                617
+                73)
+              object CB_HiddenDataAutoscanAsk: TCheckBox
                 Left = 8
-                Top = 88
+                Top = 40
                 Width = 601
-                Height = 73
+                Height = 25
                 Anchors = [akLeft, akTop, akRight]
-                Caption = ' Hidden archive metadata scanning '
-                TabOrder = 3
-                DesignSize = (
-                  601
-                  73)
-                object CB_HiddenDataAutoscanAsk: TCheckBox
-                  Left = 8
-                  Top = 40
-                  Width = 585
-                  Height = 25
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Ask for user'#39's confirmation before performing the action'
-                  Checked = True
-                  State = cbChecked
-                  TabOrder = 0
-                  WordWrap = True
-                end
-                object CB_HiddenDataAutoscan: TCheckBox
-                  Left = 8
-                  Top = 16
-                  Width = 585
-                  Height = 25
-                  Anchors = [akLeft, akTop, akRight]
-                  Caption = 'Enable autoscan and recover on loading'
-                  TabOrder = 1
-                  WordWrap = True
-                end
+                Caption = 'Ask for user'#39's confirmation before performing the action'
+                Checked = True
+                State = cbChecked
+                TabOrder = 0
+                WordWrap = True
+              end
+              object CB_HiddenDataAutoscan: TCheckBox
+                Left = 8
+                Top = 16
+                Width = 601
+                Height = 25
+                Anchors = [akLeft, akTop, akRight]
+                Caption = 'Enable autoscan and recover on loading'
+                TabOrder = 1
+                WordWrap = True
               end
             end
           end
@@ -3456,7 +3514,7 @@ object MainForm: TMainForm
     object G_Progress: TGauge
       Tag = -1
       Left = 16
-      Top = 36
+      Top = 28
       Width = 638
       Height = 11
       Hint = 'Group archive operations progress indicator'

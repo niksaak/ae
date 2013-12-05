@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2013 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   HTML generators
@@ -75,7 +75,7 @@ var HTMLList : TStringsW;
     i : integer;
     ProcAddr, ProcAddrRAW : longword;
 begin
- ProcAddrRAW := Cardinal(@EA_RAW);
+ ProcAddrRAW := longword(@EA_RAW);
 
  HTMLList := TStringsW.Create;
 
@@ -105,7 +105,7 @@ begin
    Add('</td><td>');
    Add(ArcStat[Stat]);
    Add('</td><td>');
-   ProcAddr := Cardinal(@Extr);
+   ProcAddr := longword(@Extr);
    if ProcAddr <> ProcAddrRAW then Add('Custom') else Add('RAW');
    Add('</td><td>');
    Add(AEGetDate(Ver,True));

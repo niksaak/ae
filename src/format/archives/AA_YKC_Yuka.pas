@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Yuka Compiller archive format
@@ -31,18 +31,18 @@ uses AA_RFA,
 type
   TYukaHeader = packed record
     Magic       : array[1..8] of char; //YKC001#0#0
-    Unk1        : cardinal; //$18 по всем архивам
-    Dummy       : cardinal; //Нуль десу
-    TableOffset : cardinal; //Смещение файловой таблицы
-    TableLen    : cardinal; //Длина файловой таблицы
+    Unk1        : longword; //$18 по всем архивам
+    Dummy       : longword; //Нуль десу
+    TableOffset : longword; //Смещение файловой таблицы
+    TableLen    : longword; //Длина файловой таблицы
   end;
 
   TYukaTable = packed record
-    NameOffset    : cardinal; //Смещение имени (ужснахъ, как это потом читать >_<)
-    NameLen       : cardinal; //Длина имени. Имя нуль-терминировано
-    FileOffset    : cardinal; //Смещение файла
-    FileLen       : cardinal; //Длина файла
-    MysteryNumber : cardinal; //Вообще, везде нуль
+    NameOffset    : longword; //Смещение имени (ужснахъ, как это потом читать >_<)
+    NameLen       : longword; //Длина имени. Имя нуль-терминировано
+    FileOffset    : longword; //Смещение файла
+    FileLen       : longword; //Длина файла
+    MysteryNumber : longword; //Вообще, везде нуль
     // Но знаю я японцев, а также здравый смысл. Неспроста оно тут, неспроста 
   end;
 
@@ -70,7 +70,7 @@ function OA_YKC_Yuka;
 var Header : TYukaHeader;
     Table : Array of TYukaTable;
     stream : TStream;
-    i, MinNameOffset, NamesLen : cardinal;
+    i, MinNameOffset, NamesLen : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;
@@ -122,7 +122,7 @@ function SA_YKC_Yuka;
 var Header : TYukaHeader;
     Table : Array of TYukaTable;
     stream : TStream;
-    i, CurLen : cardinal;
+    i, CurLen : longword;
 begin
  RecordsCount := AddedFiles.Count;
  Header.Magic := 'YKC001'#0#0;

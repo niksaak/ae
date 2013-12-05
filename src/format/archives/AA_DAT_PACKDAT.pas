@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   PACKDAT archive format & functions
@@ -205,7 +205,7 @@ end;
 
 function EA_DAT_PACKDAT;
 var tmpStream : TStream;
-   CryptFlags : cardinal;
+   CryptFlags : longword;
 begin
  Result := False;
  ArchiveStream.Position := FileRecord.RFA_1;
@@ -232,7 +232,7 @@ end;
 
 procedure DatDecrypt;
 var SizeD: Longint;
-    data, CryptKey : cardinal;
+    data, CryptKey : longword;
 begin
  if (CryptFlags and $FFFFFF) <> 0 then begin
   if (CryptFlags and $010000) <> 0 then begin
@@ -257,7 +257,7 @@ end;
 
 procedure DatEncrypt;
 var SizeD: Longint;
-    data, tdata, CryptKey : cardinal;
+    data, tdata, CryptKey : longword;
 begin
  if (CryptFlags and $FFFFFF) <> 0 then begin
   if (CryptFlags and $010000) <> 0 then begin

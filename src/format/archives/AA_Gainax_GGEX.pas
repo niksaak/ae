@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   GAiNAX G2 engine archive format and functions
@@ -32,33 +32,33 @@ type
 // адреса по взломанному exe PM4 корейской версии
 	TGainaxGCEXHeader = packed record
 	  Magic : array[1..4] of char; // 'GCEX'
-	  Unk1 : cardinal; // проверка 0/не 0 (0x4С86020) | 0 
-	  TableOffset : cardinal; // смещение начала файловой таблицы
-	  Unk2 : cardinal; // берётся по 0x4C8659 и далее хз чего XD | 0 
+	  Unk1 : longword; // проверка 0/не 0 (0x4С86020) | 0 
+	  TableOffset : longword; // смещение начала файловой таблицы
+	  Unk2 : longword; // берётся по 0x4C8659 и далее хз чего XD | 0 
 	end;
 	
 	TGainaxGCE3TableHeader = packed record
 	  Magic : array[1..4] of char; // 'GCE3' (также бывает GCE0 и GCE1 (0x4C86A0))
     // к слову - в Aster GCE1
-	  Unk1 : cardinal;// | 0 
+	  Unk1 : longword;// | 0 
 	  {
 		Для этого числа сохраняются значения (0x4C8052)
 			and $10
 			(shr 8) and 1
 			and $20
 	  }
-	  Size : cardinal; // размер таблицы
-	  Unk2 : cardinal; // Это значение проверяется (0x4C807A) и делаются джампы | 0
-	  Unk3 : cardinal; // | 0
-	  Hash : cardinal; // вычисляется по функции Gainax_Hash
-	  FilesCount : cardinal; // количество файлов
-	  Unk4 : cardinal; // | 0
+	  Size : longword; // размер таблицы
+	  Unk2 : longword; // Это значение проверяется (0x4C807A) и делаются джампы | 0
+	  Unk3 : longword; // | 0
+	  Hash : longword; // вычисляется по функции Gainax_Hash
+	  FilesCount : longword; // количество файлов
+	  Unk4 : longword; // | 0
 	end;
 	
 	TGainaxGCE3Table = packed record
 	  Data1 : Int64; // ?  0x4C8E27 (после этого нигде не юзается, так что можно занулить найух)
-	  dwLowDateTime : cardinal; //   0x4c8f8a а потом 0x498250
-    dwHighDateTime : cardinal;
+	  dwLowDateTime : longword; //   0x4c8f8a а потом 0x498250
+    dwHighDateTime : longword;
 	  Size1 : Int64;// скорее всего, это неупакованный
 	  Size2 : Int64;// и укакованный размеры (вроде бы именно в таком порядке см. 0x4C7740)
 	end;
@@ -91,7 +91,7 @@ var Header : TGainaxGCEXHeader;
     THeader : TGainaxGCE3TableHeader;
     Table : array of TGainaxGCE3Table;
     NameLen : word;
-    i, UO : cardinal;
+    i, UO : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;
@@ -115,13 +115,13 @@ begin
 {*}Progress_Pos(i);
    if Table[i-1].Size1 = Table[i-1].Size2 then
    begin
-     RFA[i].RFA_C := Cardinal(Table[i-1].Size1);
-     RFA[i].RFA_2 := Cardinal(Table[i-1].Size1);
+     RFA[i].RFA_C := longword(Table[i-1].Size1);
+     RFA[i].RFA_2 := longword(Table[i-1].Size1);
    end
    else
    begin
-     RFA[i].RFA_C := Cardinal(Table[i-1].Size2);
-     RFA[i].RFA_2 := Cardinal(Table[i-1].Size1);
+     RFA[i].RFA_C := longword(Table[i-1].Size2);
+     RFA[i].RFA_2 := longword(Table[i-1].Size1);
      RFA[i].RFA_Z := true;
      RFA[i].RFA_X := $7F; // неизвестная функция
    end;
@@ -143,8 +143,8 @@ var Header : TGainaxGCEXHeader;
     Table : TGainaxGCE3Table;
     stream : TStream;
     NameLen : word;
-    Hash, i : cardinal;
-//    hl : cardinal;
+    Hash, i : longword;
+//    hl : longword;
 //    T1, T2, T3 : FileTime;
     Times : TFileTimes;
 begin

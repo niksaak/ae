@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   TeethingRing5 Image Format library
@@ -23,17 +23,17 @@ procedure IG_TR5(var ImFormat : TImageFormats);
 
 type
  TTeethingRing5GraphicHeader = packed record
-   Magic : cardinal; // $40000
-   CryptedSize : cardinal;
-   DecryptedSize : cardinal;
-   DataOffset : cardinal;
-   Dummy : cardinal; // 0
-   Width : cardinal;
-   Height : cardinal;
-   BPP : cardinal;
-   Flag : cardinal; // $0 обычно или $F для спрайтов персонажей
-   id1 : cardinal; // используется для спрайтов персонажей
-   id2 : cardinal; // используется для спрайтов персонажей
+   Magic : longword; // $40000
+   CryptedSize : longword;
+   DecryptedSize : longword;
+   DataOffset : longword;
+   Dummy : longword; // 0
+   Width : longword;
+   Height : longword;
+   BPP : longword;
+   Flag : longword; // $0 обычно или $F для спрайтов персонажей
+   id1 : longword; // используется для спрайтов персонажей
+   id2 : longword; // используется для спрайтов персонажей
  end;
 
 implementation

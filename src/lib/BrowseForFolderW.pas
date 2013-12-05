@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  (c) 2010-2013 WinKiller Studio & The Contributors.
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   BrowseForFolder - Widestring Version

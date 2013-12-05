@@ -437,7 +437,7 @@ end;
 
 procedure TGrapSForm.TS_Graps_ProcessListShow(Sender: TObject);
 var list : TStringList;
-    i : cardinal;
+    i : longword;
 begin
  if pc = nil then pc := TProcessControl.Create;
  pc.Refresh;
@@ -451,7 +451,7 @@ begin
 end;
 
 procedure TGrapSForm.B_Graps_CopyProcMemClick(Sender: TObject);
-var i, j : cardinal;
+var i, j : longword;
 begin
  if LB_Graps_ProcessList.ItemIndex <> -1 then begin
 
