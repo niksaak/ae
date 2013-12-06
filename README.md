@@ -12,13 +12,15 @@ It includes:
 * GrapS - RAW image data reader
 * Data processing tool
 
+Online manual: http://wks.arai-kibou.ru/ae.php?p=docu
+
 ## How to compile:
 
 Install the following visual design components:
 
-src/lib/_jiskit/Unicode components/jiskit_tlabelw.dpk <br />
-src/lib/_jiskit/Unicode dialogs/jiskit_udialogs.dpk <br />
-src/lib/credits/credits.pas <br />
+src/lib/_jiskit/Unicode components/jiskit_tlabelw.dpk
+src/lib/_jiskit/Unicode dialogs/jiskit_udialogs.dpk
+src/lib/credits/credits.pas
 src/lib/PercentCube.pas
 
 Next, open /src/AnimEd.dpr.
