@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Majiro archive format & functions
@@ -36,7 +36,7 @@ uses AnimED_Console,
   function SA_ARC_Majiro(Mode : integer) : boolean;
 
 // функция генерации архива должна быть построена так, что файлы в нём расположены в порядке возрастания хешей
-//  function MajiroV1_hash(filename : string) : cardinal;
+//  function MajiroV1_hash(filename : string) : longword;
 
 type
 { Majiro archive structural description }
@@ -414,8 +414,8 @@ begin
 end;
 
 {function MajiroV1_Hash;
-var ind, temp, bnumber, len : cardinal;
-    numbers : array of cardinal;
+var ind, temp, bnumber, len : longword;
+    numbers : array of longword;
     bt : byte;
 begin
  // нужно переместить генерацию массива за эту функцию, так как этот массив постоянен
@@ -428,7 +428,7 @@ begin
  end;
  bnumber := $FFFFFFFF;
  for len := 1 to Length(filename) do begin
-  temp := (bnumber and $FF) xor Cardinal(Byte(filename[len]));
+  temp := (bnumber and $FF) xor longword(Byte(filename[len]));
   bnumber := (bnumber shr 8) xor numbers[temp];
  end;
  Result := not bnumber;

@@ -1,6 +1,6 @@
 {
-  AnimED - Visual Novel Tools
-  Copyright © 2007-2011 WinKiller Studio. Open Source.
+  AE - VN Tools
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   LZ/LZSS/LZ77 generic library
@@ -35,7 +35,7 @@ TBitstream = class
   public
     constructor Create;
     function GetBit(Stream : TStream) : byte;
-    function GetBits(Stream : TStream; Count : integer) : cardinal;
+    function GetBits(Stream : TStream; Count : integer) : longword;
 end;
 
 //äëÿ cel
@@ -71,7 +71,7 @@ function ZLC2Decode(InputStream, OutputStream : TStream) : boolean;
 function ZLDecode(InputStream, OutputStream : TStream) : boolean;
 
 { Primary written for Touhou archives decoding }
-function ZunLZSSDecode(InputStream, OutputStream : TStream; ol : cardinal = 0) : boolean;
+function ZunLZSSDecode(InputStream, OutputStream : TStream; ol : longword = 0) : boolean;
 
 implementation
 
@@ -94,7 +94,7 @@ end;
 function GLZSSEncode2;
 var cbyte, msize : byte;
     buffer       : int64;
-    dsize, i     : cardinal;
+    dsize, i     : longword;
 begin
 
  cbyte := $FF;
@@ -467,9 +467,9 @@ end;
 function GCLZ77Decode_2;
 var
 	bt, bt2, lzbyte : byte;
-	dec_from_ptr, count_1, i : cardinal;
+	dec_from_ptr, count_1, i : longword;
 	readword : word;
-	begin_position, point, buffer : cardinal;
+	begin_position, point, buffer : longword;
 	arr : array[0..2047] of byte;
 begin
 	buffer := 2048;
@@ -501,7 +501,7 @@ begin
 			begin
         dec_from_ptr := 0;
         InputStream.Read(dec_from_ptr,1);
-        dec_from_ptr := (cardinal(bt and $1F) shl 8 ) or dec_from_ptr;
+        dec_from_ptr := (longword(bt and $1F) shl 8 ) or dec_from_ptr;
         InputStream.Read(bt2,1);
         if bt2 = 254 then
         begin
@@ -516,7 +516,7 @@ begin
         end
         else
         begin
-          count_1 := Cardinal(bt2) + 4;
+          count_1 := longword(bt2) + 4;
         end;
 			end;
 			count_1 := count_1 + 3;
@@ -581,9 +581,9 @@ end;
 function GCLZ77Decode;
 var
 	bt, bt2, bt3, lzbyte : byte;
-	dec_from_ptr, count_1, i : cardinal;
+	dec_from_ptr, count_1, i : longword;
 	readword : word;
-	begin_position, point, buffer : cardinal;
+	begin_position, point, buffer : longword;
 	arr : array[0..2047] of byte;
 begin
 	buffer := 2048;
@@ -690,7 +690,7 @@ function ZLDecode(InputStream, OutputStream : TStream) : boolean;
 var header : TZLHeader;
     compressed_size, dec_count, i, iterations_count, oldpos : longword;
     bb, uprbit_counter, uprbyte : byte;
-    pos : cardinal;
+    pos : longword;
     w : word;
 begin
  result := False;
@@ -751,7 +751,7 @@ end;
 function ZLC2Decode;
 var compressed_size, dec_count, i, iterations_count, oldpos : longword;
     bb, uprbit_counter, uprbyte : byte;
-    pos : cardinal;
+    pos : longword;
     w1, w2 : byte;
 begin
 // result := False;
@@ -778,7 +778,7 @@ begin
   inc(pos,2);
   iterations_count := w2 and $0F;
   inc(iterations_count,3);
-  dec_count:=((Cardinal(w2) and $F0) shl 4) or w1;
+  dec_count:=((longword(w2) and $F0) shl 4) or w1;
   OutputStream.Seek(OutputStream.Position-dec_count,soFromBeginning);
   for i:=1 to iterations_count do begin
    OutputStream.Read(bb,sizeof(bb));
@@ -797,7 +797,7 @@ begin
 end;
 
 function ZunLZSSDecode;
-var db, ds, do_, oo, c, bt, dr, dc : cardinal;
+var db, ds, do_, oo, c, bt, dr, dc : longword;
     d : array[0..8191] of byte;
     bsr : TBitstream;
 begin
@@ -865,7 +865,7 @@ begin
 end;
 
 function TBitstream.GetBits;
-var lmask : cardinal;
+var lmask : longword;
     outbit : byte;
 begin
   Result := 0;

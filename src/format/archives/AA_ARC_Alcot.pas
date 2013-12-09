@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Alcot games ARC archive format & functions
@@ -26,24 +26,24 @@ uses AA_RFA,
 type
   TAlcotHeader = packed record
     Magic : array[1..4] of char; // 'ARC'#26
-    ExtCount : cardinal; // кол-во расширений
-    FilesCount : cardinal; // кол-во файлов (64 байта на запись)
-    CryptedTable : cardinal; // сжатый размер таблицы (включая заголовок)
+    ExtCount : longword; // кол-во расширений
+    FilesCount : longword; // кол-во файлов (64 байта на запись)
+    CryptedTable : longword; // сжатый размер таблицы (включая заголовок)
   end;
 
   TAlcotTableHeader = packed record
-    Hash : cardinal; // Вычисляется по функции Gainax_Hash, заголовок НЕ включается
-    Size1 : cardinal; // Размер первой части
-    Size2 : cardinal; // Размер второй части
-    Size3 : cardinal; // Размер третьей части
-    DecryptedSize : cardinal; // == FilesCount*$40
+    Hash : longword; // Вычисляется по функции Gainax_Hash, заголовок НЕ включается
+    Size1 : longword; // Размер первой части
+    Size2 : longword; // Размер второй части
+    Size3 : longword; // Размер третьей части
+    DecryptedSize : longword; // == FilesCount*$40
   end;
 
   TAlcotTable = packed record
-    Offset : cardinal; // Относительно конца таблицы
-    Size : cardinal; // сабж
-    Hash : cardinal; // он ли?
-    Dummy : cardinal; // =0
+    Offset : longword; // Относительно конца таблицы
+    Size : longword; // сабж
+    Hash : longword; // он ли?
+    Dummy : longword; // =0
     FileName : array[1..$30] of char; // снова сабж
   end;
 
@@ -80,7 +80,7 @@ var Header : TAlcotHeader;
     THeader : TAlcotTableHeader;
     exts : array[1..$20] of char;
     stream, dstream : TStream;
-    i, Base : cardinal;
+    i, Base : longword;
     TableArray : array of TAlcotTable;
 begin
  Result := false;
@@ -123,7 +123,7 @@ end;
 function Alcot_DecodeTable;
 var bt, wb : byte;
     ww, ww2 : word;
-    PosBlock1, PosBlock2, PosBlock3, CPos : cardinal;
+    PosBlock1, PosBlock2, PosBlock3, CPos : longword;
     arr : array of byte;
 begin
   Result := nil;
@@ -178,7 +178,7 @@ var Header : TAlcotHeader;
     cexts : array of string;
     curext : string;
     stream, dstream, namesstr : TStream;
-    i, elen, celen, ind, work : cardinal;
+    i, elen, celen, ind, work : longword;
     extadd : boolean;
     TableArray : array of TAlcotTable;
 begin

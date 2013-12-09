@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Used in Lilim games
@@ -32,15 +32,15 @@ uses AA_RFA,
 type
 
   TLilimHeader = packed record
-   Dummy     : cardinal; // 0, одновременно выступает за magic
-   HeadSize  : cardinal; // Размер заголовка + таблица
-   TableSize : cardinal; // Размер таблицы
+   Dummy     : longword; // 0, одновременно выступает за magic
+   HeadSize  : longword; // Размер заголовка + таблица
+   TableSize : longword; // Размер таблицы
   end;
 
   TLilimTable = packed record
    FileName  : array[1..$20] of char;
-   Offset    : cardinal; // относительно HeadSize
-   FileSize  : cardinal;
+   Offset    : longword; // относительно HeadSize
+   FileSize  : longword;
   end;
 
 implementation
@@ -66,7 +66,7 @@ end;
 function OA_AOS_Lilim;
 var Header : TLilimHeader;
     Table : array of TLilimTable;
-    i : cardinal;
+    i : longword;
 begin
  Result := False;
 
@@ -109,7 +109,7 @@ end;
 function SA_AOS_Lilim;
 var Header : TLilimHeader;
     Table : array of TLilimTable;
-    len, len2, i : cardinal;
+    len, len2, i : longword;
     FileName, FileNamew : string;
 begin
  RecordsCount := AddedFiles.Count;

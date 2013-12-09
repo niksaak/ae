@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Groover (Green Green) engine archive functons
@@ -32,23 +32,23 @@ type
 
 	TGROOVERMainHeader = packed record
 	  Magic : array[1..4] of char; // 'ARC1'
-	  Mode : cardinal; // <>1 (определяет кол-во файлов) для архивов скриптов (mode 0),  1 для остальных (mode 1)
+	  Mode : longword; // <>1 (определяет кол-во файлов) для архивов скриптов (mode 0),  1 для остальных (mode 1)
 	end;
 	
 	TGROOVERMode1Header = packed record
 	  Magic : array[1..4] of char; // 'DATA'
-	  TableOffset : cardinal; // относительное смещение файловой таблицы (нужно прибавить 0x10)
+	  TableOffset : longword; // относительное смещение файловой таблицы (нужно прибавить 0x10)
 	end;
 	
 	TGROOVERMode1TableHeader = packed record
 	  Magic : array[1..4] of char; // 'HEAD'
-	  TableLength : cardinal; // размер файловой таблицы
+	  TableLength : longword; // размер файловой таблицы
 	end;
 	
 	TGROOVERMode1Table = packed record
 	  Filename : array[1..$108] of char;
-	  Length : cardinal;
-	  Offset : cardinal;
+	  Length : longword;
+	  Offset : longword;
 	  DateTimes : TFileTimes;
 	end;
 
@@ -77,7 +77,7 @@ var Header : TGROOVERMainHeader;
     SHeader : TGROOVERMode1Header;
     THeader : TGROOVERMode1TableHeader;
     Table : array of TGROOVERMode1Table;
-    i : cardinal;
+    i : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;

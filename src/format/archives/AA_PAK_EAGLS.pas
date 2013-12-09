@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Tech-Arts [E]nhanced [A]dventure [G]ame [L]anguage [S]ystem archive format & functions
@@ -30,7 +30,7 @@ uses AA_RFA,
   function OA_PAK_EAGLS2011 : boolean;
   function SA_PAK_EAGLS2011(Mode : integer) : boolean;
 
- procedure IDX_XOR(Input, Output : TStream; BeginNumber, Len : cardinal; DecryptKey : string);
+ procedure IDX_XOR(Input, Output : TStream; BeginNumber, Len : longword; DecryptKey : string);
 
 type
  TIDXDir = packed record
@@ -85,7 +85,7 @@ end;
 
 
 function OA_PAK_EAGLS;
-var i : integer; j : cardinal;
+var i : integer; j : longword;
     Dir : TIDXDir;
     DIRStream, tmpStream : TStream;
 const PAK_Ext : array [1..2] of string = ('.pak','.idx');
@@ -204,7 +204,7 @@ begin
 end;
 
 function OA_PAK_EAGLS2011;
-var i : integer; j : cardinal;
+var i : integer; j : longword;
     Dir : TIDXDir2011;
     DIRStream, tmpStream : TStream;
 const PAK_Ext : array [1..2] of string = ('.pak','.idx');
@@ -323,7 +323,7 @@ begin
 end;
 
 procedure IDX_XOR;
-var i, key, DivNum : cardinal;
+var i, key, DivNum : longword;
     bt : byte;
 begin
  DivNum := Length(DecryptKey);

@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   Leaf 'A' & 'Pak' formats
@@ -57,36 +57,36 @@ type
 
  TLeadKCAPHeader = packed record
   Magic : array[1..4] of char; // 'KCAP'
-  FilesCount : cardinal;
+  FilesCount : longword;
  end;
 
  TLeafKCAPTable = packed record
-  CryptFlag : cardinal; // 1 - пожат, 0 - не пожат
+  CryptFlag : longword; // 1 - пожат, 0 - не пожат
   FileName : array[1..24] of char;
-  FileOffset : cardinal;
-  FileSize : cardinal;
+  FileOffset : longword;
+  FileSize : longword;
  end;
 
  TLeafKCAPCryptSizes = packed record
-  CryptedSize : cardinal;
-  DecryptedSize : cardinal;
+  CryptedSize : longword;
+  DecryptedSize : longword;
  end;
 
  TLeafACryptSizes = packed record
-  DecryptedSize : cardinal;
-  CryptedSize : cardinal;
+  DecryptedSize : longword;
+  CryptedSize : longword;
  end;
 
  TLeafLACHeader = packed record
   Magic : array[1..4] of char; // 'LAC'#0
-  FilesCount : cardinal;
+  FilesCount : longword;
  end;
 
  TLeafLACTable = packed record
   FileName : array[1..31] of char;
   crypt : byte; // 0 - нет 1 - да
-  FileSize : cardinal;
-  FileOffset : cardinal;
+  FileSize : longword;
+  FileOffset : longword;
  end;
 
  TLeafLAC2Table = packed record
@@ -174,7 +174,7 @@ function OA_A_LEAF;
 var i : integer;
     LEAFHeader : TLEAFAHeader;
     LEAFDir    : TLEAFADir;
-    CPos : cardinal;
+    CPos : longword;
     cs : TLeafACryptSizes;
 begin
  Result := False;
@@ -290,7 +290,7 @@ end;
 function OA_PAK_LEAF_KCAP;
 var Header : TLeadKCAPHeader;
     Table : array of TLeafKCAPTable;
-    i : cardinal;
+    i : longword;
     Sizes : TLeafKCAPCryptSizes;
 begin
  Result := false;
@@ -335,7 +335,7 @@ end;
 function OA_PAK_LEAF_LAC;
 var Header : TLeafLACHeader;
     Table : array of TLeafLACTable;
-    i, j, CSize : cardinal;
+    i, j, CSize : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;
@@ -415,7 +415,7 @@ end;
 function SA_PAK_LEAF_KCAP;
 var Header : TLeadKCAPHeader;
     Table : array of TLeafKCAPTable;
-    i, curlen : cardinal;
+    i, curlen : longword;
 begin
  RecordsCount := AddedFiles.Count;
  Header.Magic := 'KCAP';
@@ -456,7 +456,7 @@ end;
 function SA_PAK_LEAF_LAC;
 var Header : TLeafLACHeader;
     Table : array of TLeafLACTable;
-    i, j, curlen : cardinal;
+    i, j, curlen : longword;
 begin
  RecordsCount := AddedFiles.Count;
  Header.Magic := 'LAC'#0;
@@ -500,7 +500,7 @@ end;
 function OA_PAK_LEAF_LACi;
 var Header : TLeafLACHeader;
     Table : array of TLeafLAC2Table;
-    i : cardinal;
+    i : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;
@@ -530,7 +530,7 @@ end;
 function SA_PAK_LEAF_LACi;
 var Header : TLeafLACHeader;
     Table : array of TLeafLAC2Table;
-    i, curlen : cardinal;
+    i, curlen : longword;
 begin
  RecordsCount := AddedFiles.Count;
  Header.Magic := 'LAC'#0;

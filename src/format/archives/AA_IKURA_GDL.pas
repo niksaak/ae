@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   IKURA GDL SM2MPX10/SM2MPX20 and Digital Romance System archive formats & functions
@@ -432,7 +432,7 @@ begin
 end;
 
 function SM2MPX20_decodeLen;
-var i, dword1, dword2 : cardinal;
+var i, dword1, dword2 : longword;
 begin
  Result := 0; // Если 0 и останется, тогда ошибка архива
 

@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   Palette PACK2 archive format & functions
@@ -32,19 +32,19 @@ type
  TPack2Header = packed record
   ver : byte; // 5
   Magic : array[1..5] of char; // 'PACK2'
-  FilesCount : cardinal;
+  FilesCount : longword;
  end;
 {
  TPack2Table = packed record
   NameLen : byte;
   FileName : string;
-  FileOffset : cardinal;
-  FileSize : cardinal;
+  FileOffset : longword;
+  FileSize : longword;
  end;}// Полностью запись выглядит так
 
  TPack2PartialTable = packed record
-  FileOffset : cardinal;
-  FileSize : cardinal;
+  FileOffset : longword;
+  FileSize : longword;
  end;
 
 implementation
@@ -71,7 +71,7 @@ function OA_PAK_PACK2;
 var Header : TPack2Header;
     Table : TPack2PartialTable;
     Len : byte;
-    i, j : cardinal;
+    i, j : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;
@@ -103,8 +103,8 @@ function SA_PAK_PACK2;
 var Header : TPack2Header;
     Table : TPack2PartialTable;
     LBytes : array of byte;
-    Len : cardinal;
-    i, j : cardinal;
+    Len : longword;
+    i, j : longword;
 begin
  RecordsCount := AddedFiles.Count;
  Header.ver := 5;

@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   RealFileAttributes (table) aka RFA(T) internal format & functions
@@ -27,10 +27,10 @@ type
   Added for flexibility... :) }
 
  TRFA = packed record
-  RFA_1 : cardinal; // File offset
-  RFA_2 : cardinal; // File size (uncompressed)
+  RFA_1 : longword; // File offset
+  RFA_2 : longword; // File size (uncompressed)
   RFA_3 : string;   // File name
-  RFA_C : cardinal; // Compressed file size
+  RFA_C : longword; // Compressed file size
   RFA_E : boolean;  // Encryption flag
   RFA_Z : boolean;  // Compression flag
   RFA_X : byte;     // Compression type or XOR value ($0 - none, $FE - bzip2, $FF - zlib)

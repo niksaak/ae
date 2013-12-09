@@ -1,6 +1,6 @@
 {
-  AnimED - Visual Novel Tools
-  Copyright © 2007-2011 WinKiller Studio. Open Source.
+  AE - VN Tools
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Implementation of the MD5 Message-Digest Algorithm

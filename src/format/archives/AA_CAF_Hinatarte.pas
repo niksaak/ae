@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Hinatarte archives format
@@ -89,7 +89,7 @@ function OA_CAF_Hinatarte;
 var Header : TCAFHeader;
     Table : array of TCAFDir;
     FileNames : array of char;
-    curfolderoffset, i : cardinal;
+    curfolderoffset, i : longword;
     curfolder : string;
 begin
  Result := false;

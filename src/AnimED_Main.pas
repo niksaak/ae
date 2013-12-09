@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio and The Contributors.
   This software is free. Please see License for details.
 
   Main form unit
@@ -105,7 +105,6 @@ type
     L_ImageSize: TLabelW;
     L_ImageFormat: TLabelW;
     L_ImageFormatTitle: TLabelW;
-    L_ImageResolutionTitle: TLabelW;
     L_ImageResolution: TLabelW;
     I_EDGE_Image: TImage;
     L_Image_Original: TLabelW;
@@ -132,7 +131,7 @@ type
     TS_ArchiveInterface: TTabSheet;
     TS_ArchiveSetup: TTabSheet;
     GB_ArchiveSetup: TGroupBox;
-    GB_ArchiveCreation: TGroupBox;
+    GB_ArchiveAndFileWriting: TGroupBox;
     GB_ArchiveInfo: TGroupBox;
     L_FileNameTitle: TLabelW;
     L_ArchiveFormatTitle: TLabelW;
@@ -316,9 +315,6 @@ type
     CB_DataConv_Mode: TComboBox;
     E_DataConv_Keyfile: TEdit;
     L_DataConv_KeyFile: TLabel;
-    GB_ArchiveHiddenScan: TGroupBox;
-    CB_HiddenDataAutoscanAsk: TCheckBox;
-    CB_HiddenDataAutoscan: TCheckBox;
     M_Arc_HiddenDataCheck: TMenuItem;
     N16: TMenuItem;
     PC_Options: TPageControl;
@@ -412,6 +408,14 @@ type
     E_EDGE_RenderWidth: TEdit;
     E_EDGE_RenderHeight: TEdit;
     CB_PRT_Editor_Enable: TCheckBox;
+    GB_ArcFileOverwritingMode: TGroupBox;
+    RB_ArcFileExtrOverwrite: TRadioButton;
+    RB_ArcFileExtrRename: TRadioButton;
+    RB_ArcFileExtrSkip: TRadioButton;
+    RB_ArcFileExtrAbort: TRadioButton;
+    GB_ArchiveHiddenScan: TGroupBox;
+    CB_HiddenDataAutoscanAsk: TCheckBox;
+    CB_HiddenDataAutoscan: TCheckBox;
 
     procedure FormCreate(Sender: TObject);
     procedure SB_ExtractFileClick(Sender: TObject);
@@ -601,6 +605,8 @@ procedure ValueInterpreter(Value : integer);
 
 function WhereAreWe : widestring;
 
+function ArcGetFileOverwriteMode : byte;
+
 procedure Convert_MultipleImages;
 
 { end }
@@ -752,6 +758,17 @@ with MainForm do begin
 end;
 end;
 
+function ArcGetFileOverwriteMode : byte;
+begin
+ with MainForm do begin
+  Result := 0;
+  if RB_ArcFileExtrOverwrite.Checked then Result := 0;
+  if RB_ArcFileExtrRename.Checked    then Result := 1;
+  if RB_ArcFileExtrSkip.Checked      then Result := 2;
+  if RB_ArcFileExtrAbort.Checked     then Result := 3;
+ end;
+end;
+
 function WhereAreWe : widestring;
 begin
 { Gathering executable location }
@@ -858,7 +875,7 @@ begin
    if DirectoryExists(RootDir) then begin
  // Important: don't forget about '\'
     RootDir := RootDir+'\';
-    Extract_MultipleFiles([],RFA_ID);
+    Extract_MultipleFiles([],RFA_ID,ArcGetFileOverwriteMode);
    end else LogE(AMS[EInvalidDirectory]);
   end else LogI(AMS[iCancelledByUser]);
  end else LogW(AMS[WArchiveExtract]);
@@ -2334,7 +2351,7 @@ begin
    if DirectoryExists(RootDir) then begin
  // Important: don't forget about '\'
     RootDir := RootDir+'\';
-    Extract_MultipleFiles([],-1);//,not CB_Arc_OldANSINamesCompatMode.Checked);
+    Extract_MultipleFiles([],-1,ArcGetFileOverwriteMode);//,not CB_Arc_OldANSINamesCompatMode.Checked);
    end else LogE(AMS[EInvalidDirectory]);
   end else LogI(AMS[iCancelledByUser]);
  end else LogW(AMS[WArchiveExtract]);

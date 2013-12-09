@@ -30,7 +30,7 @@ uses AA_RFA, // main module
      AA_ARC_RPM,
      AA_ARC_Will,
      AA_BIN_ACPXPK01,          // 2010/06/12
-     AA_BIN_CrossNet,
+     AA_CrossNet,
      AA_BSA_BISHOP,            // 2012/04/04
      AA_CAB_EEEv1,
      AA_CAF_Hinatarte,
@@ -186,6 +186,7 @@ begin
  AFAdd(IA_PAK_EAGLS);
  AFAdd(IA_PAK_EAGLS2011);      // 2011/06/29
  AFAdd(IA_BIN_CrossNet);
+ AFAdd(IA_DAT_Crossnet);       // 2013/12/04
  AFAdd(IA_DAT_EGO);
  AFAdd(IA_DAT_EGO_Old);
  AFAdd(IA_PAC_Graduation);

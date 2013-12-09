@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-¬© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   Hinatabokko images
@@ -21,8 +21,8 @@ uses Classes, SysUtils,
      AA_RFA;
 
 function ShrBit(InputStream : TStream) : byte;
-function CountBits(InputStream : TStream) : cardinal;
-function Accumulate4b(InData, count : cardinal; InputStream : TStream) : cardinal;
+function CountBits(InputStream : TStream) : longword;
+function Accumulate4b(InData, count : longword; InputStream : TStream) : longword;
 procedure WriteBit(bit : byte; OutputStream : TStream);
 
 function Import_ED8(InputStream, OutputStream : TStream; OutputStreamA : TStream = nil) : TRFI;
@@ -36,22 +36,22 @@ procedure IG_EDT(var ImFormat : TImageFormats);
 type
  TED8Header = packed record
    Magic : array[1..10] of char; // '.8Bit'#8D#5D#8C#CB#0
-   Unk1 : cardinal; // $100
+   Unk1 : longword; // $100
    Width : word;
    Height : word;
-   PaletteSize : cardinal;
-   PackedSize : cardinal;
+   PaletteSize : longword;
+   PackedSize : longword;
  end;
  
  TEDTHeader = packed record
    Magic : array[1..10] of char; // '.TRUE'#8D#5D#8C#CB#0
-   Unk1 : cardinal; // $100
+   Unk1 : longword; // $100
    Width : word;
    Height : word;
    PaletteSize : integer; // всегда -1, изображение-то .TRUE
-   Dummy : cardinal; // 0
-   ActualPackedSize : cardinal; // запакованные данные
-   ExcessSize : cardinal; // пиксели, которые запаковать не удалось
+   Dummy : longword; // 0
+   ActualPackedSize : longword; // запакованные данные
+   ExcessSize : longword; // пиксели, которые запаковать не удалось
  end;
 
  TEDTDiffHeader = packed record
@@ -102,7 +102,7 @@ end;
 function Import_ED8;
 var Head : TED8Header;
     Palette : TTGAPalette;
-    temp, outdata : cardinal;
+    temp, outdata : longword;
     outputsize, intdata, breakcond, tmppos : integer;
     b : byte;
 begin
@@ -208,7 +208,7 @@ function Export_ED8(RFI : TRFI; OutputStream, InputStream : TStream; InputStream
 var Head : TED8Header;
     Palette : TTGAPalette;
     TempStream, TempStream2 : TStream;
-    i, sv : cardinal;
+    i, sv : longword;
     b : byte;
     rgb : TRGB;
 begin
@@ -300,7 +300,7 @@ end;
 function Import_EDT;
 var Head : TEDTHeader;
     Diff : TEDTDiffHeader;
-    outdata, i, j, scanline : cardinal;
+    outdata, i, j, scanline : longword;
     outputsize, intdata, intdata2, excess : integer;
     b, b2 : byte;
     HArr : array[0..$1F] of integer;
@@ -503,7 +503,7 @@ end;
 function Export_EDT(RFI : TRFI; OutputStream, InputStream : TStream; InputStreamA : TStream = nil) : boolean;
 var Head : TEDTHeader;
     TempStream, TempStream2 : TStream;
-    i, sz : cardinal;
+    i, sz : longword;
     b : byte;
     rgb : TRGB;
     str: String;

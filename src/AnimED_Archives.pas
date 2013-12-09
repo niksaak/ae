@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Game archive data formats & functions
@@ -65,7 +65,7 @@ type
  procedure Create_Archive(FilePickerMode : integer = 0);
 
  procedure Extract_SingleFile(FileRecord : TRFA; FormatID : integer);
- procedure Extract_MultipleFiles(Range : array of integer; FormatID : integer);
+ procedure Extract_MultipleFiles(Range : array of integer; FormatID : integer; OverwriteMode : byte = 0);
 
  procedure AFAdd(IAFunc : TIAFunction);
 
@@ -371,16 +371,43 @@ begin
     { Creating the extraction path if not already exists - NSA handling fix }
       ForceDirectories(ExtractFilePath(RootDir+FileNameW));
 
-      //DEBUG
-      if FileExists(RootDir+FileNameW) then LogW('File already exists. Overwriting...');
-
-      FileDataStream := TFileStreamJ.Create(RootDir+FileNameW,fmCreate);
-
-    { THIS IS THE ACTUAL EXTRACTION CALL }
-      if RFA[i].RFA_C <> 0 then begin // File size check. If 0, then no extraction is actually performed
-       if FormatID <> -1 then ArcFormats[FormatID].Extr(RFA[i]) else EA_RAW(RFA[i]);
+    { If file already exists }
+      if FileExists(RootDir+FileNameW) then begin
+       case OverwriteMode of
+       0 : begin
+            LogW(AMS[WFileExistOverwrite]);
+            FileDataStream := TFileStreamJ.Create(RootDir+FileNameW,fmCreate);
+          { THIS IS THE ACTUAL EXTRACTION CALL }
+            if RFA[i].RFA_C <> 0 then begin // File size check. If 0, then no extraction is actually performed
+             if FormatID <> -1 then ArcFormats[FormatID].Extr(RFA[i]) else EA_RAW(RFA[i]);
+            end;
+          { ---------------------------------- }
+           end;
+       1 : begin
+            LogW(AMS[WFileExistRename]);
+            FileDataStream := TFileStreamJ.Create(RootDir+FileNameW+'_'+inttostr(i),fmCreate);
+          { THIS IS THE ACTUAL EXTRACTION CALL }
+            if RFA[i].RFA_C <> 0 then begin // File size check. If 0, then no extraction is actually performed
+             if FormatID <> -1 then ArcFormats[FormatID].Extr(RFA[i]) else EA_RAW(RFA[i]);
+            end;
+          { ---------------------------------- }
+           end;
+       2 : begin
+            LogW(AMS[WFileExistSkip]);
+           end;
+       3 : begin
+            LogE(AMS[WFileExistAbort]);
+            Exit;
+           end;
+       end;
+      end else begin
+       FileDataStream := TFileStreamJ.Create(RootDir+FileNameW,fmCreate);
+     { THIS IS THE ACTUAL EXTRACTION CALL }
+       if RFA[i].RFA_C <> 0 then begin // File size check. If 0, then no extraction is actually performed
+        if FormatID <> -1 then ArcFormats[FormatID].Extr(RFA[i]) else EA_RAW(RFA[i]);
+       end;
+     { ---------------------------------- }
       end;
-    { ---------------------------------- }
 
    {*}Progress_Pos(i);
      except

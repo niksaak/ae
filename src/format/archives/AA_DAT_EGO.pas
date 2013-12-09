@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   Studio E.Go archive formats
@@ -34,42 +34,42 @@ uses AA_RFA,
 type
 {
   TOldEGOHeader = packed record
-   TableLen      : cardinal; // размер файловой таблицы
+   TableLen      : longword; // размер файловой таблицы
   end;
 
   TOldEGOTable = packed record
-   TableEntryLen : cardinal; // размер элемента таблицы
-   CryptLen      : cardinal; // ВОЗМЖНО! а так там 0
-   FileOffset    : cardinal;
-   FileSize      : cardinal;
+   TableEntryLen : longword; // размер элемента таблицы
+   CryptLen      : longword; // ВОЗМЖНО! а так там 0
+   FileOffset    : longword;
+   FileSize      : longword;
    FileName      : string; // нуль терминировано
   end;
 }
   TOldEGOTable = packed record
-   TableEntryLen : cardinal; // размер элемента таблицы
-   CryptLen      : cardinal; // ВОЗМОЖНО! а так там 0
-   FileOffset    : cardinal;
-   FileSize      : cardinal;
+   TableEntryLen : longword; // размер элемента таблицы
+   CryptLen      : longword; // ВОЗМОЖНО! а так там 0
+   FileOffset    : longword;
+   FileSize      : longword;
   end;
 
   // Спецификация WindSeven-а
   TEGOHeader = packed record
-   Magic         : cardinal; // 0x304B4150 ('PAK0')
-   HeaderSize    : cardinal;
-   NumOfDirs     : cardinal; // кол-во директорий (включая корневую директорию)
-   NumOfFiles    : cardinal; // кол-во файлов
+   Magic         : longword; // 0x304B4150 ('PAK0')
+   HeaderSize    : longword;
+   NumOfDirs     : longword; // кол-во директорий (включая корневую директорию)
+   NumOfFiles    : longword; // кол-во файлов
   end;
 
   TEGODirDescriptor = packed record
    ParentIndex   : integer; // -1 для корневой директории
-   LastFileIndex : cardinal; // индекс последнего файла в массиве файлов, который находится в этой директории
+   LastFileIndex : longword; // индекс последнего файла в массиве файлов, который находится в этой директории
   end;
 
   TEGOTable = packed record
-    FOffset      : cardinal;
-    FSsize       : cardinal;
-    FAttr        : cardinal;
-    FTime        : cardinal;
+    FOffset      : longword;
+    FSsize       : longword;
+    FAttr        : longword;
+    FTime        : longword;
   end;
 
   {
@@ -115,7 +115,7 @@ begin
 end;
 
 function OA_DAT_EGO_Old;
-var Header, RecNum, slen, slent : cardinal;
+var Header, RecNum, slen, slent : longword;
     TableStream : TStream;
     Table : TOldEGOTable;
 begin
@@ -162,7 +162,7 @@ end;
 
 function OA_DAT_EGO;
 var Header : TEGOHeader;
-    i, j, dind, cdindex : cardinal;
+    i, j, dind, cdindex : longword;
     blen : byte;
     NamesStream : TStream;
     DirTable : array of TEGODirDescriptor;
@@ -227,7 +227,7 @@ begin
 end;
 
 function SA_DAT_EGO_Old;
-var i, filesoffs : cardinal;
+var i, filesoffs : longword;
     Table : TOldEGOTable;
 begin
  RecordsCount := AddedFiles.Count;

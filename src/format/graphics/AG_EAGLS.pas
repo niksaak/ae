@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   Tech-Arts EAGLS Encrypted Bitmap Image Format library
@@ -151,7 +151,7 @@ var i, klen, bmulkey : longword;
     BMWord, lmulkey : word;
 begin
   Result := false;
-  bmulkey := Cardinal(compkey and $FFFFFFFF);
+  bmulkey := longword(compkey and $FFFFFFFF);
   compkey := compkey shr $20;
   lmulkey := Word(compkey and $FFFF);
   compkey := compkey shr $10;

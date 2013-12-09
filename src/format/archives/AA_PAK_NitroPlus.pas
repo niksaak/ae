@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Nitro+ archive format
@@ -38,10 +38,10 @@ integer);
 
 type
   TNitroPlusPak1Header = packed record
-    Magic : cardinal; // 1
-    FilesCount : cardinal;
-    TableUnpackedSize : cardinal;
-    TablePackedSize : cardinal;
+    Magic : longword; // 1
+    FilesCount : longword;
+    TableUnpackedSize : longword;
+    TablePackedSize : longword;
   end;
 
   TNitroPlusPak2Header = packed record
@@ -50,17 +50,17 @@ type
   end;
 
 {  TNitroPlusPak1Table = packed record
-    NameLen : cardinal;
+    NameLen : longword;
     FileName : string;
     NitroPlusPak1TableFixed : TNitroPlusPak1TableFixed;
   end;}
 
   TNitroPlusPak1TableFixed = packed record
-    FileOffset : cardinal; // от конца таблицы
-    UnpackedSize : cardinal;
-    UnpackedSize2 : cardinal;
-    PackFlag : cardinal; // ==0 значит непожато
-    PackedSize : cardinal;
+    FileOffset : longword; // от конца таблицы
+    UnpackedSize : longword;
+    UnpackedSize2 : longword;
+    PackFlag : longword; // ==0 значит непожато
+    PackedSize : longword;
   end;
 
 implementation
@@ -103,7 +103,7 @@ function OA_PAK_NitroPlus_Pak1;
 var Head : TNitroPlusPak1Header;
     Table : TNitroPlusPak1TableFixed;
     tmpStreamC, tmpStream : TStream;
-    i, len : cardinal;
+    i, len : longword;
 begin
   Result := False;
   ArchiveStream.Position := 0;
@@ -156,7 +156,7 @@ function OA_PAK_NitroPlus_Pak2;
 var Head : TNitroPlusPak2Header;
     Table : TNitroPlusPak1TableFixed;
     tmpStreamC, tmpStream : TStream;
-    i, len : cardinal;
+    i, len : longword;
 begin
   Result := False;
   ArchiveStream.Position := 0;
@@ -206,7 +206,7 @@ function SA_PAK_NitroPlus_Pak1;
 var Header : TNitroPlusPak1Header;
     Table : TNitroPlusPak1TableFixed;
     tmpStreamC, tmpStream : TStream;
-    i, len : cardinal;
+    i, len : longword;
 begin
  RecordsCount := AddedFiles.Count;
  Header.Magic := $1;
@@ -290,7 +290,7 @@ function SA_PAK_NitroPlus_Pak2;
 var Header : TNitroPlusPak2Header;
     Table : TNitroPlusPak1TableFixed;
     tmpStreamC, tmpStream : TStream;
-    i, len : cardinal;
+    i, len : longword;
 begin
  FillChar(Header, sizeof(Header), 0);
  RecordsCount := AddedFiles.Count;

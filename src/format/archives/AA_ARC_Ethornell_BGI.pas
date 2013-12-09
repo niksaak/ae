@@ -37,11 +37,11 @@ uses AA_RFA,
   function EA_ARC_Ethornell_BGI(FileRecord : TRFA) : boolean;
 
   function DecodeDSC(InputStream, OutputStream : TStream) : boolean;
-  function CountNumber(var STNum : cardinal) : cardinal;
+  function CountNumber(var STNum : longword) : longword;
   
   // Функция декодирования Compressed BG
-  function CountNumber2(var STNum : cardinal) : cardinal;
-  function CountData(Stream : TStream) : cardinal;
+  function CountNumber2(var STNum : longword) : longword;
+  function CountData(Stream : TStream) : longword;
   function DecodeCBG(InputStream, OutputStream : TStream) : boolean;
   
 type
@@ -67,23 +67,23 @@ type
 
  TBGI_DSCHeader = packed record
    Magic : array[1..$10] of char; // 'DSC FORMAT 1.00'#0
-   HelpNumber : cardinal; // по этому числу чегото вычисляется
+   HelpNumber : longword; // по этому числу чегото вычисляется
    // расширяется до 6 байт словом 'SD' ($4453)
-   DecryptedSize : cardinal; // расшифрованный размер
-   PassCount : cardinal; // предел цикла расшифровки
-   Dummy : cardinal; // 0
+   DecryptedSize : longword; // расшифрованный размер
+   PassCount : longword; // предел цикла расшифровки
+   Dummy : longword; // 0
  end;
  
  TBGI_CBGHeader = packed record
     Magic : array[1..$10] of char; // 'CompressedBG___'#0
     Width : word;
     Height : word;
-    BPP : cardinal;	// Размерность изображения
-    Dummy1 : cardinal; // 0
-    Dummy2 : cardinal; // 0
-    ZLen : cardinal;
-    Key : cardinal;
-    ELen : cardinal;
+    BPP : longword;	// Размерность изображения
+    Dummy1 : longword; // 0
+    Dummy2 : longword; // 0
+    ZLen : longword;
+    Key : longword;
+    ELen : longword;
     SCSum : byte;
     XCSum : byte;
     Dummy3 : word;
@@ -91,9 +91,9 @@ type
 
  TBGI_HuffmanTreeNode = record
    Val : boolean;
-   Fr : cardinal;
-   Left : cardinal;
-   Right : cardinal;
+   Fr : longword;
+   Left : longword;
+   Right : longword;
  end;      
 
 implementation
@@ -369,7 +369,7 @@ begin
 end;
 
 function CountNumber;
-var HNum, work, work2, work3 : cardinal;
+var HNum, work, work2, work3 : longword;
 begin
   work := 20021 * (STNum and $FFFF);
   HNum := (((STNum and $FFFF0000) shr 16) or $44530000) * 20021;
@@ -387,11 +387,11 @@ var Header : TBGI_DSCHeader;
     STNum, Counted, cnt, cnt2, dcnt2, cnt3, cnta1, i, worknum,
       worknum2, cnta2, w10, w11, sav, wcnt1, wcnt2,
       wword, condit, scnta2, count16, wc, bufc, ecnt, bufc2, n2,
-      incnt, passcnt, dbufc1, j, coucbyte, w9, outpos, cntout : cardinal;
+      incnt, passcnt, dbufc1, j, coucbyte, w9, outpos, cntout : longword;
     Si12, Si34, w17, w18 : integer;
-    BufArr : array[0..$FFB] of cardinal;
-    Arr1 : array[0..512] of cardinal;
-    Arr2 : array[0..1023] of cardinal;
+    BufArr : array[0..$FFB] of longword;
+    Arr1 : array[0..512] of longword;
+    Arr2 : array[0..1023] of longword;
     INBuf : array of byte;
     wbyte, stbyte, cbyte, cbyte2, cbyte3, rb : byte;
     word16 : word;
@@ -569,7 +569,7 @@ begin
 end;
 
 function CountNumber2;
-var work, work2, work3 : cardinal;
+var work, work2, work3 : longword;
 begin
   work := 20021 * (STNum and $FFFF);
   work2 := 20021 * (STNum shr $10);
@@ -580,7 +580,7 @@ end;
 
 function CountData;
 var cur : byte;
-    shift : cardinal;
+    shift : longword;
 begin
   cur := $FF;
   shift := 0;
@@ -596,12 +596,12 @@ end;
 function DecodeCBG;
 var Header : TBGI_CBGHeader;
     INBuf : array of byte;
-    i, j, HuffKeyNum, FTotal, nodes, min, frec, root, mask, node, len, line, x, y, pos : cardinal;
-    Fr : array[0..255] of cardinal;
+    i, j, HuffKeyNum, FTotal, nodes, min, frec, root, mask, node, len, line, x, y, pos : longword;
+    Fr : array[0..255] of longword;
     HummfArr, DummyArr : array of byte;
     workb, workb2, zero, colors : byte;
     NodesArr : array[0..510] of TBGI_HuffmanTreeNode;
-    ch : array[0..1] of cardinal;
+    ch : array[0..1] of longword;
     HuffmStream, TMPStream : TStream;
     BMPHdr : TBMP;
 begin

@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2013 WinKiller Studio. Open Source.
   This software is free. Please see License for details.
 
   GUI Core module
@@ -75,11 +75,11 @@ var i : integer;
     ProcAddr, ProcAddrRAW : longword;
     ProcStat : string;
 begin
- ProcAddrRAW := Cardinal(@EA_RAW);
+ ProcAddrRAW := longword(@EA_RAW);
 
  for i := 0 to Length(ArcFormats)-1 do with ArcFormats[i] do begin
 
-  ProcAddr := Cardinal(@Extr);
+  ProcAddr := longword(@Extr);
   if ProcAddr <> ProcAddrRAW then ProcStat := 'Custom' else ProcStat := 'RAW';
 
   Core_GUI_ArcFormatsAddItem(ID,IDS,Ext,ArcStat[Stat],FLen,ProcStat,AEGetDate(Ver,True));

@@ -45,6 +45,11 @@ begin
     CB_HiddenDataAutoscan.Checked       := ReadBool(conf,'HiddenDataAutoscan',False);
     CB_HiddenDataAutoscanAsk.Checked    := ReadBool(conf,'HiddenDataAutoscanAsk',True);
 
+    RB_ArcFileExtrOverwrite.Checked     := ReadBool(conf,'FileExtrOverwrite',True);
+    RB_ArcFileExtrRename.Checked        := ReadBool(conf,'FileExtrRename',False);
+    RB_ArcFileExtrSkip.Checked          := ReadBool(conf,'FileExtrSkip',False);
+    RB_ArcFileExtrAbort.Checked         := ReadBool(conf,'FileExtrAbort',False);
+
     try    CB_ArchiveFormatList.ItemIndex := ReadInteger(conf,'LastArchiveFormat',0);
     except CB_ArchiveFormatList.ItemIndex := 0; end;
 
@@ -178,6 +183,11 @@ begin
 
     WriteBool(conf,'HiddenDataAutoscan',CB_HiddenDataAutoscan.Checked);
     WriteBool(conf,'HiddenDataAutoscanAsk',CB_HiddenDataAutoscanAsk.Checked);
+
+    WriteBool(conf,'FileExtrOverwrite',RB_ArcFileExtrOverwrite.Checked);
+    WriteBool(conf,'FileExtrRename',RB_ArcFileExtrRename.Checked);
+    WriteBool(conf,'FileExtrSkip',RB_ArcFileExtrSkip.Checked);
+    WriteBool(conf,'FileExtrAbort',RB_ArcFileExtrAbort.Checked);
 
     WriteInteger(conf,'LastArchiveFormat',CB_ArchiveFormatList.ItemIndex);
 

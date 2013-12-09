@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio. Open Source.
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   KLEIN Pure Pure PAK archive format & functions

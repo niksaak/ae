@@ -111,7 +111,7 @@ AutoIncBuild=0
 MajorVer=0
 MinorVer=6
 Release=9
-Build=418
+Build=419
 Debug=0
 PreRelease=0
 Special=0
@@ -122,13 +122,13 @@ CodePage=1251
 [Version Info Keys]
 CompanyName=WinKiller Studio
 FileDescription=AE - VN Tools
-FileVersion=0.6.9.418
+FileVersion=0.6.9.419
 InternalName=AE.exe
 LegalCopyright=© 2007-2013 WinKiller Studio and The Contributors.
 LegalTrademarks=This software is free. Please see License for details.
 OriginalFilename=Ever17ED.exe
 ProductName=Unofficial VN SDK
-ProductVersion=2013.08.16
+ProductVersion=2013.12.06
 Comments=Meow meow meow~ :3
 [HistoryLists\hlDebugSourcePath]
 Count=5

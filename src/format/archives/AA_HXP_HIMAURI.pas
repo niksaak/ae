@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   HIMAURI Script Engine (Abel Software) games archive format & functions
@@ -54,14 +54,14 @@ type
   FileHeader   : array[0..3] of char;
  end;}
  THim5HashEntity = packed record
-   Size : cardinal;
-   Offset : cardinal;
+   Size : longword;
+   Offset : longword;
  end;
 
  {
  THim5FileRecord = packed record
    RecordSize : byte;
-   Offset : cardinal; // Со старших разрядов
+   Offset : longword; // Со старших разрядов
    Name : string; // нуль терминирована
  end;
  если по данному хешу больше нет файлов - пишем нуль байт
@@ -172,7 +172,7 @@ begin
 end;
 
 function OA_HXP_HIMAURI_Him5;
-var i : cardinal;
+var i : longword;
     GPCHeader : TSuperNEKOHeader;
     GPCTable  : TSuperNEKOTable;
     HashTable : array of THim5HashEntity;
@@ -302,11 +302,11 @@ begin
 end;
 
 function SA_HXP_HIMAURI_Him5;
-var i, j, k, toffset, thash : cardinal;
+var i, j, k, toffset, thash : longword;
     GPCHeader : TSuperNEKOHeader;
     GPCTable  : TSuperNEKOTable;
     HashTable : array of THim5HashEntity;
-    indexes : array of cardinal;
+    indexes : array of longword;
     RSize : byte;
     stream : TStream;
 begin

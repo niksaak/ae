@@ -1,3 +1,21 @@
+  0.6.9.419 (2013.12.06) r80
+  ======================
+
+   + Added configurable file extraction modes. Useful for "duplicates" inside archives (requested by MeruP)
+
+   + Added read-only support for Cross-Net PACK (.dat) archives (used in Maple Colours)
+
+   ! Sanitized internals. All "cardinal" declarations replaced with "longword" for data structures
+
+   * Fixed bug with file extensions in Kogado TScriptEngine v3 archive parser
+
+   * Minor bugfixes in Image Tool interface
+
+   + Implemented correct support for Nexton's LCScript Engine archives (thanks to DiNeX for bug report)
+
+   ! Fixed dangerous bug in BlockXOR function (thanks to DiNeX for report)
+
+
   0.6.9.418 (2013.08.16) r79
   ======================
 

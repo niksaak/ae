@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio and The Contributors.
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Math unit
@@ -33,9 +33,9 @@ procedure BlockSHx(InputStream : TStream; value, Mode : byte);
 procedure BlockSHxIO(InputStream, OutputStream : TStream; value, Mode : byte; RewindOutput : boolean = True);
 
 { Функции округления размера и вычисления остатка для записи файлов }
-function SizeDiv(Size,BlockSize : cardinal) : cardinal;
-function SizeMod(Size,BlockSize : cardinal) : cardinal;
-function SizeBlock(Size,BlockSize : cardinal) : cardinal;
+function SizeDiv(Size,BlockSize : longword) : longword;
+function SizeMod(Size,BlockSize : longword) : longword;
+function SizeBlock(Size,BlockSize : longword) : longword;
 
 { ISF-related functions }
 function CharToBase36(i : char) : byte;
@@ -125,9 +125,9 @@ var tmpStream : TStream;
 begin
  tmpStream := TMemoryStream.Create;
  BlockXORIO(InputStream,tmpStream,value);
- InputStream.Size := 0;
+ InputStream.Position := 0;
  tmpStream.Position := 0;
- InputStream.Size := tmpStream.Size;
+// InputStream.Size := tmpStream.Size;
  InputStream.CopyFrom(tmpStream,tmpStream.Size);
  FreeAndNil(tmpStream);
 end;
@@ -464,7 +464,7 @@ end;
 procedure ShellSort;
 const a : array[1..5] of byte = (9,5,3,2,1);
 var i,j,k,gap : integer;
-    temp : cardinal;
+    temp : longword;
 begin
  for k := 1 to 5 do begin
   gap := a[k];

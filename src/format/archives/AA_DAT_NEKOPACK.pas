@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   Written by Nik.
@@ -36,17 +36,17 @@ type
 
 	TNekopackArchiveHeaderVer1 = packed record
 	  Magic : array[1..8] of char; //'NEKOPACK'
-	  Version : cardinal; // $CB
-	  Dummy : cardinal; // $0
-	  FilesCount : cardinal; // Сабж
+	  Version : longword; // $CB
+	  Dummy : longword; // $0
+	  FilesCount : longword; // Сабж
 	end;
 {	
 	TNekopackArchiveTableVer1
 	  XorByte : byte;
 	  NameLen : byte;
 	  Name : string;
-	  FOffset : cardinal;
-	  FLength : cardinal;
+	  FOffset : longword;
+	  FLength : longword;
 	end;}
 // Это полная запись таблицы, но вместо будет две записи ниже
 	
@@ -56,8 +56,8 @@ type
 	end;
 	
 	TNekopackArchiveTableFileDataVer1 = packed record
-	  FOffset : cardinal; // смещение
-	  FLength : cardinal; // длина
+	  FOffset : longword; // смещение
+	  FLength : longword; // длина
 	end;
 
 implementation
@@ -84,7 +84,7 @@ function OA_DAT_Nekopackv1;
 var Header : TNekopackArchiveHeaderVer1;
     Meta : TNekopackArchiveTableMetaVer1;
     FData : TNekopackArchiveTableFileDataVer1;
-    i, j : cardinal;
+    i, j : longword;
 begin
  Result := false;
  ArchiveStream.Position := 0;
@@ -122,7 +122,7 @@ function SA_DAT_Nekopackv1;
 var Header : TNekopackArchiveHeaderVer1;
     Meta : array of TNekopackArchiveTableMetaVer1;
     FData : TNekopackArchiveTableFileDataVer1;
-    i, Len : cardinal;
+    i, Len : longword;
 //    stream : TStream;
 begin
  RecordsCount := AddedFiles.Count;

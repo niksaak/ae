@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2012 WinKiller Studio. Open Source.
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   BISHOP Engine BSArc archive format & functions
@@ -70,7 +70,7 @@ begin
 end;
 
 function OA_BSA_BISHOP;
-var i,j,k,l,m : cardinal;
+var i,j,k,l,m : longword;
     Hdr : TBSAHdr;
     Dir : TBSADir;
     Filename : string;

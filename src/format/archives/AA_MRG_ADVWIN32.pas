@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   AdvWin32 (F&C-FC01) games archive format & functions
@@ -326,9 +326,9 @@ begin
 end;
 
 procedure FC_DecdodeFunction;
-var x1, x2, x4, x5, x6, v5, v6, v14, len, len3, i, j, k, ind1 :cardinal;
+var x1, x2, x4, x5, x6, v5, v6, v14, len, len3, i, j, k, ind1 :longword;
     b, v15, v2 : byte;
-    temparr1 : array of cardinal;
+    temparr1 : array of longword;
     temparr2, temparr3 : array of byte;
 begin
  Input.Position := 260;

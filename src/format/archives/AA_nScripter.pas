@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   nScripter SAR, NSA & NS2 game archive formats & functions
@@ -48,7 +48,7 @@ uses AA_RFA,
 
   // во всех функциях, которые юзают эту функцию, результат не может быть больше байта
   // но если где-то ещё будет заюзана эта функция, нужно учесть, что возвращаетмый результат - байт
-  function NSA_DecodeByte(Stream : TStream; var mask:byte; var storbyte: byte; len:cardinal) : byte;
+  function NSA_DecodeByte(Stream : TStream; var mask:byte; var storbyte: byte; len:longword) : byte;
   function NSA_LZSSDecode(InputStream, OutputStream : TStream; CryptLength, DecryptLength, SlideWindowIndex, SlideWindowLength : integer) : boolean;
   function NSA_SPBDecode(InputStream, OutputStream : TStream) : boolean;
 
@@ -513,7 +513,7 @@ begin
 end;
 
 function NSA_DecodeByte;
-var i : cardinal;
+var i : longword;
     res : byte;
 begin
  res := 0;
@@ -573,10 +573,10 @@ begin
 end;
 
 function NSA_SPBDecode;
-var w, h, imagesize, forsize, scanline, alignedscanline, tind, j, l : cardinal;
+var w, h, imagesize, forsize, scanline, alignedscanline, tind, j, l : longword;
   flag, flag2, mask, storbyte, i, k, data, temp : byte;
   temparr : array of byte;
-  tindexes : array[1..3] of cardinal;
+  tindexes : array[1..3] of longword;
   BMPHdr : TBMP;
   c : boolean;
 begin

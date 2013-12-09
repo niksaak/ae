@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   NEJII Archives (Rolling Star, Shining Star, Shining Star Lily's)
@@ -32,17 +32,17 @@ uses AA_RFA,
  
 type
  TNEJIIHeader = packed record
-   Magic : cardinal; // $00314B52 ('RK1'#0)
-   FilesCount : cardinal;
-   TableOffset : cardinal;
+   Magic : longword; // $00314B52 ('RK1'#0)
+   FilesCount : longword;
+   TableOffset : longword;
  end;
  
  TNEJIITable = packed record
    FileName : array[1..$10] of char;
-   CryptedSize : cardinal;
-   DecryptedSize : cardinal;
-   CryptFlag : cardinal; // если = 1 то файл пожат
-   FileOffset : cardinal;
+   CryptedSize : longword;
+   DecryptedSize : longword;
+   CryptFlag : longword; // если = 1 то файл пожат
+   FileOffset : longword;
  end;
 
 implementation
@@ -75,7 +75,7 @@ end;
 function OA_NEJII;
 var Header : TNEJIIHeader;
     Table : array of TNEJIITable;
-    i : cardinal;
+    i : longword;
 begin
  Result := False;
  ArchiveStream.Position := ArchiveStream.Size - 12;
@@ -106,7 +106,7 @@ end;
 function SA_NEJII;
 var Header : TNEJIIHeader;
     Table : array of TNEJIITable;
-    i, curlen : cardinal;
+    i, curlen : longword;
 begin
  RecordsCount := AddedFiles.Count;
  Header.Magic := $00314B52;

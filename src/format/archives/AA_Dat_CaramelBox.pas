@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-В© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
   
   CaramelBox archives format
@@ -30,49 +30,49 @@ uses AA_RFA,
  function SA_DAT_CaramelBox(Mode : integer) : boolean;
  function EA_DAT_CaramelBox(FileRecord : TRFA) : boolean;
 
- procedure lzUnpack(InputStream, OutputStream : TStream; globalsize : cardinal);
+ procedure lzUnpack(InputStream, OutputStream : TStream; globalsize : longword);
  procedure lzBlockUnpack(InputStream, OutputStream : TStream; blocksize : word);
- function lz_num(InputStream : TStream) : cardinal;
+ function lz_num(InputStream : TStream) : longword;
  function lz_bit(InputStream : TStream) : word;
 
 type
 
  TARC3Header = packed record
    Magic : array[1..4] of char; // 'arc3'
-   Ver : cardinal; // 1 (нет длинных файлов) или 2 (есть длинные файлы и longinfo.$$$)
-   Align : cardinal; // размер блока
-   Files_offset :cardinal; // оффсет данных? (в блоках)
-   ArcSize : cardinal; // размер архива (в блоках)
-   Unk1 : cardinal; // 0
-   Table_Offset : cardinal; // смещение таблицы (в блоках)
-   Table_Size : cardinal; // размер таблицы (в байтах)
-   Table_BlockSize : cardinal; // размер таблицы (в блоках)
-   FilesCount : cardinal; // кол-во файлов
-   Unk2 : cardinal; // 0
+   Ver : longword; // 1 (нет длинных файлов) или 2 (есть длинные файлы и longinfo.$$$)
+   Align : longword; // размер блока
+   Files_offset :longword; // оффсет данных? (в блоках)
+   ArcSize : longword; // размер архива (в блоках)
+   Unk1 : longword; // 0
+   Table_Offset : longword; // смещение таблицы (в блоках)
+   Table_Size : longword; // размер таблицы (в байтах)
+   Table_BlockSize : longword; // размер таблицы (в блоках)
+   FilesCount : longword; // кол-во файлов
+   Unk2 : longword; // 0
    Unk3 : byte; // 1
    Unk4 : byte; // 1
  end;
 
  TARC3FileHeader = packed record
-   SizeInBlocks :cardinal;
-   SizeInBytes1 : cardinal;
-   SizeInBytes2 : cardinal;
-   Date1 : cardinal;
-   Date2 : cardinal;
-   Method : cardinal;
+   SizeInBlocks :longword;
+   SizeInBytes1 : longword;
+   SizeInBytes2 : longword;
+   Date1 : longword;
+   Date2 : longword;
+   Method : longword;
    {
      0 - файл как есть (но, может быть обёрнут в lz)
      1 - ?
      2 - xor $FF
      3 - ?
    }
-   Zero1 : cardinal; // 0
-   Zero2 : cardinal; // 0
+   Zero1 : longword; // 0
+   Zero2 : longword; // 0
  end;
 
  TLZGlobalheader = packed record
    Magic : array[1..2] of char; // 'lz'
-   Size : Cardinal;
+   Size : longword;
  end;
 
  TLZBlockheader = packed record
@@ -137,7 +137,7 @@ begin
 end;
 
 function lz_num;
-var c : cardinal;
+var c : longword;
 begin
   Result := 1;
   c := 1;
@@ -159,7 +159,7 @@ begin
 end;
 
 procedure lzBlockUnpack;
-var n, dist, a : cardinal;
+var n, dist, a : longword;
 begin
   while blocksize > 0 do
   begin
@@ -195,14 +195,14 @@ end;
 function OA_DAT_CaramelBox;
 var Header : TARC3Header;
     FileHeader : TARC3FileHeader;
-    tblbegin, work, curfile, next, i, dblqty : cardinal;
+    tblbegin, work, curfile, next, i, dblqty : longword;
     ind : integer;
     bwork, bwork2, bwork_s, bwork_s2 : byte;
     crazydata : array[1..6] of byte;
     str1, str2, tempstr : string;
     LoginfoRFA : TRFA;
     LoginfoStream : TStream;
-    Lengths : array of cardinal;
+    Lengths : array of longword;
     List1, List2 : TStringList;
 begin
  Result := False;

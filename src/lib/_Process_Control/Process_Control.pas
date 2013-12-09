@@ -1,9 +1,10 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio & The Contributors.
-  This software is free. Please see license for details.
+  © 2007-2014 WinKiller Studio and The Contributors.
+  This software is free. Please see License for details.
 
   Process Memory Reader
+
   Written by Nik.
 }
 unit Process_control;
@@ -37,7 +38,7 @@ type
 
          function Refresh() : boolean; {Обновляет список процессов}
          function GetLastError() : string; {Получить последнюю ошибку}
-         function ReadMemory(id, beginOffset, Length : cardinal; var OutStream : TStream) : boolean;
+         function ReadMemory(id, beginOffset, Length : longword; var OutStream : TStream) : boolean;
          {пытается прочесть память}
          function GetProcessList(var list : TStringList) : boolean;
      end;
@@ -93,7 +94,7 @@ begin
 end;
 
 function TProcessControl.Refresh;
-var shandle : cardinal;
+var shandle : longword;
     ReProcData : PROCESSENTRY32;
     NextProcData, LastProcData : TProcDataElement;
 begin
@@ -153,10 +154,10 @@ end;
 
 function TProcessControl.ReadMemory;
 var NextProcData : TProcDataElement;
-    i, ActualLen : cardinal;
+    i, ActualLen : longword;
     mem : array of byte;
 //    err : string;
-    handle : cardinal;
+    handle : longword;
 begin
   NextProcData := ProcData;
   i := 0;

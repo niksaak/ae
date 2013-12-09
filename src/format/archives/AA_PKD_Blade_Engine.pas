@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-Â© 2007-2013 WinKiller Studio and The Contributors
+  © 2007-2014 WinKiller Studio & The Contributors.
   This software is free. Please see License for details.
 
   Blade Engine PKD archive format & functions
@@ -30,14 +30,14 @@ uses AA_RFA,
 
 type
  TBladeEngineHeader = packed record
-  Magic      : cardinal; //"PACK"
-  FilesCount : cardinal;
+  Magic      : longword; //"PACK"
+  FilesCount : longword;
  end;
 
  TBladeEngineTable = packed record
   FileName   : array[1..$80] of char;
-  FLength    : cardinal;
-  FOffset    : cardinal;
+  FLength    : longword;
+  FOffset    : longword;
  end;
 
 implementation
@@ -64,7 +64,7 @@ function OA_PKD_BladeEngine;
 var Header : TBladeEngineHeader;
     Table  : TBladeEngineTable;
     stream : TStream;
-    i      : cardinal;
+    i      : longword;
 label StopThis;
 begin
  Result := False;
@@ -114,7 +114,7 @@ function SA_PKD_BladeEngine;
 var Dir : TBladeEngineTable;
     Hdr : TBladeEngineHeader;
     tmpStream : TStream;
-    i, j, l : cardinal;
+    i, j, l : longword;
 begin
 
  RecordsCount := AddedFiles.Count;
