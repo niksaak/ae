@@ -32,7 +32,5 @@ You'll also need the latest version of JVCL/JCL (Project JEDI).
 ## If application's interface differs from English on the first run:
 
 * Click on the third tab from the right end and switch to the one you need.
-
 or
-
 * Remove all unwanted .lang files from application's directory.
