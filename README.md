@@ -12,6 +12,8 @@ It includes:
 * GrapS - RAW image data reader
 * Data processing tool
 
+Win32 binaries: http://wks.arai-kibou.ru/ae.php?p=dl
+
 Online manual: http://wks.arai-kibou.ru/ae.php?p=docu
 
 ## How to compile:
@@ -27,3 +29,10 @@ Next, open /src/AnimEd.dpr.
 
 You'll also need the latest version of JVCL/JCL (Project JEDI).
 
+## If application's interface differs from English on the first run:
+
+* Click on the third tab from the right end and switch to the one you need.
+
+or
+
+* Remove all unwanted .lang files from application's directory.
