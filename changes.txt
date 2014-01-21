@@ -1,5 +1,7 @@
-  0.6.9.419 (2013.12.06) r80
+  0.6.9.419 (2014.01.21) r80
   ======================
+
+   + Added language autodetection and fallback-to-default mechanism for interface translations (suggested by Proger_XP)
 
    + Added configurable file extraction modes. Useful for "duplicates" inside archives (requested by MeruP)
 

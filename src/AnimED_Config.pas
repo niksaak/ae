@@ -1,6 +1,6 @@
 {
   AE - VN Tools
-  © 2007-2013 WinKiller Studio. Open Source.
+  © 2007-2014 WinKiller Studio.
   This software is free. Please see License for details.
 
   Configuration functions unit + TIniFile wrapper
@@ -97,8 +97,9 @@ begin
     E_DataConv_Keyfile.Text             := ReadString(conf,'DataConvKeyfile','');
 
   { Options }
-    try    CB_Language.ItemIndex        := ReadInteger(conf,'LastLanguage',0);
-    except CB_Language.ItemIndex        := 0; end;
+    try    CB_Language.ItemIndex        := ReadInteger(conf,'LastLanguage',-1);
+    except CB_Language.ItemIndex        := -1; end;
+    LanguageLast                        := CB_Language.ItemIndex;
 
     CB_ScreenSnap.Checked               := ReadBool(conf,'ScreenSnap',False);
     

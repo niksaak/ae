@@ -34,7 +34,7 @@ object MainForm: TMainForm
     Top = 8
     Width = 649
     Height = 513
-    ActivePage = TS_Archiver
+    ActivePage = TS_Options
     Anchors = [akLeft, akTop, akRight, akBottom]
     MultiLine = True
     Style = tsButtons

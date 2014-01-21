@@ -30,6 +30,8 @@ function LS(TextPart:widestring):widestring;
 procedure FillCredits;
 function RandomJoke : widestring;
 
+function AELangAutodetect : cardinal;
+
 procedure JokeAdd(NewJoke : string);
 procedure ContribAdd(NewContrib : string);
 procedure TransAdd(NewTrans : string);
@@ -44,9 +46,11 @@ var AMS : array of string; //Messages array
     Joke      : array of string; //Jokes array
     FileTypes : array of string; //File types array
 
-    LanguageList : array[1..64,1..2] of string;
+    LanguageList : array[1..32,1..3] of string;
 
-    Total_Languages : word;
+    LanguageTotal, LanguageLast : integer;
+
+const LangFileHdr = 'Lang';
 
 implementation
 
@@ -55,12 +59,52 @@ implementation
 uses AnimED_Main,
      AnimED_Console,
      AnimED_Dialogs,
-     AnimED_GrapS;
+     AnimED_GrapS, Windows;
+
+function AELangAutodetect : cardinal;
+{ Via http://msdn.microsoft.com/en-us/goglobal/bb964664.aspx }
+var EnglishDefault, LangDetected, LangFound, i : integer;
+begin
+ LangDetected := GetSystemDefaultLCID; // reading current system locale id
+
+ EnglishDefault := -1;
+ LangFound := -1;
+
+ // detecting position of English (Default) language file (if exists)
+ for i := 1 to LanguageTotal do begin
+  if LanguageList[i,3] = '1033' then begin
+   EnglishDefault := i;
+   break;
+  end;
+ end;
+
+ // detecting if any language matches the current user's locale
+ for i := 1 to LanguageTotal do begin
+  if inttostr(LangDetected) = LanguageList[i,3] then begin
+   LangFound := i;
+   break;
+  end;
+ end;
+
+ // if haven't found any matching, setting to English (Default)
+ if LangFound <> -1 then begin
+  Result := LangFound;
+ end else begin
+  // if English (Default) was deleted
+  if EnglishDefault <> -1 then begin
+   // returning zero
+   Result := EnglishDefault;
+  end else begin
+   Result := 0;
+  end;
+ end;
+ // MessageBox(0,pchar(inttostr(LangDetected)),pchar('LCID Test'),mb_ok); // debug
+end;
 
 procedure FindLangFiles;
 var i : integer; version_text : string;
 begin
- Total_Languages := 0;
+ LanguageTotal := 0;
  PickDirContents(WhereAreWe,'*.lang',smFilesOnly);
  if AddedFiles.Count > 0 then begin
   MainForm.CB_Language.Clear;
@@ -68,23 +112,27 @@ begin
    TransFile := TIniFile.Create(WhereAreWe+AddedFiles.Strings[i-1]);
    version_text := LS('AppVersion');
    if hextoint(version_text) >= current_version then begin
-    inc(Total_Languages);
+    inc(LanguageTotal);
     LanguageList[i,1] := AddedFiles.Strings[i-1];
     LanguageList[i,2] := LS('Name');
+    LanguageList[i,3] := LS('LCID');
     MainForm.CB_Language.Items.Add(LanguageList[i,2]);
    end else LogE(AddedFiles.Strings[i-1]+': unsupported / outdated language file ['+version_text+']');
   end;
   MainForm.CB_Language.ItemIndex := 0;
-  if Total_Languages = 0 then begin
+  if LanguageTotal = 0 then begin
    MainForm.CB_Language.Enabled := False;
    LogW('No valid language files has been detected. Pretty shitty, you know?');
   end;
  end else MainForm.CB_Language.Enabled := False;
+
+// CB_Language.ItemIndex
+
 end;
 
 function LS(TextPart:widestring):widestring;
 begin
- Result := TransFile.ReadString('Lang',TextPart,'');
+ Result := TransFile.ReadString(LangFileHdr,TextPart,'');
 end;
 
 procedure LoadTranslation_Forms(Form : TForm);
@@ -234,13 +282,13 @@ end;
 procedure LoadTranslation(LangFile : widestring);
 var i {, FontCharSet, FontSize} : integer; {FontFace, }NameStr{, HintStr} : string;
 begin
- if Total_Languages > 0 then with MainForm do
+ if LanguageTotal > 0 then with MainForm do
   begin
    TransFile := TIniFile.Create(LangFile);
 ///////// LANGUAGE FLAG (DISPLAYED IF EXISTS)
-   if FileExists(WhereAreWe+TransFile.ReadString('Lang','LangFlag','Dummy')) then
+   if FileExists(WhereAreWe+TransFile.ReadString(LangFileHdr,'LangFlag','Dummy')) then
    try
-    Image_LangFlag.Picture.LoadFromFile(WhereAreWe+TransFile.ReadString('Lang','LangFlag','Dummy'));
+    Image_LangFlag.Picture.LoadFromFile(WhereAreWe+TransFile.ReadString(LangFileHdr,'LangFlag','Dummy'));
    except
     Image_LangFlag.Picture.Bitmap := nil;
    end;

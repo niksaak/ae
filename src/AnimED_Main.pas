@@ -829,7 +829,14 @@ begin
 
 // LogS('___AnimED Console Debugging Log___');
 
- if Total_Languages > 0 then LoadTranslation(WhereAreWe+LanguageList[MainForm.CB_Language.ItemIndex+1,1]);
+ if LanguageTotal > 0 then begin
+  if LanguageLast <> -1 then begin
+   LoadTranslation(WhereAreWe+LanguageList[MainForm.CB_Language.ItemIndex+1,1]);
+  end else begin
+   LoadTranslation(WhereAreWe+LanguageList[AELangAutodetect,1]);
+   MainForm.CB_Language.ItemIndex := AELangAutodetect-1;
+  end;
+ end;
 
  Application.Title := APP_NAME+' v'+APP_VERSION;
  L_Version.Caption := {AMS[AVersion]+' '+}APP_VERSION;
@@ -1138,14 +1145,16 @@ end;
 
 procedure TMainForm.CB_LanguageChange(Sender: TObject);
 begin
-{ This one fixes false translation loading }
- if FileExists(WhereAreWe+LanguageList[CB_Language.ItemIndex+1,1]) and (Total_Languages > 0) then
-  begin
-   LoadTranslation(WhereAreWe+LanguageList[CB_Language.ItemIndex+1,1]);
-   Init_Archive_Formats(1);
-   Core_GUI_ArcUpdateInfo(ArchiveStream,RecordsCount,RFA_IDS);
-   LogI(AMS[IReinitialization]);
-  end;
+ if CB_Language.ItemIndex <> -1 then begin
+  { This one fixes false translation loading }
+  if FileExists(WhereAreWe+LanguageList[CB_Language.ItemIndex+1,1]) and (LanguageTotal > 0) then
+   begin
+    LoadTranslation(WhereAreWe+LanguageList[CB_Language.ItemIndex+1,1]);
+    Init_Archive_Formats(1);
+    Core_GUI_ArcUpdateInfo(ArchiveStream,RecordsCount,RFA_IDS);
+    LogI(AMS[IReinitialization]);
+   end;
+ end;
 end;
 
 procedure TMainForm.TS_AboutHide(Sender: TObject);
@@ -2056,13 +2065,15 @@ end;
 procedure TMainForm.B_DumpTranslationClick(Sender: TObject);
 var TestIni : TINIFile; i : integer; c, FileName : widestring;
 begin
- c := 'Lang';
+ c := LangFileHdr;
  Filename := CB_Language.Text+'.lang';
  if SDialog_File(FileName) then begin
 
   TestIni := TINIFile.Create(Filename);
 
   with TestIni do begin
+
+   WriteInteger(c,'LCID',GetSystemDefaultLCID); // dumps current system locale ID, not the language's one
 
    WriteString(c,'LangFlag','Dummy');
    WriteString(c,'FontFace',MainForm.Font.Name);
