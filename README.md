@@ -25,6 +25,7 @@ Online manual: http://wks.arai-kibou.ru/ae.php?p=docu
 * src/lib/credits/credits.pas
 * src/lib/PercentCube.pas
 
+* You'll also need the latest version of JVCL/JCL (Project JEDI).
+
 2) Next, open /src/AnimEd.dpr.
-=======
-You'll also need the latest version of JVCL/JCL (Project JEDI).
+
